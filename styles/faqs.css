@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap');
+
+main h2 {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.faq-searchbar {
+    height: 2.5em;
+    width: 700px;
+    border-radius: 15px;
+    padding: 0 1.2em;
+    border: 1px solid grey;
+}
+
+input.faq-searchbar {
+    font-family: 'Roboto', monospace;
+    font-weight: 300;
+    font-size: 15pt;
+}
+
+.search-container {
+    max-width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2em;
+}
+
+.search-container i {
+    padding: 0 1em;
+}
+
+article {
+    text-align: justify;
+    text-justify: inter-word;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.0em;
+}
+
+article p {
+    line-height: 1.75;
+    padding-left: 2.0em;
+}
+
+.img_welcome {
+    height: 20em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.lanzarote.com/wp-content/uploads/2022/02/casa-rurales-lanzarote.jpg");
+}
+
+
+.search-container input {
+    padding: 14px 16px;
+    border-radius: 20px;
+    border: none;
+}
+
+.search-container button {
+    float: right;
+    background: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 20px;
+    padding: 14px 16px;
+}
+
+form {
+    display: flex;
+    border: 1px solid grey;
+    border-radius: 20px;
+}

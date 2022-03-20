@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Footer</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="upper-div">
+
+    <div class="logo-img"></div>
+    <!--<img src="../images/icon3.png">-->
+
+    <nav class="footer-links">
+        <!--
+        <ul>
+            <b>Information</b><br>
+            <a href="#">Information</a>
+            <a href="#">Information</a>
+            <a href="#">Information</a>
+        </ul>
+        <ul>
+            <b>Information</b><br>
+            <a href="#">Information</a>
+            <a href="#">Information</a>
+            <a href="#">Information</a>
+        </ul>
+        <ul>
+            <b>Information</b><br>
+            <a href="#">Information</a>
+            <a href="#">Information</a>
+            <a href="#">Information</a>
+        </ul>
+        -->
+    </nav>
+</div>
+<hr>
+<div class="lower-div">
+
+    <div class="footer-company-info">
+        <!--
+    &#169 Canary Adventure. 2022. Lorem ipsum dolor sit amit.
+    -->
+    </div>
+    <nav>
+        Follow us:
+        <!--
+        <a href="https://www.instagram.com/?hl=es"><i class="fa-brands fa-instagram fa-xl"></i></a>
+        <a href="https://es-es.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
+        <a href="https://twitter.com/?lang=es"><i class="fa-brands fa-twitter fa-xl"></i></a>
+        <a href="https://www.youtube.com"><i class="fa-brands fa-youtube fa-xl"></i></a>
+        -->
+    </nav>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $.getJSON("../data/footerdata.json", function(data){
+
+            /*for (let idx = 0; idx < data.footerlogo.length; idx++) {
+                let footerlogo_item = data.footerlogo[idx];
+                $('.logo-img' ).append(
+                    '<img src="' + footerlogo_item.img + '">'
+                );
+            }*/
+
+            for (let idx = 0; idx < data.footerul.length; idx++) {
+                let footerul_item = data.footerul[idx];
+
+                $('.footer-links' ).append(
+                    '<ul class=footerul' + idx + '>' +
+                    '<b>' + footerul_item.title + '</b><br>' +
+                    '</ul>');
+
+                    for (let idx_ul=0; idx_ul < data.footerul[idx].elementsul.length; idx_ul++) {
+                        let ulelement_item = data.footerul[idx].elementsul[idx_ul];
+
+                        $(".footerul" + idx).append(
+                            '<a href="' + ulelement_item.a +'">' + ulelement_item.text + '</a>'
+                        );
+                }
+            }
+
+            for (let idx = 0; idx < data.companyinfo.length; idx++) {
+                let companyinfo_item = data.companyinfo[idx];
+
+                $('.footer-company-info' ).append(
+                    companyinfo_item.text);
+            }
+
+            for (let idx = 0; idx < data.socialmedia.length; idx++) {
+                let socialmedia_item = data.socialmedia[idx];
+
+                $('.lower-div nav' ).append(
+                    '<a href="' + socialmedia_item.link + '"><i class="' + socialmedia_item.icon +'"></i></a>'
+                );
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

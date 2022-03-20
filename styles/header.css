@@ -4,15 +4,14 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 1px solid rgba(0,0,0,0.05);
 }
 
 header img {
     justify-content: left;
-    height: 40px;
-    width: 220px;
-    margin-left: 20px;
-    margin-top: 3px;
+    height: 2.5em;
+    margin-left: 1em;
 }
 
 .menu {
@@ -22,8 +21,8 @@ header img {
 
 .menu li{
     margin-top: 0;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
     display: flex;
     text-transform: uppercase;
 }
@@ -32,7 +31,7 @@ header img {
     font-family: 'Roboto', monospace;
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 11pt;
     color: #000000;
 }
 
@@ -43,17 +42,17 @@ header img {
 header nav {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 header nav select {
-    margin-right: 60px;
-    margin-left: 30px;
+    margin-right: 2em;
+    margin-left: 1em;
 }
 
 #languages {
-    margin-top: 15px;
-    height: 20px;
-    width: 150px;
+    height: 1.5em;
+    width: 10em;
     text-transform: uppercase;
     font-family: 'Roboto', monospace;
 }

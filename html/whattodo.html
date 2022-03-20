@@ -4,31 +4,12 @@
     <meta charset="UTF-8">
     <title>What to do</title>
     <link rel="stylesheet" href="../styles/whattodo.css">
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="logo"><img src="../images/icon3.png"></a>
-        <nav>
-            <ul class="menu">
-                <li><a href="island.html">Destinations</a></li>
-                <li><a href="whattodo.html">What to do</a></li>
-                <li><a href="aboutpage.html">About</a></li>
-                <li><a href="faqspage.html">FAQs</a></li>
-                <li>
-                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-            </ul>
-            <select name="languages" id="languages">
-                <i class="fa-solid fa-angle-down"></i>
-                <option value="english">English</option>
-                <option value="spanish">Español</option>
-                <option value="german">Deutsch</option>
-                <option value="french">Français</option>
-            </select>
-        </nav>
+    <header id="header">
     </header>
     <div>
         <div class="img_welcome">
@@ -159,41 +140,15 @@
             </section>
         </div>
     </main>
-    <footer>
-        <div class="upper-div">
-            <img src="../images/icon3.png">
-            <nav class="footer-links">
-                <ul>
-                    <b>Information</b><br>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                </ul>
-                <ul>
-                    <b>Information</b><br>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                </ul>
-                <ul>
-                    <b>Information</b><br>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                </ul>
-            </nav>
-        </div>
-        <hr>
-        <div class="lower-div">
-            &#169 Canary Adventure. 2022. Lorem ipsum dolor sit amit.
-            <nav>
-                Follow us:
-                <a href="https://www.instagram.com/?hl=es"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                <a href="https://es-es.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                <a href="https://twitter.com/?lang=es"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                <a href="https://www.youtube.com"><i class="fa-brands fa-youtube fa-xl"></i></a>
-            </nav>
-        </div>
+    <footer id="footer">
     </footer>
+
+    <script>
+        $(function(){
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+
 </body>
 </html>

@@ -28,16 +28,7 @@ body {
 
 a {
     text-decoration: none;
-}
-
-.main-image img {
-    height: 400px;
-    width: 100%;
-}
-
-.main-image {
-    position: relative;
-    text-align: center;
+    color: black;
 }
 
 .img_welcome {

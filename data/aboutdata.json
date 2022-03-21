@@ -8,5 +8,26 @@
       "title": "Second section",
       "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus. Etiam non sagittis enim.\n                    Vestibulum justo quam, mattis sit amet tortor in, imperdiet suscipit ante. Donec egestas velit in lectus porttitor feugiat.\n                    Pellentesque pharetra dui sapien, id efficitur sem iaculis nec. Cras ornare sem id est condimentum dapibus.\n                    In quis sodales felis. Ut finibus ligula scelerisque lacus consectetur luctus.\n                    Fusce in magna sed ipsum blandit luctus ac non nulla. Donec ullamcorper mi maximus, imperdiet dui et, venenatis lorem."
     }
+  ],
+  "wherearewe_section": [
+    {
+      "title": "Where are we",
+      "content": " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus. Etiam non sagittis enim.\n                            Vestibulum justo quam, mattis sit amet tortor in, imperdiet suscipit ante.\n                            Donec egestas velit in lectus porttitor feugiat.",
+      "map": "../images/company-location.png"
+    }
+  ],
+  "wherearewe_icons": [
+    {
+      "icon": "fa-solid fa-location-dot",
+      "content": "Las Palmas, Gran Canaria"
+    },
+    {
+      "icon": "fa-solid fa-at",
+      "content": "canaryadventure@company.com"
+    },
+    {
+      "icon": "fa-solid fa-phone",
+      "content": "(+34) 600 00 00 00"
+    }
   ]
 }

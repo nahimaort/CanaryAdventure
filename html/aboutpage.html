@@ -19,7 +19,6 @@
             </h1>
         </div>
     </div>
-    </div>
 
     <main>
         <article>
@@ -48,8 +47,10 @@
                 </p>
             </section>
 -->
-            <section>
+            <!--
+            <section >
                 <h3>Where are we</h3>
+
 
                 <div class="company-info">
                     <div class="left-panel">
@@ -73,10 +74,11 @@
                     </div>
                     <figure class="company-location-map">
                         <img src="../images/company-location.png">
+
                     </figure>
                 </div>
-
             </section>
+             -->
         </article>
     </main>
 
@@ -105,8 +107,37 @@
                     );
                 }
 
+                for (let idx = 0; idx < data.wherearewe_section.length; idx++) {
+                    let wherearewe_section_item = data.wherearewe_section[idx];
+
+                    $('main article').append(
+                        '<section>' +
+                        '<h3>' + wherearewe_section_item.title + '</h3>' +
+                        '<div class="company-info">' +
+                        '<div class="left-panel">' +
+                        '<p class="where-are-we-p">' + wherearewe_section_item.content + '</p>' +
+                        '</div>' +
+                        '<figure class="company-location-map">' +
+                        '<img src="' + wherearewe_section_item.map + '">' +
+                        '</figure>' +
+                        '</div>' +
+                        '</section>'
+                    );
+                }
+
+                for (let idx = 0; idx < data.wherearewe_icons.length; idx++) {
+                    let wherearewe_icons_item = data.wherearewe_icons[idx];
+
+                    $('.left-panel').append(
+                        '<div>' +
+                        '<i class="' + wherearewe_icons_item.icon + '"></i>' +
+                        wherearewe_icons_item.content +
+                        '</div>'
+                    );
+                }
             });
         });
+
     </script>
 </body>
 </html>

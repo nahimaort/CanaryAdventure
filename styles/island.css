@@ -12,58 +12,54 @@ p {
 }
 
 .island-description {
-  letter-spacing: 2px;
+  letter-spacing: 0.2em;
   margin-top: 2em;
   text-align: center;
-}
-
-.hr-left {
-  width: 30%;
-  display: inline-block;
-  background-color: darkgrey;
 }
 
 .wtd-content {
   margin-top: 5em;
 }
 
-.wtd-content > h2 {
-  display: inline-block;
-  padding-right: 10%;
-  padding-left: 10%;
+.wtd-content h2 {
+  padding-bottom: 2em;
 }
 
-.hr-right {
-  display: inline-block;
-  width: 30%;
-  background-color: darkgrey;
+@media (max-width: 750px) {
+  .topic {
+    margin-bottom: 2.5em;
+  }
+
+  .topic img {
+    width: 100%;
+    height: auto;
+  }
 }
 
-.topic {
-  margin-bottom: 2.5em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+@media (min-width: 750px) {
+  .topic {
+    margin-bottom: 2.5em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
 
-}
+  .topic-text {
+    width: 50%;
+    vertical-align: top;
+  }
 
-.topic-text {
-  width: 100%;
-  vertical-align: top;
-
+  .topic img {
+    width: 50%;
+    height: 20em;
+    padding-right: 5%;
+  }
 }
 
 .topic-text > p {
-  width: 100%;
-  line-height: 1.75;
+  line-height: 1.75em;
   text-align: justify;
-}
-
-.topic img {
-  width: 100%;
-  height: 250px;
-  padding-right: 5%;
 }
 
 .where-to-stay-content {
@@ -71,67 +67,59 @@ p {
   padding-top: 2em;
 }
 
-.where-to-stay-content > h2 {
-  display: inline-block;
-  padding-right: 8%;
-  padding-left: 8%;
-}
-
-.where-to-stay-article {
-  text-align: center;
-}
-
-.where-to-stay-article > h3 {
-  padding-top: 30px;
+.where-to-stay-article > h2 {
+  font-size: 1.7em;
+  padding-top: 1.5em;
 }
 
 .place-image {
   width: 100%;
-  height: 500px;
+  height: auto;
   padding-top: 2em;
   padding-bottom: 2em;
 }
 
 .how-to-get-there-content {
-  padding-top: 70px;
-}
-
-.how-to-get-there-content > h2 {
-  display: inline-block;
-  padding-right: 5%;
-  padding-left: 5%;
+  padding-top: 3em;
 }
 
 .how-to-get-there-description {
-  padding-top: 30px;
-  padding-bottom: 40px;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
-.types {
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2em;
+@media (max-width: 1100px) {
+  .types {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    margin-bottom: 2em;
+  }
+
+  .rectangle {
+    width: 15em;
+  }
+}
+
+@media (min-width: 1100px) {
+  .types {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2em;
+  }
 }
 
 .transport-type {
-  padding: 20px;
+  padding: 1.5em;
   display: inline-grid;
 }
 
-.vehicle {
-  font-size: 1.15em;
-  font-weight: bold;
-}
-
 .rectangle {
-  width: 80%;
-  height: 100%;
   border-style: groove;
   border-radius: 30px;
-  padding-top: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
 }
 
 .rectangle p {

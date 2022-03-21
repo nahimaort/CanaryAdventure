@@ -14,7 +14,7 @@ article p {
 }
 
 .gallery {
-    margin-top: 40px;
+    margin-top: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,57 +22,62 @@ article p {
 }
 
 .event-images img {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    height: 450px;
-    width: 1180px;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    height: auto;
+    width: 100%;
 }
 
-.event-info {
-    display: flex;
-    justify-content: space-between;
+@media (max-width: 800px) {
+    .event-location-map img {
+        margin-top: 2em;
+    }
 }
 
-.event-info-p {
-    margin-left: 0;
-}
-
-.left-panel div {
-    margin-top: 20px;
-}
-
-.left-panel i {
-    margin-right: 10px;
+@media (min-width: 800px) {
+    .event-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.5em;
+    }
 }
 
 .event-location-map img {
-    height: 300px;
+    width: 100%;
+    height: 100%;
 }
 
-.event-images {
-    max-width: 1180px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.left-panel div {
+    margin-top: 1.5em;
+}
+
+.left-panel i {
+    margin-right: 0.5em;
 }
 
 .share {
-    padding: 15px 45px;
+    padding: 0.7em 4.2em 0.7em 3em;
     text-transform: uppercase;
     font-family: 'Roboto', monospace;
-    font-size: 13pt;
+    font-size: 1em;
     font-weight: 500;
-    border-radius: 2.0em;
-    border: 1px solid grey;
     background-color: rgba(7, 56, 91, 0.55);
     color: white;
+    border-radius: 2.0em;
+    border: 1px solid grey;
 }
 
 .share:hover {
     background-color: rgba(7, 56, 91, 0.84);
 }
 
+.fa-share-nodes {
+    position: absolute;
+    left: 7em;
+}
+
 .share-button {
+    position: relative;
     display: flex;
     align-items: center;
     margin-bottom: 3em;
@@ -91,17 +96,17 @@ article p {
 }
 
 .event-preview img {
-    height: 350px;
-    width: 250px;
+    height: 20em;
+    width: 15em;
 }
 
 .related-event-info h3 {
     text-transform: uppercase;
     font-family: "Roboto", monospace;
-    font-size: 15px;
+    font-size: 1.15em;
     font-weight: 500;
     line-height: 0.75em;
-    margin-bottom: 5px;
+    margin-bottom: 0.5em;
 }
 
 .related-event-info {
@@ -109,10 +114,10 @@ article p {
     bottom: 2em;
     left: 1.5em;
     right: 2em;
-    font-size: 10pt;
+    font-size: 0.9em;
 }
 
-.related-event-info article, .related-event-info div{
+.related-event-info div {
     margin-bottom: 0.5em;
 }
 

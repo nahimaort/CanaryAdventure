@@ -67,3 +67,27 @@ footer hr {
     margin-right: 8px;
     margin-left: 8px;
 }
+
+@media (max-width: 700px) {
+    .upper-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .lower-div {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    footer img {
+        margin-left: 0;
+    }
+
+    .lower-div nav {
+        line-height: 5em;
+    }
+
+    .footer-links {
+        padding-left: 0;
+    }
+}

@@ -19,9 +19,14 @@ main h3 {
     height: 300px;
 }
 
+.company-location-map {
+    align-content: center;
+}
+
 .company-info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .left-panel div {
@@ -35,4 +40,28 @@ main h3 {
 .img_welcome {
     height: 20em;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://thepointsguy.co.uk/wp-content/uploads/2019/12/GettyImages-1142410874.jpg");
+}
+
+@media (max-width: 1150px) {
+    .company-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .company-location-map img {
+        width: 100%;
+        height: auto;
+    }
+
+    .company-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    figure {
+        display: flex;
+        align-items: center;
+    }
+
 }

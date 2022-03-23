@@ -12,7 +12,7 @@
 <body>
 <div class="upper-div">
 
-    <div class="logo-img"></div>
+    <div class="logo-img-footer"></div>
     <!--<img src="../images/icon3.png">-->
 
     <nav class="footer-links">
@@ -40,12 +40,12 @@
 </div>
 <hr>
 <div class="lower-div">
-
     <div class="footer-company-info">
         <!--
     &#169 Canary Adventure. 2022. Lorem ipsum dolor sit amit.
     -->
     </div>
+
     <nav>
         Follow us:
         <!--
@@ -55,18 +55,19 @@
         <a href="https://www.youtube.com"><i class="fa-brands fa-youtube fa-xl"></i></a>
         -->
     </nav>
+
 </div>
 
 <script>
     $(document).ready(function(){
         $.getJSON("../data/footerdata.json", function(data){
 
-            /*for (let idx = 0; idx < data.footerlogo.length; idx++) {
+            for (let idx = 0; idx < data.footerlogo.length; idx++) {
                 let footerlogo_item = data.footerlogo[idx];
-                $('.logo-img' ).append(
+                $('.logo-img-footer' ).append(
                     '<img src="' + footerlogo_item.img + '">'
                 );
-            }*/
+            }
 
             for (let idx = 0; idx < data.footerul.length; idx++) {
                 let footerul_item = data.footerul[idx];
@@ -85,13 +86,6 @@
                 }
             }
 
-            for (let idx = 0; idx < data.companyinfo.length; idx++) {
-                let companyinfo_item = data.companyinfo[idx];
-
-                $('.footer-company-info' ).append(
-                    companyinfo_item.text);
-            }
-
             for (let idx = 0; idx < data.socialmedia.length; idx++) {
                 let socialmedia_item = data.socialmedia[idx];
 
@@ -99,6 +93,15 @@
                     '<a href="' + socialmedia_item.link + '"><i class="' + socialmedia_item.icon +'"></i></a>'
                 );
             }
+
+            for (let idx = 0; idx < data.companyinfo.length; idx++) {
+                let companyinfo_item = data.companyinfo[idx];
+
+                $('.footer-company-info' ).append(
+                    companyinfo_item.text);
+            }
+
+
         });
     });
 

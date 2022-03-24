@@ -61,12 +61,6 @@
         $("footer").load("footer.html");
     });
 
-    document.getElementById("subscribe").addEventListener("click", function (event) {
-        if (document.getElementById("newsletter-form").checkValidity()) {
-            event.preventDefault();
-            document.getElementById("message").innerHTML = "<b>Congratulations! You have subscribed to our Newsletter!</b>";
-        }
-    }, false);
 
     $(document).ready(function(){
         $.getJSON("../data/newsletterdata.json", function(data){
@@ -127,6 +121,47 @@
                 );
             }
         });
+    });
+
+    document.getElementById("subscribe").addEventListener("click", function (event) {
+        if (document.getElementById("newsletter-form").checkValidity()) {
+            event.preventDefault();
+            document.getElementById("message").innerHTML = "<b>Congratulations! You have subscribed to our Newsletter!</b>";
+        } else {
+            if (!document.getElementById("firstname").checkValidity()) {
+                $("#firstname").css("border", "4px solid red");
+            }
+            if (!document.getElementById("lastname").checkValidity()) {
+                $("#lastname").css("border", "4px solid red");
+            }
+            if (!document.getElementById("email").checkValidity()) {
+                $("#email").css("border", "4px solid red");
+            }
+        }
+    }, false);
+
+    document.getElementById("firstname").addEventListener("change", function () {
+        if (document.getElementById("firstname").checkValidity()) {
+            $("#firstname").css("border", "1px solid grey");
+        } else {
+            $("#firstname").css("border", "4px solid red");
+        }
+    });
+
+    document.getElementById("lastname").addEventListener("change", function () {
+        if (document.getElementById("lastname").checkValidity()) {
+            $("#lastname").css("border", "1px solid grey");
+        } else {
+            $("#lastname").css("border", "4px solid red");
+        }
+    });
+
+    document.getElementById("email").addEventListener("change", function () {
+        if (document.getElementById("email").checkValidity()) {
+            $("#email").css("border", "1px solid grey");
+        } else {
+            $("#email").css("border", "4px solid red");
+        }
     });
 
 </script>

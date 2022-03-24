@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/newsletter.css">
     <link rel="stylesheet" href="../styles/styles.css">
     <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
@@ -15,20 +16,24 @@
 
 <main>
     <article>
-        <h2>Sign up for our newsletter</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus.
+        <div id="newsletter-info">
+            <!--
+            <h2>Sign up for our newsletter</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus.
             Etiam non sagittis enim. Vestibulum justo quam, mattis sit amet tortor in, imperdiet suscipit ante.
             Donec egestas velit in lectus porttitor feugiat.</p>
+            -->
+        </div>
 
         <form id="newsletter-form">
-            <div id="message">
-
-            </div>
-            <div class="row">
+            <div id="message"></div>
+            <div class="form-input"></div>
+            <!--
+            <div class="row" class="row1">
                 <input type="text" required id="firstname" placeholder="First name" name="firstname">
                 <input type="text" required id="lastname" placeholder="Last name" name="lastname">
             </div>
-            <div class="row">
+            <div class="row" class="row2">
                 <input type="email" required id="email" placeholder="Email" name="email">
                 <select name="languages" id="languages-news">
                     <option value="english">English</option>
@@ -37,6 +42,7 @@
                     <option value="french">Français</option>
                 </select>
             </div>
+            -->
             <div class="subscribe-button">
                 <input type="submit" value="Subscribe" id="subscribe">
             </div>
@@ -61,6 +67,67 @@
             document.getElementById("message").innerHTML = "<b>Congratulations! You have subscribed to our Newsletter!</b>";
         }
     }, false);
+
+    $(document).ready(function(){
+        $.getJSON("../data/newsletterdata.json", function(data){
+            for (let idx = 0; idx < data.information.length; idx++) {
+                let information_item = data.information[idx];
+
+                $('#newsletter-info').append(
+                    '<h2>' + information_item.title + '</h2>' +
+                    '<p>' + information_item.content + '</p>'
+                );
+            }
+
+            let current_index = 0;
+            let idx;
+            for (idx=0; idx < data.form.length; idx++) {
+                let form_item = data.form[idx];
+
+
+                if (idx % 2 === 0) {
+                    current_index = idx;
+
+                    $('.form-input').append(
+                        '<div class="row row' + current_index + '">' +
+                        '<input type="' + form_item.type + '" required id="' + form_item.id + '"' +
+                        'placeholder="' + form_item.placeholder + '" name="' + form_item.name + '">' +
+                        '</div>'
+                    );
+                }
+
+                else {
+                    $(".row" + current_index).append(
+                        '<input type="' + form_item.type + '" required id="' + form_item.id + '"' +
+                        'placeholder="' + form_item.placeholder + '" name="' + form_item.name + '">'
+                    );
+                }
+            }
+
+            if ((idx % 2) == 0) {
+                let select_index=current_index+2;
+                $('.form-input').append(
+                    '<div class="row row' + select_index + '">' +
+                    '<select name="languages" id="form-languages"></select>' +
+                    '</div>'
+                );
+            }
+
+            else {
+                $(".row" + current_index).append(
+                    '<select name="languages" id="form-languages"></select>'
+                );
+            }
+
+            for (let idx = 0; idx < data.form_language_select.length; idx++) {
+                let form_language_select_item = data.form_language_select[idx];
+
+                $('#form-languages').append(
+                    '<option value=' + form_language_select_item.value + '>' + form_language_select_item.option + '</option>'
+                );
+            }
+        });
+    });
 
 </script>
 

@@ -12,8 +12,8 @@
 </head>
 
 <body>
-
 <header>
+
 </header>
 
 <div class="img_welcome">
@@ -26,31 +26,38 @@
 
 <main>
     <article>
-        <section>
-            <h3>First Section</h3>
-            <p>Maecenas iaculis pulvinar tellus, nec fermentum ligula sodales ac. Nullam quis dictum lacus.
-                Donec non quam in tellus aliquam tempor. Proin sed molestie turpis.
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                Etiam feugiat ex ac sem ornare placerat. Praesent volutpat pharetra velit, ac mattis neque molestie ac.
-                Vestibulum ut malesuada mauris, a semper nulla. Morbi non erat et urna cursus viverra quis eu velit.
-                Cras a congue mi. Quisque a nunc at nisl auctor pharetra.
-                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                Phasellus dignissim diam in consectetur faucibus. Nullam vel magna dui. </p>
-        </section>
+        <section class="sections">
+            <!--
+            <article>
+                <h3>First Section</h3>
+                <p>Maecenas iaculis pulvinar tellus, nec fermentum ligula sodales ac. Nullam quis dictum lacus.
+                    Donec non quam in tellus aliquam tempor. Proin sed molestie turpis.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Etiam feugiat ex ac sem ornare placerat. Praesent volutpat pharetra velit, ac mattis neque molestie ac.
+                    Vestibulum ut malesuada mauris, a semper nulla. Morbi non erat et urna cursus viverra quis eu velit.
+                    Cras a congue mi. Quisque a nunc at nisl auctor pharetra.
+                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                    Phasellus dignissim diam in consectetur faucibus. Nullam vel magna dui. </p>
+            </article>
 
-        <section>
-            <h3>Second Section</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus. Etiam non sagittis enim.
-                Vestibulum justo quam, mattis sit amet tortor in, imperdiet suscipit ante. Donec egestas velit in lectus porttitor feugiat.
-                Pellentesque pharetra dui sapien, id efficitur sem iaculis nec. Cras ornare sem id est condimentum dapibus.
-                In quis sodales felis. Ut finibus ligula scelerisque lacus consectetur luctus.
-                Fusce in magna sed ipsum blandit luctus ac non nulla. Donec ullamcorper mi maximus, imperdiet dui et, venenatis lorem. </p>
+            <article>
+                <h3>Second Section</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus. Etiam non sagittis enim.
+                    Vestibulum justo quam, mattis sit amet tortor in, imperdiet suscipit ante. Donec egestas velit in lectus porttitor feugiat.
+                    Pellentesque pharetra dui sapien, id efficitur sem iaculis nec. Cras ornare sem id est condimentum dapibus.
+                    In quis sodales felis. Ut finibus ligula scelerisque lacus consectetur luctus.
+                    Fusce in magna sed ipsum blandit luctus ac non nulla. Donec ullamcorper mi maximus, imperdiet dui et, venenatis lorem. </p>
+            </article>
+            -->
         </section>
 
         <section class="gallery">
             <h3>Gallery</h3>
+
             <div class="article-images">
+                <!--
                 <img src="https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/canary-islands-fuerteventura-1547025436-785X440.jpg">
+                -->
             </div>
             <div class="share-button">
                 <input type="submit" value="Share" class="share">
@@ -66,8 +73,9 @@
                 Consetetur neglegentur eum ut, vis animal legimus inimicus id.
             </p>
             <div class="related-article-display">
+                <!--
                 <article class="article-preview">
-                    <img src="">
+                    <img src="#">
                     <div class="related-article-info">
                         <h3>Article 1</h3>
                         <p>
@@ -105,14 +113,16 @@
                         </p>
                     </div>
                 </article>
+                -->
             </div>
         </section>
     </article>
-
 </main>
 
 <footer>
+
 </footer>
+</body>
 
 <script>
     $(function(){
@@ -121,6 +131,45 @@
     });
 </script>
 
-</body>
+<script>
+    $(document).ready(function () {
+        $.getJSON("/data/articledata.json", function (data) {
+
+            for (let idx = 0; idx < data.sections.length; idx++) {
+                let section = data.sections[idx];
+
+                $(".sections").append(
+                    '<article>' +
+                    '<h3>' + section.title + '</h3>' +
+                    '<p>' + section.content + '</p>' +
+                    '</article>'
+                );
+            }
+
+            for (let idx = 0; idx < data.gallery.length; idx++) {
+                let section = data.gallery[idx];
+
+                $(".article-images").append(
+                    '<img src="' + section.image + '">'
+                );
+            }
+
+            for (let idx = 0; idx < data.related_articles_content.length; idx++) {
+                let article = data.related_articles_content[idx];
+
+                $(".related-article-display").append(
+                    '<article class="article-preview">' +
+                    '<img src="' + article.image + '">' +
+                    '<div class="related-article-info">' +
+                    '<h3>' + article.title + '</h3>' +
+                    '<p>' + article.content + '</p>' +
+                    '</div>' +
+                    '</article>'
+                );
+            }
+
+        });
+    });
+</script>
 
 </html>

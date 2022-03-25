@@ -1,4 +1,5 @@
 {
+  "article_title": "LANZAROTE A CABALLO",
   "sections": [
     {
       "title": "First Section",
@@ -11,40 +12,29 @@
   ],
   "gallery": [
     {
-      "image": "https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/canary-islands-fuerteventura-1547025436-785X440.jpg"
+      "image": "https://www.holaislascanarias.com/sites/default/files/styles/masonry_image/public/resources/resource_image/lanzarote_a_caballo-lanzarote_3.jpg?itok=lKgjFzO-"
     }
   ],
-  "related_event_content": [
+  "related_articles_content": [
     {
-      "image": "https://www.ciclismoafondo.es/uploads/s1/10/00/81/05/imagen-de-la-ultima-edicion-de-la-gran-canaria-bike-week-foto-dg-eventos.jpeg",
-      "title": "Bike day",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "link": "eventpage-BikeDay.html"
+      "image": "",
+      "title": "Tour in Lanzarote",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
-      "image": "https://www.grancanaria.com/turismo/fileadmin/user_upload/_imported/GranCanaria_carnavalpgc01_09.jpg",
-      "title": "Carnival",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "link": "eventpage-Carnival.html"
+      "image": "",
+      "title": "Surf classes in Las Canteras",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
-      "image": "https://marcacanaria.com/wp-content/uploads/2020/11/gran-canaria-navidad.jpg",
-      "title": "Christmas",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "link": "eventpage-Christmas.html"
-
+      "image": "",
+      "title": "Vegetation in La Palma",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
-      "image": "https://static.eldiario.es/clip/455231e3-4574-4503-aed1-3c2acbb065b2_16-9-discover-aspect-ratio_default_0.jpg",
-      "title": "Halloween",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "link": "eventpage-Halloween.html"
-    },
-    {
-      "image": "https://wololosound.com/wp-content/uploads/42912127_248305742498844_8126458151328284672_o.jpg",
-      "title": "Summer Festival",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "link": "eventpage-SummerFest.html"
+      "image": "",
+      "title": "Weather in Canary Islands",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
   ]
 }

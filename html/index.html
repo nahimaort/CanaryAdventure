@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Canary Adventure</title>
     <link rel="stylesheet" href="../styles/index.css">
     <link rel="stylesheet" href="../styles/styles.css">
     <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
@@ -195,8 +195,8 @@
 
                     $('#discover').append(
                         "<article class='img_info_card'>" +
-                        "<a href='" +  +"'></a>" +
-                        "<img class='img_card' src='" + articles_item.image + "'>" +
+                        "<a href='" + articles_item.link +"'>" +
+                        "<img class='img_card' src='" + articles_item.image + "'></a>" +
                         "<div class = 'info_card'>" +
                         "<h4>" + articles_item.title + "</h4>" +
                         "<p>" + articles_item.content + "</p>" +
@@ -211,7 +211,8 @@
 
                     $('#inspired').append(
                         "<article class='img_info_card'>" +
-                        "<img class='img_card' src='" + articles_item.image + "'>" +
+                        "<a href='" + articles_item.link +"'>" +
+                        "<img class='img_card' src='" + articles_item.image + "'></a>" +
                         "<div class = 'info_card'>" +
                         "<h4>" + articles_item.title + "</h4>" +
                         "<p>" + articles_item.content + "</p>" +
@@ -230,7 +231,8 @@
 
                     $(".home_events").append(
                         '<article class="event-preview">' +
-                        '<img src="' + events.image + '">' +
+                        "<a href='" + events.link +"'>" +
+                        '<img src="' + events.image + '"></a>' +
                         '<div class="related-event-info">' +
                         '<h3>' + events.title + '</h3>' +
                         '<p>' + events.content + '</p>' +

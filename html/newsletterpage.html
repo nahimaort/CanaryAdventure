@@ -27,22 +27,22 @@
 
         <form id="newsletter-form">
             <div id="message"></div>
-            <div class="form-input"></div>
-            <!--
-            <div class="row">
-                <input type="text" required id="firstname" placeholder="First name" name="firstname">
-                <input type="text" required id="lastname" placeholder="Last name" name="lastname">
+            <div class="form-input">
+                <div class="row">
+                    <input type="text" required id="firstname" placeholder="First name" name="firstname">
+                    <input type="text" required id="lastname" placeholder="Last name" name="lastname">
+                </div>
 
-            <div class="row">
-                <input type="email" required id="email" placeholder="Email" name="email">
-                <select name="languages" id="languages-news">
-                    <option value="english">English</option>
-                    <option value="spanish">Español</option>
-                    <option value="german">Deutsch</option>
-                    <option value="french">Français</option>
-                </select>
+                <div class="row">
+                    <input type="email" required id="email" placeholder="Email" name="email">
+                    <select name="languages" id="languages-news">
+                        <option value="english">English</option>
+                        <option value="spanish">Español</option>
+                        <option value="german">Deutsch</option>
+                        <option value="french">Français</option>
+                    </select>
+                </div>
             </div>
-            -->
             <div class="subscribe-button">
                 <input type="submit" value="Subscribe" id="subscribe">
             </div>
@@ -74,56 +74,59 @@
                     '<p>' + information_item.content + '</p>'
                 );
             }
+    /*
+                let current_index = 0;
+                let idx;
+                for (idx=0; idx < data.form.length; idx++) {
+                    let form_item = data.form[idx];
 
-            let current_index = 0;
-            let idx;
-            for (idx=0; idx < data.form.length; idx++) {
-                let form_item = data.form[idx];
 
+                    if (idx % 2 === 0) {
+                        current_index = idx;
 
-                if (idx % 2 === 0) {
-                    current_index = idx;
+                        $('.form-input').append(
+                            '<div class="row row' + current_index + '">' +
+                            '<input type="' + form_item.type + '" required id="' + form_item.id + '"' +
+                            'placeholder="' + form_item.placeholder + '" name="' + form_item.name + '">' +
+                            '</div>'
+                        );
+                    }
 
+                    else {
+                        $(".row" + current_index).append(
+                            '<input type="' + form_item.type + '" required id="' + form_item.id + '"' +
+                            'placeholder="' + form_item.placeholder + '" name="' + form_item.name + '">'
+                        );
+                    }
+                }
+
+                if ((idx % 2) == 0) {
+                    let select_index=current_index+2;
                     $('.form-input').append(
-                        '<div class="row row' + current_index + '">' +
-                        '<input type="' + form_item.type + '" required id="' + form_item.id + '"' +
-                        'placeholder="' + form_item.placeholder + '" name="' + form_item.name + '">' +
+                        '<div class="row row' + select_index + '">' +
+                        '<select name="languages" id="form-languages"></select>' +
                         '</div>'
                     );
                 }
 
                 else {
                     $(".row" + current_index).append(
-                        '<input type="' + form_item.type + '" required id="' + form_item.id + '"' +
-                        'placeholder="' + form_item.placeholder + '" name="' + form_item.name + '">'
+                        '<select name="languages" id="form-languages"></select>'
                     );
                 }
-            }
 
-            if ((idx % 2) == 0) {
-                let select_index=current_index+2;
-                $('.form-input').append(
-                    '<div class="row row' + select_index + '">' +
-                    '<select name="languages" id="form-languages"></select>' +
-                    '</div>'
-                );
-            }
+                for (let idx = 0; idx < data.form_language_select.length; idx++) {
+                    let form_language_select_item = data.form_language_select[idx];
 
-            else {
-                $(".row" + current_index).append(
-                    '<select name="languages" id="form-languages"></select>'
-                );
-            }
-
-            for (let idx = 0; idx < data.form_language_select.length; idx++) {
-                let form_language_select_item = data.form_language_select[idx];
-
-                $('#form-languages').append(
-                    '<option value=' + form_language_select_item.value + '>' + form_language_select_item.option + '</option>'
-                );
-            }
+                    $('#form-languages').append(
+                        '<option value=' + form_language_select_item.value + '>' + form_language_select_item.option + '</option>'
+                    );
+                }
+                     */
+            });
         });
-    });
+
+
 
 </script>
 

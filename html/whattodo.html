@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
     <header>
@@ -172,4 +173,28 @@
     </script>
 
 </body>
+
+<script>
+    $(document).ready(function(){
+        $.getJSON("../data/whattodo.json", function(data){
+
+            for (let idx = 0; idx < data.wtd_categories.length; idx++) {
+                let item = data.wtd_categories[idx];
+
+                $('#wtd_categories').append(
+                    "<article class='img_info_card'>" +
+                    "<img class='img_card' src='" + item.image + "'>" +
+                    "<div class = 'info_card'>" +
+                    "<h4>" + item.title + "</h4>" +
+                    "<p>" + item.content + "</p>" +
+                    "</div>" +
+                    "</article>"
+
+                );
+            }
+
+        });
+    });
+</script>
+
 </html>

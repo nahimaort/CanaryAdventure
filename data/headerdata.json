@@ -48,5 +48,54 @@
       "value": "french",
       "option": "Français"
     }
+  ],
+
+  "destinations": [
+    {
+      "option": "Destination 1",
+      "value": "island.html"
+    },
+    {
+      "option": "Destination 2",
+      "value": "island.html"
+    },
+    {
+      "option": "Destination 3",
+      "value": "island.html"
+    },
+    {
+      "option": "Destination 4",
+      "value": "island.html"
+    },
+    {
+      "option": "Destination 5",
+      "value": "island.html"
+    },
+    {
+      "option": "Destination 6",
+      "value": "island.html"
+    },
+    {
+      "option": "Destination 7",
+      "value": "island.html"
+    },
+    {
+      "option": "Destination 8",
+      "value": "island.html"
+    }
+  ],
+  "hamburger_menu": [
+    {
+      "option": "What to do",
+      "value": "whattodo.html"
+    },
+    {
+      "option": "About",
+      "value": "aboutpage.html"
+    },
+    {
+      "option": "FAQs",
+      "value": "faqspage.html"
+    }
   ]
 }

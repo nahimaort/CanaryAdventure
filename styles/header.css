@@ -57,6 +57,7 @@ header img {
 .bars-dropdown {
     display: none;
     cursor: pointer;
+    margin-right: 2em;
 }
 
 .drop-button {
@@ -155,6 +156,18 @@ header img {
 .header-icons i {
     padding: 1em;
 }
+
+.header-nav-dropdown {
+    display: none;
+
+}
+
+.header-nav-dropdown-visible {
+    display: block;
+    position: absolute;
+    top: 2.5em;
+}
+
 
 @media (max-width: 1000px) {
     #header-nav {

@@ -9,7 +9,7 @@ article {
 }
 
 
-section {
+form {
     margin-top: 3.5em;
     margin-bottom: 4em;
     padding: 4em 4em;
@@ -19,7 +19,15 @@ section {
     border-radius: 2em;
 
 }
-section input[type="text"],section select{
+
+#message {
+    padding-bottom: 1.5em;
+    text-align: center;
+    font-size: 2.5em;
+    color: white;
+}
+
+form input[type="text"], form input[type="email"], form select {
     font-family: 'Roboto', monospace;
     font-weight: 300;
     font-size: 13pt;
@@ -31,11 +39,7 @@ section input[type="text"],section select{
     box-shadow: 0.1em 0.1em 0.1em 0.1em rgba(68, 177, 224, 0.42);
 }
 
-section select {
-    width: 49%;
-}
-
-section input[type="submit"] {
+form input[type="submit"] {
     height: 3em;
     padding: 14px 45px;
     text-transform: uppercase;

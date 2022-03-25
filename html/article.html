@@ -3,35 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/article.css">
     <link rel="stylesheet" href="../styles/header.css">
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/styles.css">
     <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>Article Page</title>
 </head>
 
 <body>
-
     <header>
-        <a href="index.html" class="logo"><img src="../images/icon3.png"></a>
-        <nav>
-            <ul class="menu">
-                <li><a href="island.html">Destinations</a></li>
-                <li><a href="whattodo.html">What to do</a></li>
-                <li><a href="aboutpage.html">About</a></li>
-                <li><a href="faqspage.html">FAQs</a></li>
-                <li>
-                    <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-            </ul>
-            <select name="languages" id="languages">
-                <i class="fa-solid fa-angle-down"></i>
-                <option value="english">English</option>
-                <option value="spanish">Español</option>
-                <option value="german">Deutsch</option>
-                <option value="french">Français</option>
-            </select>
-        </nav>
+
     </header>
 
     <div class="img_welcome">
@@ -44,34 +28,42 @@
 
     <main>
         <article>
-            <section>
-                <h3>First Section</h3>
-                <p>Maecenas iaculis pulvinar tellus, nec fermentum ligula sodales ac. Nullam quis dictum lacus.
-                    Donec non quam in tellus aliquam tempor. Proin sed molestie turpis.
-                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                    Etiam feugiat ex ac sem ornare placerat. Praesent volutpat pharetra velit, ac mattis neque molestie ac.
-                    Vestibulum ut malesuada mauris, a semper nulla. Morbi non erat et urna cursus viverra quis eu velit.
-                    Cras a congue mi. Quisque a nunc at nisl auctor pharetra.
-                    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                    Phasellus dignissim diam in consectetur faucibus. Nullam vel magna dui. </p>
-            </section>
+            <section class="sections">
+                <!--
+                <article>
+                    <h3>First Section</h3>
+                    <p>Maecenas iaculis pulvinar tellus, nec fermentum ligula sodales ac. Nullam quis dictum lacus.
+                        Donec non quam in tellus aliquam tempor. Proin sed molestie turpis.
+                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                        Etiam feugiat ex ac sem ornare placerat. Praesent volutpat pharetra velit, ac mattis neque molestie ac.
+                        Vestibulum ut malesuada mauris, a semper nulla. Morbi non erat et urna cursus viverra quis eu velit.
+                        Cras a congue mi. Quisque a nunc at nisl auctor pharetra.
+                        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+                        Phasellus dignissim diam in consectetur faucibus. Nullam vel magna dui. </p>
+                </article>
 
-            <section>
-                <h3>Second Section</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus. Etiam non sagittis enim.
-                    Vestibulum justo quam, mattis sit amet tortor in, imperdiet suscipit ante. Donec egestas velit in lectus porttitor feugiat.
-                    Pellentesque pharetra dui sapien, id efficitur sem iaculis nec. Cras ornare sem id est condimentum dapibus.
-                    In quis sodales felis. Ut finibus ligula scelerisque lacus consectetur luctus.
-                    Fusce in magna sed ipsum blandit luctus ac non nulla. Donec ullamcorper mi maximus, imperdiet dui et, venenatis lorem. </p>
+                <article>
+                    <h3>Second Section</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris dignissim urna purus. Etiam non sagittis enim.
+                        Vestibulum justo quam, mattis sit amet tortor in, imperdiet suscipit ante. Donec egestas velit in lectus porttitor feugiat.
+                        Pellentesque pharetra dui sapien, id efficitur sem iaculis nec. Cras ornare sem id est condimentum dapibus.
+                        In quis sodales felis. Ut finibus ligula scelerisque lacus consectetur luctus.
+                        Fusce in magna sed ipsum blandit luctus ac non nulla. Donec ullamcorper mi maximus, imperdiet dui et, venenatis lorem. </p>
+                </article>
+                -->
             </section>
 
             <section class="gallery">
                 <h3>Gallery</h3>
+
                 <div class="article-images">
-                    <img src="#">
+                    <!--
+                    <img src="https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/canary-islands-fuerteventura-1547025436-785X440.jpg">
+                    -->
                 </div>
                 <div class="share-button">
                     <input type="submit" value="Share" class="share">
+                    <i class="fa-solid fa-share-nodes"></i>
                 </div>
             </section>
 
@@ -83,6 +75,7 @@
                     Consetetur neglegentur eum ut, vis animal legimus inimicus id.
                 </p>
                 <div class="related-article-display">
+                    <!--
                     <article class="article-preview">
                         <img src="#">
                         <div class="related-article-info">
@@ -122,48 +115,63 @@
                             </p>
                         </div>
                     </article>
+                    -->
                 </div>
             </section>
         </article>
-
     </main>
 
     <footer>
-        <div class="upper-div">
-            <img src="../images/icon3.png">
-            <nav class="footer-links">
-                <ul>
-                    <b>Information</b><br>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                </ul>
-                <ul>
-                    <b>Information</b><br>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                </ul>
-                <ul>
-                    <b>Information</b><br>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                    <a href="#">Information</a>
-                </ul>
-            </nav>
-        </div>
-        <hr>
-        <div class="lower-div">
-            &#169 Canary Adventure. 2022. Lorem ipsum dolor sit amit.
-            <nav>
-                Follow us:
-                <a href="https://www.instagram.com/?hl=es"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                <a href="https://es-es.facebook.com"><i class="fa-brands fa-facebook fa-xl"></i></a>
-                <a href="https://twitter.com/?lang=es"><i class="fa-brands fa-twitter fa-xl"></i></a>
-                <a href="https://www.youtube.com"><i class="fa-brands fa-youtube fa-xl"></i></a>
-            </nav>
-        </div>
+
     </footer>
 </body>
+
+<script>
+    $(function(){
+        $("header").load("header.html");
+        $("footer").load("footer.html");
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $.getJSON("../data/articledata.json", function (data) {
+
+            for (let idx = 0; idx < data.sections.length; idx++) {
+                let section = data.sections[idx];
+
+                $(".sections").append(
+                    '<article>' +
+                    '<h3>' + section.title + '</h3>' +
+                    '<p>' + section.content + '</p>' +
+                    '</article>'
+                );
+            }
+
+            for (let idx = 0; idx < data.gallery.length; idx++) {
+                let section = data.gallery[idx];
+
+                $(".article-images").append(
+                    '<img src="' + section.image + '">'
+                );
+            }
+
+            for (let idx = 0; idx < data.related_articles_content.length; idx++) {
+                let article = data.related_articles_content[idx];
+
+                $(".related-article-display").append(
+                    '<article class="article-preview">' +
+                    '<img src="' + article.image + '">' +
+                    '<div class="related-article-info">' +
+                    '<h3>' + article.title + '</h3>' +
+                    '<p>' + article.content + '</p>' +
+                    '</div>' +
+                    '</article>'
+                );
+            }
+
+        })
+    })
+</script>
 
 </html>

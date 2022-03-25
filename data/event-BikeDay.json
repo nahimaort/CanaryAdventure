@@ -1,5 +1,5 @@
 {
-  "title" : EVENT,
+  "title" : "BIKE DAY",
   "sections": [
     {
       "title": "First Section",
@@ -12,7 +12,7 @@
   ],
   "gallery": [
     {
-      "image": "https://www.grancanaria.com/turismo/fileadmin/user_upload/_imported/GranCanaria_carnavalpgc01_09.jpg"
+      "image": "https://www.ciclismoafondo.es/uploads/s1/10/00/81/05/imagen-de-la-ultima-edicion-de-la-gran-canaria-bike-week-foto-dg-eventos.jpeg"
     }
   ],
   "related_event_content": [

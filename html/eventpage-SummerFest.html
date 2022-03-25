@@ -19,7 +19,7 @@
     <div class="img_welcome">
         <div class="title_container">
             <h1 class="welcome_title">
-                EVENT
+
             </h1>
         </div>
     </div>
@@ -179,7 +179,9 @@
 
 <script>
     $(document).ready(function () {
-        $.getJSON("../data/event.json", function (data) {
+        $.getJSON("../data/event-SummerFest.json", function (data) {
+
+            $(".welcome_title").append(data.title);
 
             for (let idx = 0; idx < data.sections.length; idx++) {
                 let section = data.sections[idx];

@@ -11,41 +11,75 @@
 </head>
 <body>
     <div class="logo-img">
-        <!--
         <a href="index.html" class="logo"><img src="../images/icon3.png"></a>
-        -->
     </div>
 
-    <nav>
+    <nav id="header-nav">
+        <button class="destinations-dropdown-button">
+            Destinations
+        </button>
          <ul class="menu">
-             <!--
-            <li><a href="island.html">Destinations</a></li>
             <li><a href="whattodo.html">What to do</a></li>
             <li><a href="aboutpage.html">About</a></li>
             <li><a href="faqspage.html">FAQs</a></li>
             <li>
                 <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                -->
         </ul>
 
-        <select name="languages" id="languages">
-            <!--
+        <select name="languages" class="languages">
             <option value="english">English</option>
             <option value="spanish">Español</option>
             <option value="german">Deutsch</option>
             <option value="french">Français</option>
-            -->
         </select>
     </nav>
 
+
+    <div class="search-icon">
+        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+    </div>
+
+    <div class="bars-dropdown">
+        <button class="drop-button" onclick="toggleButton()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav id="header-dropdown" class="header-dropdown-content">
+            <button class="destinations-dropdown-button" onclick="toggleDestinationDropdown()">
+                Destinations
+            </button>
+            <ul id="destinations-dropdown" class="destinations-dropdown-content">
+                <li><a href="island.html">Destination 1</a></li>
+                <li><a href="island.html">Destination 2</a></li>
+                <li><a href="island.html">Destination 3</a></li>
+                <li><a href="island.html">Destination 4</a></li>
+                <li><a href="island.html">Destination 5</a></li>
+                <li><a href="island.html">Destination 6</a></li>
+                <li><a href="island.html">Destination 7</a></li>
+                <li><a href="island.html">Destination 8</a></li>
+            </ul>
+            <ul>
+                <li><a href="whattodo.html">What to do</a></li>
+                <li><a href="aboutpage.html">About</a></li>
+                <li><a href="faqspage.html">FAQs</a></li>
+            </ul>
+            <select class="languages">
+                <option value="english">English</option>
+                <option value="spanish">Español</option>
+                <option value="german">Deutsch</option>
+                <option value="french">Français</option>
+            </select>
+        </nav>
+    </div>
+
     <script>
+        /*
         $(document).ready(function(){
             $.getJSON("../data/headerdata.json", function(data){
 
                 for (let idx = 0; idx < data.headerlogo.length; idx++) {
                     let headerlogo_item = data.headerlogo[idx];
 
-                    $('.logo-img' ).append(
+                    $('.logo-img').append(
                         '<a href="' + headerlogo_item.a + '" class="' + headerlogo_item.class + '"><img src="' + headerlogo_item.img +'"></a>'
                     );
                 }
@@ -54,7 +88,7 @@
                 for (let idx = 0; idx < data.headernavlinks.length; idx++) {
                     let headernavlinks_item = data.headernavlinks[idx];
 
-                    $('.menu' ).append(
+                    $('.menu').append(
                         '<li><a href="' + headernavlinks_item.a +'">' + headernavlinks_item.li + '</a></li>'
                     );
                 }
@@ -62,7 +96,7 @@
                 for (let idx = 0; idx < data.headernavicons.length; idx++) {
                     let headernavicons_item = data.headernavicons[idx];
 
-                    $('.menu' ).append(
+                    $('.menu').append(
                         '<li><i class="' + headernavicons_item.i + '"></i></li>'
                     );
                 }
@@ -70,13 +104,24 @@
                 for (let idx = 0; idx < data.languageselect.length; idx++) {
                     let languageselect_item = data.languageselect[idx];
 
-                    $('#languages' ).append(
+                    $('.languages').append(
                         '<option value=' + languageselect_item.value + '>' + languageselect_item.option + '</option>'
                     );
                 }
-
             });
         });
+
+         */
+
+        function toggleButton() {
+            document.getElementById("header-dropdown").classList.toggle("header-dropdown-visible");
+            document.getElementById("destinations-dropdown").classList.remove("destinations-dropdown-visible");
+        }
+
+        function toggleDestinationDropdown() {
+            document.getElementById("destinations-dropdown").classList.toggle("destinations-dropdown-visible");
+        }
+
     </script>
 
 </body>

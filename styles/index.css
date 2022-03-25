@@ -12,7 +12,6 @@
 }
 
 .img_welcome {
-    height: 100vh;
     padding: 40px 40px 40px 40px;
     justify-content: center;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://p.bookcdn.com/data/Photos/r1920x773/7054/705429/705429376/Servatur-Green-Beach-photos-Exterior.JPEG");
@@ -20,9 +19,13 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+@media (max-width: 576px) {
+    .img_welcome {
+        height: 100vh;
+    }
+}
 
 .title_container {
-    height: 100%;
     display: flex;
     align-items: center;
     background-color: transparent;
@@ -31,6 +34,7 @@
     box-sizing: border-box;
     padding: 40px;
 }
+
 
 .welcome_title {
     font-size: 3rem;
@@ -44,7 +48,7 @@
 
 .cards_intro {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
     grid-gap: 0 50px;
     padding: 0 5%;
     box-shadow: 0.05rem 0.1rem 1rem -0.03rem rgba(0, 0, 0, 0.45);
@@ -90,7 +94,7 @@ button {
     border-radius: 70px;
     text-align: center;
     float: right;
-    margin: 20px 0 0 0;
+    margin: 20px 0 20px 0;
 }
 
 button:hover {
@@ -102,6 +106,15 @@ button:hover {
     display: inline-block;
     width: 39%;
     height: 100%;
+}
+
+@media (max-width: 800px) {
+    .img_newsletter_column {
+        width: 100%;
+    }
+    .newsletter_txt {
+        width: 100%;
+    }
 }
 
 .img_newsletter {

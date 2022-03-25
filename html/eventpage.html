@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/event.css">
+    <link rel="stylesheet" href="../styles/styles.css">
     <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <title>Event</title>
 </head>
 <body>
 <header>
+
 </header>
 
 <div class="img_welcome">
@@ -25,7 +24,8 @@
 
 <main>
     <article>
-        <section>
+        <section class="sections">
+            <!--
             <h2>First section</h2>
             <p>Maecenas iaculis pulvinar tellus, nec fermentum ligula sodales ac. Nullam quis dictum lacus.
                 Donec non quam in tellus aliquam tempor. Proin sed molestie turpis.
@@ -47,12 +47,15 @@
                 In quis sodales felis. Ut finibus ligula scelerisque lacus consectetur luctus.
                 Fusce in magna sed ipsum blandit luctus ac non nulla. Donec ullamcorper mi maximus, imperdiet dui et, venenatis lorem.
             </p>
+            -->
         </section>
 
         <section class="gallery">
             <h2>Gallery</h2>
             <div class="event-images">
+                <!--
                 <img src="https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/canary-islands-fuerteventura-1547025436-785X440.jpg">
+                -->
             </div>
             <div class="share-button">
                 <input type="submit" value="Share" class="share">
@@ -94,6 +97,7 @@
             Consetetur neglegentur eum ut, vis animal legimus inimicus id.
         </p>
         <div class="related-events-display">
+            <!--
             <article class="event-preview">
                 <img src="#">
                 <div class="related-event-info">
@@ -162,12 +166,15 @@
                     </div>
                 </div>
             </article>
+            -->
         </div>
     </article>
 </main>
 
 <footer>
+
 </footer>
+</body>
 
 <script>
     $(function(){
@@ -176,5 +183,45 @@
     });
 </script>
 
-</body>
+<script>
+    $(document).ready(function () {
+        $.getJSON("../data/eventdata.json", function (data) {
+
+            for (let idx = 0; idx < data.sections.length; idx++) {
+                let section = data.sections[idx];
+
+                $(".sections").append(
+                    '<article>' +
+                    '<h3>' + section.title + '</h3>' +
+                    '<p>' + section.content + '</p>' +
+                    '</article>'
+                );
+            }
+
+            for (let idx = 0; idx < data.gallery.length; idx++) {
+                let section = data.gallery[idx];
+
+                $(".event-images").append(
+                    '<img src="' + section.image + '">'
+                );
+            }
+
+            for (let idx = 0; idx < data.related_event_content.length; idx++) {
+                let article = data.related_event_content[idx];
+
+                $(".related-events-display").append(
+                    '<article class="event-preview">' +
+                    '<img src="' + article.image + '">' +
+                    '<div class="related-event-info">' +
+                    '<h3>' + article.title + '</h3>' +
+                    '<p>' + article.content + '</p>' +
+                    '</div>' +
+                    '</article>'
+                );
+            }
+
+        })
+    })
+</script>
+
 </html>

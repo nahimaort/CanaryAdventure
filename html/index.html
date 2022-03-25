@@ -152,6 +152,10 @@
             </div>
         </section>
 
+        <section class="home_events">
+
+        </section>
+
         <section class="home_newsletter_section">
             <div class="newsletter_txt">
                 <h2>
@@ -216,6 +220,23 @@
                     );
                 }
 
+
+            })
+
+            $.getJSON("../data/event.json", function(data) {
+                for (let idx = 0; idx < data.related_event_content.length; idx++) {
+                    let events = data.related_event_content[idx];
+
+                    $(".home_events").append(
+                        '<article class="event-preview">' +
+                        '<img src="' + events.image + '">' +
+                        '<div class="related-event-info">' +
+                        '<h3>' + events.title + '</h3>' +
+                        '<p>' + events.content + '</p>' +
+                        '</div>' +
+                        '</article>'
+                    );
+                }
             });
         });
     </script>

@@ -29,11 +29,11 @@
             <div id="message"></div>
             <div class="form-input"></div>
             <!--
-            <div class="row" class="row1">
+            <div class="row">
                 <input type="text" required id="firstname" placeholder="First name" name="firstname">
                 <input type="text" required id="lastname" placeholder="Last name" name="lastname">
-            </div>
-            <div class="row" class="row2">
+
+            <div class="row">
                 <input type="email" required id="email" placeholder="Email" name="email">
                 <select name="languages" id="languages-news">
                     <option value="english">English</option>
@@ -60,7 +60,9 @@
         $("header").load("header.html");
         $("footer").load("footer.html");
     });
+</script>
 
+<script>
 
     $(document).ready(function(){
         $.getJSON("../data/newsletterdata.json", function(data){
@@ -123,6 +125,9 @@
         });
     });
 
+</script>
+
+<script>
     document.getElementById("subscribe").addEventListener("click", function (event) {
         if (document.getElementById("newsletter-form").checkValidity()) {
             event.preventDefault();
@@ -139,7 +144,9 @@
             }
         }
     }, false);
+</script>
 
+<script>
     document.getElementById("firstname").addEventListener("change", function () {
         if (document.getElementById("firstname").checkValidity()) {
             $("#firstname").css("border", "1px solid grey");
@@ -165,5 +172,7 @@
     });
 
 </script>
+
+
 
 </html>

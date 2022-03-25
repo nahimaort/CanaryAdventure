@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
-    <link rel="stylesheet" href="../styles/category.css">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="/styles/category.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <script src="https://kit.fontawesome.com/b269aa07db.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
@@ -80,14 +80,14 @@
     </footer>
     <script>
         $(function(){
-            $("header").load("header.html");
-            $("footer").load("footer.html");
+            $("header").load("/html/header.html");
+            $("footer").load("/html/footer.html");
         });
     </script>
 
     <script>
         $(document).ready(function(){
-            $.getJSON("../data/category.json", function(data){
+            $.getJSON("/data/category.json", function(data){
 
                 for (let idx = 0; idx < data.categories.length; idx++) {
                     let item = data.categories[idx];

@@ -9,7 +9,7 @@
   "headernavlinks": [
     {
       "li": "Destinations",
-      "a": "island.html"
+      "a": "index.html#discover"
     },
     {
       "li": "What to do",
@@ -52,36 +52,36 @@
 
   "destinations": [
     {
-      "option": "Destination 1",
-      "value": "island.html"
+      "option": "El Hierro",
+      "value": "elhierro.html"
     },
     {
-      "option": "Destination 2",
-      "value": "island.html"
+      "option": "Fuerteventura",
+      "value": "fuerteventura.html"
     },
     {
-      "option": "Destination 3",
-      "value": "island.html"
+      "option": "Gran Canaria",
+      "value": "grancanaria.html"
     },
     {
-      "option": "Destination 4",
-      "value": "island.html"
+      "option": "La Gomera",
+      "value": "lagomera.html"
     },
     {
-      "option": "Destination 5",
-      "value": "island.html"
+      "option": "La Graciosa",
+      "value": "lagraciosa.html"
     },
     {
-      "option": "Destination 6",
-      "value": "island.html"
+      "option": "Lanzarote",
+      "value": "lanzarote.html"
     },
     {
-      "option": "Destination 7",
-      "value": "island.html"
+      "option": "La Palma",
+      "value": "lapalma.html"
     },
     {
-      "option": "Destination 8",
-      "value": "island.html"
+      "option": "Tenerife",
+      "value": "tenerife.html"
     }
   ],
   "hamburger_menu": [

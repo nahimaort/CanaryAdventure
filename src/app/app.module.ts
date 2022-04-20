@@ -7,11 +7,13 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./header/header.component";
+import { IntroTitleComponent } from './intro-title/intro-title.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    IntroTitleComponent,
   ],
   imports: [
     BrowserModule,

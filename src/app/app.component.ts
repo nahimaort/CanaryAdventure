@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import headerData from '/src/assets/json/templates/headerdata.json';
+import headerData from '../assets/json/templates/headerdata.json';
 
 @Component({
   selector: 'app-root',

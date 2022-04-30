@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import headerData from '/src/assets/json/templates/headerdata.json';
+import header from '/src/assets/json/templates/headerdata.json';
 
 @Component({
   selector: 'app-root',
@@ -9,3 +9,4 @@ import headerData from '/src/assets/json/templates/headerdata.json';
 export class AppComponent {
   title = 'PWM-Sprint3-Nahima';
 }
+

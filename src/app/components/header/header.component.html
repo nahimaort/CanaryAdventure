@@ -1,15 +1,17 @@
 <header>
   <div class="logo-img">
-    <a href="index.html" class="logo"><img src="/assets/images/icon3.png"></a>
+    <a href="../../../index.html" class="logo"><img src="https://firebasestorage.googleapis.com/v0/b/canaryadventure-pwm.appspot.com/o/icon3.png?alt=media&token=8f33a373-47f6-4f09-a726-e7e8143b7d4d"></a>
   </div>
 
   <nav id="header-nav">
     <ul class="menu">
-      <li *ngFor="let headerNavItem of headerNavItems">
+      <!--
+      <li *ngFor="let headerNavItem of headerNavItems | async">
         <a [routerLink]="headerNavItem.link">
           {{headerNavItem.viewValue}}
         </a>
       </li>
+      -->
       <li>
         <a href="#"><fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon></a></li>
     </ul>
@@ -32,7 +34,7 @@
         <button mat-menu-item [matMenuTriggerFor]="languages">Language</button>
       </mat-menu>
       <mat-menu #destinations="matMenu">
-        <button mat-menu-item *ngFor="let destination of islandDestinations|async">
+        <button mat-menu-item *ngFor="let destination of this.islandDestinations | async">
           <a [routerLink]='destination.link' routerLinkActive="active">
             {{destination.viewValue}}
           </a>
@@ -44,6 +46,5 @@
         </button>
       </mat-menu>
     </div>
-
   </div>
 </header>

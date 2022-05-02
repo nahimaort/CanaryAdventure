@@ -1,26 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from "@angular/router";
-import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
 import {Observable} from "rxjs";
-
-export interface Destination {
-  link: string;
-  viewValue: string;
-}
-
-interface HeaderNavItem {
-  link: string;
-  viewValue: string;
-}
-
-interface DropdownNavItem {
-  link: string;
-  viewValue: string;
-}
-
-interface Language {
-  viewValue: string;
-}
+import {HeaderService} from "../../services/header.service";
+import {Destination, DropdownNavItem, Language} from "../../model/interfaces.model";
 
 @Component ({
   selector:'web-header',
@@ -28,24 +9,32 @@ interface Language {
   styleUrls:['./header.component.css']
 })
 export class HeaderComponent {
+  islandDestinations: Observable<Destination[]>;
+  siteLanguages: Observable<Language[]>;
+
+  constructor(private service: HeaderService) {
+    this.islandDestinations = this.service.getAllDestinations();
+    this.siteLanguages = this.service.getAllLanguages();
+  }
+  /*
   private islandDestinationsCollection: AngularFirestoreCollection<Destination>;
   islandDestinations : Observable<Destination[]>;
   private siteLanguagesCollection: AngularFirestoreCollection<Language>;
   siteLanguages : Observable<Language[]>;
+  private headerNavItemCollection: AngularFirestoreCollection<HeaderNavItem>;
+  headerNavItems : Observable<HeaderNavItem[]>;
+   */
 
+  /*
   constructor(private readonly afs: AngularFirestore) {
     this.islandDestinationsCollection = afs.collection<Destination>('HeaderDestination');
     this.islandDestinations = this.islandDestinationsCollection.valueChanges();
     this.siteLanguagesCollection = afs.collection<Destination>('HeaderSiteLanguages');
     this.siteLanguages = this.siteLanguagesCollection.valueChanges();
+    this.headerNavItemCollection = afs.collection<HeaderNavItem>('HeaderNavItem');
+    this.headerNavItems = this.headerNavItemCollection.valueChanges();
   }
-
-  headerNavItems : HeaderNavItem[] = [
-    {link: "/island", viewValue: 'Destinations'},
-    {link: "/whattodo", viewValue: 'What to do'},
-    {link: "/about", viewValue: 'About'},
-    {link: "/faq", viewValue: 'FAQs'},
-  ]
+   */
 
   dropdownNavItems : DropdownNavItem[] = [
     {link: "/whattodo", viewValue: 'What to do'},

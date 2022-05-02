@@ -1,0 +1,25 @@
+<section>
+  <h2>More Information</h2>
+  <div class="event-info" *ngFor="let inform of information">
+    <div class="left-panel">
+      <p class="event-info-p">
+        {{inform.content}}
+      </p>
+      <div>
+        <i class="fa-solid fa-location-dot"></i>
+        {{inform.location}}
+      </div>
+      <div>
+        <i class="fa-solid fa-at"></i>
+        {{inform.email}}
+      </div>
+      <div>
+        <i class="fa-solid fa-phone"></i>
+        {{inform.number}}
+      </div>
+    </div>
+    <figure class="event-location-map">
+      <img [src]="inform.imageURL">
+    </figure>
+  </div>
+</section>

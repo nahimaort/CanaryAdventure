@@ -1,0 +1,24 @@
+<h2>Related events</h2>
+<p>
+  Usu nullam dolorum quaestio ei, sit vidit facilisis ea. Per ne impedit iracundia neglegentur.
+  Consetetur neglegentur eum ut, vis animal legimus inimicus id.
+</p>
+<div class="related-events-display" *ngFor="let relate of related">
+  <article class="event-preview">
+      <img [src]="relate.imageURL">
+      <div class="related-event-info">
+          <h3>{{relate.title}}</h3>
+          <p>
+            {{relate.content}}
+          </p>
+          <div>
+              <i class="fa-solid fa-calendar-days"></i>
+              {{relate.date}}
+          </div>
+          <div>
+              <i class="fa-solid fa-location-dot"></i>
+              {{relate.location}}
+          </div>
+      </div>
+  </article>
+</div>

@@ -11,7 +11,6 @@ import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import { FaqSearchbarComponent } from './components/faq-searchbar/faq-searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SelectLanguageComponent } from './components/select-language/select-language.component';
 import { FaqComponent } from './components/faq/faq.component';
 import {RouterModule} from "@angular/router";
 import { IslandComponent } from './components/island/island.component';
@@ -21,6 +20,8 @@ import { environment } from "../environments/environment";
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import {HeaderService} from "./services/header.service";
+import { LogoComponent } from './components/logo/logo.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +29,12 @@ import {HeaderService} from "./services/header.service";
     HeaderComponent,
     FooterComponent,
     FaqSearchbarComponent,
-    SelectLanguageComponent,
     FaqComponent,
     IslandComponent,
     WhattodoComponent,
     AboutComponent,
+    LogoComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

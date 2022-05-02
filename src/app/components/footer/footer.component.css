@@ -5,7 +5,7 @@ footer {
   font-size: 11pt;
 }
 
-footer img {
+app-logo {
   justify-content: left;
   height: 3em;
   margin-left: 2em;

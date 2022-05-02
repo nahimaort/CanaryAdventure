@@ -8,13 +8,6 @@ header {
   border: 1px solid rgba(0,0,0,0.05);
 }
 
-header img {
-  justify-content: left;
-  height: 2.5em;
-  margin-left: 1em;
-  margin-right: 2em;
-}
-
 .menu {
   display: flex;
   justify-content: right;
@@ -108,6 +101,15 @@ header img {
   padding: 1em;
 }
 
+#languages {
+  height: 1.5em;
+  width: 10em;
+  text-transform: uppercase;
+  font-family: 'Roboto', monospace;
+  margin-right: 2em;
+  margin-left: 1em;
+}
+
 @media (max-width: 1000px) {
   #header-nav {
     display: none;
@@ -121,6 +123,7 @@ header img {
     display: flex;
     align-items: center;
   }
+
 
 }
 

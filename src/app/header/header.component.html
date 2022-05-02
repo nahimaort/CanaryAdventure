@@ -39,7 +39,7 @@
         </button>
       </mat-menu>
       <mat-menu #languages="matMenu">
-        <button mat-menu-item *ngFor="let language of siteLanguages">
+        <button mat-menu-item *ngFor="let language of siteLanguages | async">
             {{language.viewValue}}
         </button>
       </mat-menu>

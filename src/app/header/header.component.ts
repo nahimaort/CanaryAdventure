@@ -30,18 +30,15 @@ interface Language {
 export class HeaderComponent {
   private islandDestinationsCollection: AngularFirestoreCollection<Destination>;
   islandDestinations : Observable<Destination[]>;
+  private siteLanguagesCollection: AngularFirestoreCollection<Language>;
+  siteLanguages : Observable<Language[]>;
 
   constructor(private readonly afs: AngularFirestore) {
     this.islandDestinationsCollection = afs.collection<Destination>('HeaderDestination');
     this.islandDestinations = this.islandDestinationsCollection.valueChanges();
+    this.siteLanguagesCollection = afs.collection<Destination>('HeaderSiteLanguages');
+    this.siteLanguages = this.siteLanguagesCollection.valueChanges();
   }
-
-  siteLanguages : Language[] = [
-    {viewValue: 'English'},
-    {viewValue: 'Español'},
-    {viewValue: 'Deutsch'},
-    {viewValue: 'Français'},
-  ]
 
   headerNavItems : HeaderNavItem[] = [
     {link: "/island", viewValue: 'Destinations'},

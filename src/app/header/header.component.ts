@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from "@angular/router";
+import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
+import {Observable} from "rxjs";
 
-interface Destination {
+export interface Destination {
   link: string;
   viewValue: string;
 }
@@ -26,16 +28,13 @@ interface Language {
   styleUrls:['./header.component.css']
 })
 export class HeaderComponent {
-  islandDestinations : Destination[] = [
-    {link: "/island", viewValue: 'Destination 1'},
-    {link: "/island", viewValue: 'Destination 2'},
-    {link: "/island", viewValue: 'Destination 3'},
-    {link: "/island", viewValue: 'Destination 4'},
-    {link: "/island", viewValue: 'Destination 5'},
-    {link: "/island", viewValue: 'Destination 6'},
-    {link: "/island", viewValue: 'Destination 7'},
-    {link: "/island", viewValue: 'Destination 8'},
-  ]
+  private islandDestinationsCollection: AngularFirestoreCollection<Destination>;
+  islandDestinations : Observable<Destination[]>;
+
+  constructor(private readonly afs: AngularFirestore) {
+    this.islandDestinationsCollection = afs.collection<Destination>('HeaderDestination');
+    this.islandDestinations = this.islandDestinationsCollection.valueChanges();
+  }
 
   siteLanguages : Language[] = [
     {viewValue: 'English'},

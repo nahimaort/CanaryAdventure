@@ -32,7 +32,7 @@
         <button mat-menu-item [matMenuTriggerFor]="languages">Language</button>
       </mat-menu>
       <mat-menu #destinations="matMenu">
-        <button mat-menu-item *ngFor="let destination of islandDestinations">
+        <button mat-menu-item *ngFor="let destination of islandDestinations|async">
           <a [routerLink]='destination.link' routerLinkActive="active">
             {{destination.viewValue}}
           </a>

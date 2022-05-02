@@ -2,23 +2,11 @@
   <div class="upper-div">
     <app-logo></app-logo>
     <nav class="footer-links">
-      <ul>
-        <b>Information</b><br>
-        <a href="#">Information</a>
-        <a href="#">Information</a>
-        <a href="#">Information</a>
-      </ul>
-      <ul>
-        <b>Information</b><br>
-        <a href="#">Information</a>
-        <a href="#">Information</a>
-        <a href="#">Information</a>
-      </ul>
-      <ul>
-        <b>Information</b><br>
-        <a href="#">Information</a>
-        <a href="#">Information</a>
-        <a href="#">Information</a>
+      <ul *ngFor="let footerLink of footerLinks | async">
+        <b>{{footerLink.title}}</b><br>
+        <a *ngFor="let elementUl of footerLink.elementsul" [href]="elementUl">
+          {{elementUl.text}}
+        </a>
       </ul>
     </nav>
   </div>
@@ -30,10 +18,8 @@
 
     <nav>
       Follow us:
-      <a href="https://www.instagram.com/?hl=es"><fa-icon [icon]="['fab', 'instagram']"></fa-icon></a>
-      <a href="https://es-es.facebook.com"><fa-icon [icon]="['fab', 'facebook']"></fa-icon></a>
-      <a href="https://twitter.com/?lang=es"><fa-icon [icon]="['fab', 'twitter']"></fa-icon></a>
-      <a href="https://www.youtube.com"><fa-icon [icon]="['fab', 'youtube']"></fa-icon></a>
+      <a *ngFor="let link of footerSocialMediaLinks | async" [href]="link.link">
+        <fa-icon [icon]="['fab', link.icon]"></fa-icon></a>
     </nav>
   </div>
 </footer>

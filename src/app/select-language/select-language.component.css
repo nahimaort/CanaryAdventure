@@ -1,0 +1,8 @@
+#languages {
+  height: 1.5em;
+  width: 10em;
+  text-transform: uppercase;
+  font-family: 'Roboto', monospace;
+  margin-right: 2em;
+  margin-left: 1em;
+}

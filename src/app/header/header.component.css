@@ -34,6 +34,7 @@ header img {
   font-weight: 500;
   font-size: 11pt;
   color: #000000;
+  text-decoration: none;
 }
 
 .menu li a:hover {
@@ -44,15 +45,6 @@ header img {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-
-#languages {
-  height: 1.5em;
-  width: 10em;
-  text-transform: uppercase;
-  font-family: 'Roboto', monospace;
-  margin-right: 2em;
-  margin-left: 1em;
 }
 
 .bars-dropdown {
@@ -102,7 +94,6 @@ header img {
 #destinations .mat-menu-item {
   font-size: 8pt;
 }
-
 
 .select {
   margin: 1em 3em;

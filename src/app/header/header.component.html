@@ -1,33 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Header</title>
-</head>
-<body>
-
 <header>
   <div class="logo-img">
     <a href="index.html" class="logo"><img src="/assets/images/icon3.png"></a>
   </div>
 
-
   <nav id="header-nav">
     <ul class="menu">
-      <li><a href="island.html">Destinations</a></li>
-      <li><a href="whattodo.html">What to do</a></li>
-      <li><a href="aboutpage.html">About</a></li>
-      <li><a href="faqspage.html">FAQs</a></li>
+      <li *ngFor="let headerNavItem of headerNavItems">
+        <a [routerLink]="headerNavItem.link">
+          {{headerNavItem.viewValue}}
+        </a>
+      </li>
       <li>
         <a href="#"><fa-icon [icon]="['fas', 'magnifying-glass']"></fa-icon></a></li>
     </ul>
 
-    <select name="languages" id="languages">
-      <option value="english">English</option>
-      <option value="spanish">Español</option>
-      <option value="german">Deutsch</option>
-      <option value="french">Français</option>
-    </select>
+    <app-select-language></app-select-language>
   </nav>
   <div class="header-icons">
     <div class="search-icon">
@@ -37,31 +24,26 @@
       <button mat-button [matMenuTriggerFor]="barmenu"><fa-icon [icon]="['fas', 'bars']"></fa-icon></button>
       <mat-menu #barmenu="matMenu">
         <button mat-menu-item [matMenuTriggerFor]="destinations">Destinations</button>
-        <button mat-menu-item><a href="whattodo.html">What to do</a></button>
-        <button mat-menu-item><a href="aboutpage.html">About</a></button>
-        <button mat-menu-item><a href="faqspage.html">FAQs</a></button>
+        <button mat-menu-item *ngFor="let dropdownNavItem of dropdownNavItems">
+          <a [routerLink]="dropdownNavItem.link">
+            {{dropdownNavItem.viewValue}}
+          </a>
+        </button>
         <button mat-menu-item [matMenuTriggerFor]="languages">Language</button>
       </mat-menu>
       <mat-menu #destinations="matMenu">
-        <button mat-menu-item><a href="island.html">Destination 1</a></button>
-        <button mat-menu-item><a href="island.html">Destination 2</a></button>
-        <button mat-menu-item><a href="island.html">Destination 3</a></button>
-        <button mat-menu-item><a href="island.html">Destination 4</a></button>
-        <button mat-menu-item><a href="island.html">Destination 5</a></button>
-        <button mat-menu-item><a href="island.html">Destination 6</a></button>
-        <button mat-menu-item><a href="island.html">Destination 7</a></button>
-        <button mat-menu-item><a href="island.html">Destination 8</a></button>
+        <button mat-menu-item *ngFor="let destination of islandDestinations">
+          <a [routerLink]='destination.link' routerLinkActive="active">
+            {{destination.viewValue}}
+          </a>
+        </button>
       </mat-menu>
       <mat-menu #languages="matMenu">
-        <button mat-menu-item>English</button>
-        <button mat-menu-item>Español</button>
-        <button mat-menu-item>Deutsch</button>
-        <button mat-menu-item>Français</button>
+        <button mat-menu-item *ngFor="let language of siteLanguages">
+            {{language.viewValue}}
+        </button>
       </mat-menu>
     </div>
 
   </div>
 </header>
-
-</body>
-</html>

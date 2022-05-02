@@ -4,8 +4,8 @@
     <nav class="footer-links">
       <ul *ngFor="let footerLink of footerLinks | async">
         <b>{{footerLink.title}}</b><br>
-        <a *ngFor="let elementUl of footerLink.elementsul" [href]="elementUl">
-          {{elementUl.text}}
+        <a *ngFor="let elementUl of footerLink.elementsul" href="#">
+          {{elementUl}}
         </a>
       </ul>
     </nav>

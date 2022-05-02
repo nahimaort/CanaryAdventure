@@ -31,7 +31,6 @@ export interface FooterLink {
 }
 
 export interface FooterLinkElementUl {
-  link: string;
   text: string;
 }
 

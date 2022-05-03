@@ -39,5 +39,10 @@ export interface FooterSocialMediaLink {
   icon: IconName;
 }
 
+export interface Section {
+  title: string;
+  content: string;
+}
+
 export class Interfaces {
 }

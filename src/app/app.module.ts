@@ -11,17 +11,19 @@ import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import { FaqSearchbarComponent } from './components/faq-searchbar/faq-searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FaqComponent } from './components/faq/faq.component';
+import { FaqComponent } from './pages/faq/faq.component';
 import {RouterModule} from "@angular/router";
-import { IslandComponent } from './components/island/island.component';
-import { WhattodoComponent } from './components/whattodo/whattodo.component';
-import { AboutComponent } from './components/about/about.component';
+import { IslandComponent } from './pages/island/island.component';
+import { WhattodoComponent } from './pages/whattodo/whattodo.component';
+import { AboutComponent } from './pages/about/about.component';
 import { environment } from "../environments/environment";
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import {HeaderService} from "./services/header.service";
 import { LogoComponent } from './components/logo/logo.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SectionsComponent } from './components/sections/sections.component';
+import { ContactInformationComponent } from './contact-information/contact-information.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { HomeComponent } from './components/home/home.component';
     AboutComponent,
     LogoComponent,
     HomeComponent,
+    SectionsComponent,
+    ContactInformationComponent
   ],
   imports: [
     BrowserModule,

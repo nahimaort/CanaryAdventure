@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {FaqComponent} from "./components/faq/faq.component";
-import {WhattodoComponent} from "./components/whattodo/whattodo.component";
-import {IslandComponent} from "./components/island/island.component";
-import {AboutComponent} from "./components/about/about.component";
-import {HomeComponent} from "./components/home/home.component";
+import {FaqComponent} from "./pages/faq/faq.component";
+import {WhattodoComponent} from "./pages/whattodo/whattodo.component";
+import {IslandComponent} from "./pages/island/island.component";
+import {AboutComponent} from "./pages/about/about.component";
+import {HomeComponent} from "./pages/home/home.component";
 
 const routes: Routes = [
   { path: 'faq', component: FaqComponent },

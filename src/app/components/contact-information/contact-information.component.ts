@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {ContactInformation} from "../../model/interfaces.model";
 
 @Component({
   selector: 'app-contact-information',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactInformationComponent implements OnInit {
 
-  constructor() { }
+  @Input() data: Observable<any> | undefined;
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }

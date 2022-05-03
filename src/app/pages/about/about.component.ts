@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HeaderService} from "../../services/header.service";
-import {AboutService} from "../../services/about.service";
 import {Observable} from "rxjs";
-import {Section} from "../../model/interfaces.model";
+import {ContactInformation, Section} from "../../model/interfaces.model";
+import {RetrieveService} from "../../services/retrieve.service";
 
 @Component({
   selector: 'app-about',
@@ -11,9 +10,11 @@ import {Section} from "../../model/interfaces.model";
 })
 export class AboutComponent implements OnInit {
   aboutSections: Observable<Section[]>;
+  companyInformation: Observable<ContactInformation[]>;
 
-  constructor(private service: AboutService) {
+  constructor(private service: RetrieveService) {
     this.aboutSections = this.service.getAllAboutSections();
+    this.companyInformation = this.service.getCompanyContactInformation();
   }
 
   ngOnInit(): void {

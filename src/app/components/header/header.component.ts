@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
-import {HeaderService} from "../../services/header.service";
 import {Destination, DropdownNavItem, HeaderNavItem, Language} from "../../model/interfaces.model";
+import {RetrieveService} from "../../services/retrieve.service";
 
 @Component ({
   selector:'web-header',
@@ -14,7 +14,7 @@ export class HeaderComponent {
   headerNavItems: Observable<HeaderNavItem[]>;
   dropdownNavItems: Observable<DropdownNavItem[]>;
 
-  constructor(private service: HeaderService) {
+  constructor(private service: RetrieveService) {
     this.islandDestinations = this.service.getAllDestinations();
     this.siteLanguages = this.service.getAllLanguages();
     this.headerNavItems = this.service.getAllHeaderNavItems();

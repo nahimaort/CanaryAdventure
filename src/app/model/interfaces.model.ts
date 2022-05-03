@@ -44,5 +44,15 @@ export interface Section {
   content: string;
 }
 
+export interface ContactInformation {
+  title: string;
+  content: string[];
+  image: string;
+  location: string;
+  email: string;
+  phone: string;
+
+}
+
 export class Interfaces {
 }

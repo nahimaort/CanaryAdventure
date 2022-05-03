@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
-import {Destination, DropdownNavItem, HeaderNavItem, Language} from "../../model/interfaces.model";
 import {RetrieveService} from "../../services/retrieve.service";
 
 @Component ({

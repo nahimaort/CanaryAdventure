@@ -5,6 +5,7 @@ import {WhattodoComponent} from "./pages/whattodo/whattodo.component";
 import {IslandComponent} from "./pages/island/island.component";
 import {AboutComponent} from "./pages/about/about.component";
 import {HomeComponent} from "./pages/home/home.component";
+import {NewsletterComponent} from "./components/newsletter/newsletter.component";
 
 const routes: Routes = [
   { path: 'faq', component: FaqComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'island', component: IslandComponent },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent},
+  { path: 'newsletter', component: NewsletterComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import { FaqSearchbarComponent } from './components/faq-searchbar/faq-searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FaqComponent } from './pages/faq/faq.component';
 import {RouterModule} from "@angular/router";
@@ -23,13 +22,13 @@ import { LogoComponent } from './components/logo/logo.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SectionsComponent } from './components/sections/sections.component';
 import { ContactInformationComponent } from './components/contact-information/contact-information.component';
+import { NewsletterComponent } from './components/newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    FaqSearchbarComponent,
     FaqComponent,
     IslandComponent,
     WhattodoComponent,
@@ -37,7 +36,8 @@ import { ContactInformationComponent } from './components/contact-information/co
     LogoComponent,
     HomeComponent,
     SectionsComponent,
-    ContactInformationComponent
+    ContactInformationComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserModule,

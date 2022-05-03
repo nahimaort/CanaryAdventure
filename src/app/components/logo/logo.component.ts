@@ -9,10 +9,10 @@ import {RetrieveService} from "../../services/retrieve.service";
   styleUrls: ['./logo.component.css']
 })
 export class LogoComponent implements OnInit {
-  logoInfo: Observable<Logo[]>;
+  logoInfo: Observable<any[]>;
 
   constructor(private service: RetrieveService) {
-    this.logoInfo = this.service.getLogo();
+    this.logoInfo = this.service.getCollection('SiteLogo');
   }
 
   ngOnInit(): void {

@@ -9,16 +9,16 @@ import {RetrieveService} from "../../services/retrieve.service";
   styleUrls:['./header.component.css']
 })
 export class HeaderComponent {
-  islandDestinations: Observable<Destination[]>;
-  siteLanguages: Observable<Language[]>;
-  headerNavItems: Observable<HeaderNavItem[]>;
-  dropdownNavItems: Observable<DropdownNavItem[]>;
+  siteLanguages: Observable<any[]>;
+  headerNavItems: Observable<any[]>;
+  dropdownNavItems: Observable<any[]>;
+  islandDestinations: Observable<any[]>;
 
   constructor(private service: RetrieveService) {
-    this.islandDestinations = this.service.getAllDestinations();
-    this.siteLanguages = this.service.getAllLanguages();
-    this.headerNavItems = this.service.getAllHeaderNavItems();
-    this.dropdownNavItems = this.service.getAllHeaderDropdownNavItems();
+    this.islandDestinations = this.service.getCollection('HeaderDestination');
+    this.siteLanguages = this.service.getCollection('HeaderSiteLanguages');
+    this.headerNavItems = this.service.getCollection('HeaderNavItems');
+    this.dropdownNavItems = this.service.getCollection('HeaderDropdownNavItem');
   }
 }
 

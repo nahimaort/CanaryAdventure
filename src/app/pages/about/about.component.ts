@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {ContactInformation, Section} from "../../model/interfaces.model";
 import {RetrieveService} from "../../services/retrieve.service";
 
 @Component({
@@ -9,12 +8,12 @@ import {RetrieveService} from "../../services/retrieve.service";
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  aboutSections: Observable<Section[]>;
-  companyInformation: Observable<ContactInformation[]>;
+  aboutSections: Observable<any[]>;
+  companyInformation: Observable<any[]>;
 
   constructor(private service: RetrieveService) {
-    this.aboutSections = this.service.getAllAboutSections();
-    this.companyInformation = this.service.getCompanyContactInformation();
+    this.aboutSections = this.service.getCollection('AboutSectionContent');
+    this.companyInformation = this.service.getCollection('CompanyContactInformation');
   }
 
   ngOnInit(): void {

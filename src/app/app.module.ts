@@ -3,7 +3,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faBars, faCalendarDay} from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -57,7 +57,7 @@ import { EventInformationComponent } from './components/event-information/event-
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faMagnifyingGlass, faBars);
+    library.addIcons(faMagnifyingGlass, faBars, faCalendarDay);
     library.addIcons(faYoutube, faFacebook, faInstagram, faTwitter);
   }
 }

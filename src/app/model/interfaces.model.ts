@@ -51,7 +51,6 @@ export interface ContactInformation {
   location: string;
   email: string;
   phone: string;
-
 }
 
 export class Interfaces {

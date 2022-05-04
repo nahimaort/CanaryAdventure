@@ -23,6 +23,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SectionsComponent } from './components/sections/sections.component';
 import { ContactInformationComponent } from './components/contact-information/contact-information.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     MatSelectModule,
     RouterModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

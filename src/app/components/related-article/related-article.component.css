@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+p {
+  text-align: justify;
+  font-family: "Roboto", monospace;
+}
+
+.img_welcome {
+  height: 20em;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images-ext-1.discordapp.net/external/T3lwxQB9xbYepzRyjk2SdYSqJcYLv_7gmqChxul18ms/https/www.lanzarote.com/wp-content/uploads/2022/02/casa-rurales-lanzarote.jpg");
+}
+
+main > article {
+  text-align: justify;
+  text-justify: inter-word;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3.0em;
+}
+
+main h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+article p {
+  line-height: 1.75;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-images img {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  height: auto;
+  width: 100%;
+}
+
+.related-article-display {
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+}
+
+.article-preview {
+  margin-left: 3em;
+  position: relative;
+  text-align: left;
+}
+
+.article-preview img {
+  height: 20em;
+  width: 15em;
+}
+
+.related-article-info h3 {
+  text-transform: uppercase;
+  font-family: "Roboto", monospace;
+  font-size: 1.15em;
+  font-weight: 500;
+  line-height: 0.75em;
+  margin-bottom: 0.15em;
+}
+
+.related-article-info {
+  position: absolute;
+  bottom: 2em;
+  left: 1.5em;
+  right: 2em;
+  font-size: 0.9em;
+}
+
+.related-article-info p {
+  margin-bottom: 0.5em;
+}
+
+.article-images {
+  max-width: 1180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.share {
+  padding: 0.7em 4.2em 0.7em 3em;
+  text-transform: uppercase;
+  font-family: 'Roboto', monospace;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: rgba(7, 56, 91, 0.55);
+  color: white;
+  border-radius: 2.0em;
+  border: 1px solid grey;
+}
+
+.share:hover {
+  background-color: rgba(7, 56, 91, 0.84);
+}
+
+.fa-share-nodes {
+  position: absolute;
+  left: 7em;
+}
+
+.share-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3em;
+}
+

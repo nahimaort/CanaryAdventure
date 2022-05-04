@@ -3,7 +3,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { faMagnifyingGlass, faBars, faCalendarDay} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faBars, faCalendarDay, faLocation} from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,22 +14,24 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { SectionsComponent } from './components/sections/sections.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
-import { RelatedComponent } from './components/related/related.component';
+import { RelatedEventComponent } from './components/related-event/related-event.component';
 import { EventInformationComponent } from './components/event-information/event-information.component';
 import { EventComponent } from './pages/event/event.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { IslandComponent } from './pages/island/island.component';
+import { RelatedArticleComponent } from './components/related-article/related-article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SectionsComponent,
     GalleryComponent,
-    RelatedComponent,
+    RelatedEventComponent,
     EventInformationComponent,
     EventComponent,
     ArticleComponent,
-    IslandComponent
+    IslandComponent,
+    RelatedArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { IslandComponent } from './pages/island/island.component';
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faMagnifyingGlass, faBars, faCalendarDay);
+    library.addIcons(faMagnifyingGlass, faBars, faCalendarDay, faLocation);
     library.addIcons(faYoutube, faFacebook, faInstagram, faTwitter);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RetrieveService} from "../../services/retrieve.service";
 import {Observable} from "rxjs";
 
@@ -10,10 +10,10 @@ import {Observable} from "rxjs";
 })
 
 export class SectionsComponent {
-  sections: Observable<any[]>;
+  @Input() sections: Observable<any[]> | undefined;
 
-  constructor(private service: RetrieveService) {
-    this.sections = service.getCollection("/EventSections");
+  constructor() {
+
   }
 
 }

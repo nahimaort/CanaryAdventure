@@ -1,6 +1,7 @@
 <h2>Title</h2>
 <main>
-  <app-sections></app-sections>
-  <app-gallery></app-gallery>
-  <app-related relatedType="articles"></app-related>
+  <app-sections [sections]="articleSections"></app-sections>
+  <app-gallery [images]="articleGallery"></app-gallery>
+  <app-sections [sections]="articleRelatedSections"></app-sections>
+  <app-related-article [relatedContent]="articleRelatedContent"></app-related-article>
 </main>

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {RetrieveService} from "../../services/retrieve.service";
+import {Component, Input} from '@angular/core';
 import {Observable} from "rxjs";
+import { faAt, faPhone, faLocationDot} from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -9,10 +9,13 @@ import {Observable} from "rxjs";
   styleUrls: ['./event-information.component.css']
 })
 export class EventInformationComponent {
-  information: Observable<any[]>;
+  @Input() information: Observable<any[]> | undefined;
+  faLocationDot = faLocationDot;
+  faAt = faAt;
+  faPhone = faPhone;
 
-  constructor(private service: RetrieveService) {
-    this.information = service.getCollection("/EventInformation");
+  constructor() {
+
   }
 
 }

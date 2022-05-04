@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {RetrieveService} from "./services/retrieve.service";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -8,10 +6,6 @@ import {Observable} from "rxjs";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  events: any;
-
-  constructor(private service: RetrieveService) {
-    this.events = this.service.getCollection("/RelatedInformation");
-  }
+  title = "PWM-Sprint3-Nahima";
 }
 

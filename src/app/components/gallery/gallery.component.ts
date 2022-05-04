@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import {RetrieveService} from "../../services/retrieve.service";
+import {Component, Input} from '@angular/core';
 import {Observable} from "rxjs";
+import { faShareNodes } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -10,10 +10,11 @@ import {Observable} from "rxjs";
 })
 
 export class GalleryComponent {
-  images: Observable<any[]>;
+  @Input() images: Observable<any[]> | undefined;
+  faShareNodes = faShareNodes;
 
-  constructor(private service: RetrieveService) {
-    this.images = service.getCollection("/EventImages");
+  constructor() {
+
   }
 
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RelatedComponent } from './related.component';
+import { RelatedEventComponent } from './related-event.component';
 
 describe('RelatedComponent', () => {
-  let component: RelatedComponent;
-  let fixture: ComponentFixture<RelatedComponent>;
+  let component: RelatedEventComponent;
+  let fixture: ComponentFixture<RelatedEventComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RelatedComponent ]
+      declarations: [ RelatedEventComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RelatedComponent);
+    fixture = TestBed.createComponent(RelatedEventComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

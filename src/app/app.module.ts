@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { environment } from "../environments/environment";
+import { AngularFireModule } from '@angular/fire/compat';
+//import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +22,8 @@ import { IntroTitleComponent } from './intro-title/intro-title.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

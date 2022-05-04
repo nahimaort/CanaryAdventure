@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {EventInformation} from "../../models/interfaces.model";
+import { Component } from '@angular/core';
+import {RetrieveService} from "../../services/retrieve.service";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -9,14 +9,10 @@ import {EventInformation} from "../../models/interfaces.model";
   styleUrls: ['./event-information.component.css']
 })
 export class EventInformationComponent {
-  private informationCollection: AngularFirestoreCollection<EventInformation>;
-  information: EventInformation[] | undefined;
+  information: Observable<any[]>;
 
-  constructor(private afs: AngularFirestore) {
-    this.informationCollection = afs.collection("EventInformation");
-    this.informationCollection.valueChanges().subscribe(information => {
-      this.information = information;
-    });
+  constructor(private service: RetrieveService) {
+    this.information = service.getCollection("/EventInformation");
   }
 
 }

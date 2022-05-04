@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {Related} from "../../models/interfaces.model";
+import {Component, Input} from '@angular/core';
+import {RetrieveService} from "../../services/retrieve.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-related',
@@ -8,15 +8,11 @@ import {Related} from "../../models/interfaces.model";
   styleUrls: ['./related.component.css']
 })
 export class RelatedComponent {
-  private relatedCollection: AngularFirestoreCollection<Related>;
-  related: Related[] | undefined;
+  related: Observable<any[]>;
+  @Input() relatedType: string | undefined;
 
-  constructor(private afs: AngularFirestore) {
-    this.relatedCollection = afs.collection("EventRelated");
-    this.relatedCollection.valueChanges().subscribe(related => {
-      this.related = related;
-    });
+  constructor(private service: RetrieveService) {
+    this.related = service.getCollection("/EventRelated");
   }
-
 
 }

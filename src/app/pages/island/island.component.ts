@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-island',
+  selector: 'island-page',
   templateUrl: './island.component.html',
   styleUrls: ['./island.component.css']
 })

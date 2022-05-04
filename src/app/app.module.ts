@@ -7,16 +7,8 @@ import { faMagnifyingGlass, faBars, faCalendarDay} from '@fortawesome/free-solid
 import { faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HeaderComponent} from "./components/header/header.component";
-import {FooterComponent} from "./components/footer/footer.component";
-import { FaqSearchbarComponent } from './components/faq-searchbar/faq-searchbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SelectLanguageComponent } from './components/select-language/select-language.component';
-import { FaqComponent } from './components/faq/faq.component';
 import {RouterModule} from "@angular/router";
-import { IslandComponent } from './components/island/island.component';
-import { WhattodoComponent } from './components/whattodo/whattodo.component';
-import { AboutComponent } from './components/about/about.component';
 import { environment } from "../environments/environment";
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
@@ -24,22 +16,20 @@ import { SectionsComponent } from './components/sections/sections.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { RelatedComponent } from './components/related/related.component';
 import { EventInformationComponent } from './components/event-information/event-information.component';
+import { EventComponent } from './pages/event/event.component';
+import { ArticleComponent } from './pages/article/article.component';
+import { IslandComponent } from './pages/island/island.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    FaqSearchbarComponent,
-    SelectLanguageComponent,
-    FaqComponent,
-    IslandComponent,
-    WhattodoComponent,
-    AboutComponent,
     SectionsComponent,
     GalleryComponent,
     RelatedComponent,
-    EventInformationComponent
+    EventInformationComponent,
+    EventComponent,
+    ArticleComponent,
+    IslandComponent
   ],
   imports: [
     BrowserModule,

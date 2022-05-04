@@ -12,4 +12,8 @@ export class RetrieveService {
     return this.afs.collection(path).valueChanges();
   }
 
+  getDoc(path: string) {
+    return this.afs.doc(path).valueChanges();
+  }
+
 }

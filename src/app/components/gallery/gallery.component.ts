@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFirestore, AngularFirestoreCollection} from "@angular/fire/compat/firestore";
-import {Image} from "../../models/interfaces.model";
+import { Component } from '@angular/core';
+import {RetrieveService} from "../../services/retrieve.service";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -10,14 +10,10 @@ import {Image} from "../../models/interfaces.model";
 })
 
 export class GalleryComponent {
-  private imagesCollection: AngularFirestoreCollection<Image>;
-  images: Image[] | undefined;
+  images: Observable<any[]>;
 
-  constructor(private afs: AngularFirestore) {
-    this.imagesCollection = afs.collection("EventImages");
-    this.imagesCollection.valueChanges().subscribe(images => {
-      this.images = images;
-    });
+  constructor(private service: RetrieveService) {
+    this.images = service.getCollection("/EventImages");
   }
 
 

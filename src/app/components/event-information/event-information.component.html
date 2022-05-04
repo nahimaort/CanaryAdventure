@@ -1,6 +1,6 @@
-<section>
-  <h2>More Information</h2>
-  <div class="event-info" *ngFor="let inform of information">
+<section  *ngFor="let inform of information | async">
+  <h2>{{inform.title}}</h2>
+  <div class="event-info">
     <div class="left-panel">
       <p class="event-info-p">
         {{inform.content}}

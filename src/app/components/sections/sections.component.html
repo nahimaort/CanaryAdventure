@@ -1,4 +1,4 @@
-<section class="sections" *ngFor="let section of sections">
+<section class="sections" *ngFor="let section of sections | async">
   <article>
       <h3>{{section.title}}</h3>
       <p>{{section.content}}</p>

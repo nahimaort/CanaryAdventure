@@ -1,6 +1,6 @@
 <section class="gallery">
   <h2>Gallery</h2>
-  <div class="event-images" *ngFor="let image of images">
+  <div class="event-images" *ngFor="let image of images | async">
     <img [src]="image.imageURL">
   </div>
   <div class="share-button">

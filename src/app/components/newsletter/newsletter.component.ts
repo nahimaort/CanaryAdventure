@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {DatabaseService} from "../../services/database.service";
 import {Observable} from "rxjs";
-import {FormBuilder, NgForm, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../model/user.model";
 
 @Component({
@@ -13,15 +13,30 @@ export class NewsletterComponent implements OnInit {
   newsletterSections: Observable<any[]>;
   siteLanguages: Observable<any[]>;
   newUser: User = new User();
-  userForm = this.formBuilder.group({
-    firstName: '',
-    lastName: '',
-    email: '',
-    language: ''
+  userForm = new FormGroup({
+    firstName: new FormControl(this.newUser.firstName, [Validators.required, Validators.maxLength(50), Validators.pattern("[A-Za-z]+")]),
+    lastName: new FormControl(this.newUser.lastName, [Validators.required, Validators.maxLength(50), Validators.pattern("^[A-Za-z]+$")]),
+    email: new FormControl(this.newUser.email, [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")]),
+    language: new FormControl(this.newUser.language, Validators.required)
   });
 
-  constructor(private service: DatabaseService,
-              private formBuilder: FormBuilder) {
+  get firstName() {
+    return this.userForm.get('firstName');
+  }
+
+  get lastName() {
+    return this.userForm.get('lastName');
+  }
+
+  get email() {
+    return this.userForm.get('email');
+  }
+
+  get language() {
+    return this.userForm.get('language');
+  }
+
+  constructor(private service: DatabaseService) {
     this.newsletterSections = this.service.getCollection('NewsletterSections');
     this.siteLanguages = this.service.getCollection('HeaderSiteLanguages');
   }

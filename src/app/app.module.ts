@@ -24,6 +24,7 @@ import { SectionsComponent } from './components/sections/sections.component';
 import { ContactInformationComponent } from './components/contact-information/contact-information.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormControlAlertComponent } from './form-control-alert/form-control-alert.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     HomeComponent,
     SectionsComponent,
     ContactInformationComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    FormControlAlertComponent
   ],
   imports: [
     BrowserModule,

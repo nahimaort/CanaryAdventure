@@ -1,61 +1,39 @@
 <app-sections [data]="this.newsletterSections"></app-sections>
 <div id="form">
-  <form novalidate id="newsletter-form" (ngSubmit)="registerUser(newUser)">
+  <form [formGroup]="userForm" novalidate id="newsletter-form" (ngSubmit)="registerUser(newUser)">
     <div class="form-input form-group">
       <div class="row">
-        <input type="text" required id="firstname" class="form-control" placeholder="First name" name="firstName"
-               [(ngModel)]="newUser.firstName" maxlength="50" pattern="^[A-Za-z]+$" #firstName="ngModel">
-        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
-             class="alert">
-          <div *ngIf="firstName.errors?.['required']">
-            First name is required.
-          </div>
-          <div *ngIf="firstName.errors?.['maxlength']">
-            First name cannot be more than 50 characters long.
-          </div>
-          <div *ngIf="firstName.errors?.['pattern']">
-            First name cannot contain special characters.
-          </div>
+        <div>
+          <input type="text" required id="firstname" placeholder="First name" name="firstName"
+                 [(ngModel)]="newUser.firstName" class="form-control" formControlName="firstName">
+          <app-form-control-alert [control]="firstName" [field]="'First name'"></app-form-control-alert>
+        </div>
 
+        <div>
+          <input type="text" required id="lastname" placeholder="Last name" name="lastName"
+                 [(ngModel)]="newUser.lastName" class="form-control" formControlName="lastName">
+          <app-form-control-alert [control]="lastName" [field]="'Last name'"></app-form-control-alert>
         </div>
-        <input type="text" required id="lastname" class="form-control" placeholder="Last name" name="lastName"
-               [(ngModel)]="newUser.lastName" maxlength="50" pattern="^[A-Za-z]+$" #lastName="ngModel">
-        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
-             class="alert">
-          <div *ngIf="lastName.errors?.['required']">
-            Last name is required.
-          </div>
-          <div *ngIf="lastName.errors?.['maxlength']">
-            Last name cannot be more than 50 characters long.
-          </div>
-          <div *ngIf="lastName.errors?.['pattern']">
-            Last name cannot contain special characters.
-          </div>
-        </div>
+
       </div>
+
       <div class="row">
-        <input type="email" required id="email" class="form-control" placeholder="Email" name="email"
-               [(ngModel)]="newUser.email"
-               pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" #email="ngModel">
-        <div *ngIf="email.invalid && (email.dirty || email.touched)"
-             class="alert">
-          <div *ngIf="email.errors?.['required']">
-            Email is required.
-          </div>
-          <div *ngIf="email.errors?.['pattern']">
-            Invalid email address.
-          </div>
+        <div>
+          <input type="email" required id="email" placeholder="Email" name="email"
+                 [(ngModel)]="newUser.email" class="form-control" formControlName="email">
+          <app-form-control-alert [control]="email" [field]="'Email address'"></app-form-control-alert>
         </div>
-        <select name="language" class="form-control">
-          <option *ngFor="let language of siteLanguages | async" [value]="language.value" [(ngModel)]="newUser.language">
+
+        <select name="language" class="form-control" formControlName="language" [(ngModel)]="newUser.language">
+          <option *ngFor="let language of siteLanguages | async" [value]="language.value">
             {{language.viewValue}}
           </option>
         </select>
       </div>
     </div>
     <div id="button">
-      <button class="subscribe-button"
-              type="submit" value="Subscribe">
+      <button class="subscribe-button" type="submit" value="Subscribe"
+      [disabled]="userForm.invalid">
         Subscribe
       </button>
     </div>

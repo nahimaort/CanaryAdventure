@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {User} from "../model/user.model";
+import {collection, query} from "@angular/fire/firestore";
+import firebase from "firebase/compat";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
+  private userSubscribed: boolean | undefined;
 
   constructor(private db: AngularFirestore) { }
 
@@ -17,8 +20,20 @@ export class DatabaseService {
     return this.db.collection(path).doc(id).set(data);
   }
 
-  registerUser(user: User) {
-    return this.db.collection('Users').add;
+  subscribeUser(user: User) {
+    return this.db.collection('NewsletterSubscribers').add({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      language: user.language
+    });
   }
 
+  async userIsAlreadySubscribed(user: User): Promise<any> {
+    const query = this.db.collection('NewsletterSubscribers').ref.where('email', '==', user.email);
+    await query.get().then(result => {
+      this.userSubscribed = !result.empty;
+    });
+    return this.userSubscribed;
+  }
 }

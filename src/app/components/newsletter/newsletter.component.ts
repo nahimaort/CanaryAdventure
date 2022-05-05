@@ -3,6 +3,7 @@ import {DatabaseService} from "../../services/database.service";
 import {Observable} from "rxjs";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../model/user.model";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-newsletter',
@@ -19,6 +20,7 @@ export class NewsletterComponent implements OnInit {
     email: new FormControl(this.newUser.email, [Validators.required, Validators.pattern("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$")]),
     language: new FormControl(this.newUser.language, Validators.required)
   });
+  private userRegistered: boolean | undefined;
 
   get firstName() {
     return this.userForm.get('firstName');
@@ -36,7 +38,8 @@ export class NewsletterComponent implements OnInit {
     return this.userForm.get('language');
   }
 
-  constructor(private service: DatabaseService) {
+  constructor(private service: DatabaseService,
+              public snackBar: MatSnackBar) {
     this.newsletterSections = this.service.getCollection('NewsletterSections');
     this.siteLanguages = this.service.getCollection('HeaderSiteLanguages');
   }
@@ -44,8 +47,22 @@ export class NewsletterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  registerUser(user: User): void {
-    console.log(user);
+  openSnackBar(message: string, action:string) {
+    this.snackBar.open(message, action, {
+      duration: 3000,
+    });
+  }
+
+  async registerUser(user: User): Promise<void> {
+    await this.service.userIsAlreadySubscribed(user).then(data => {
+      this.userRegistered = data;
+    });
+    if (this.userRegistered) {
+      this.openSnackBar('Looks like you are already subscribed. Try with another email.', '');
+    } else {
+      this.openSnackBar('Subscribed to our newsletter succesfuly!', '');
+      await this.service.subscribeUser(user);
+    }
     this.userForm.reset();
   }
 }

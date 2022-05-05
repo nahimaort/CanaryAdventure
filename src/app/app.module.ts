@@ -24,7 +24,10 @@ import { SectionsComponent } from './components/sections/sections.component';
 import { ContactInformationComponent } from './components/contact-information/contact-information.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FormControlAlertComponent } from './form-control-alert/form-control-alert.component';
+import { FormControlAlertComponent } from './components/form-control-alert/form-control-alert.component';
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { CommentSectionComponent } from './components/comment-section/comment-section.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { FormControlAlertComponent } from './form-control-alert/form-control-ale
     SectionsComponent,
     ContactInformationComponent,
     NewsletterComponent,
-    FormControlAlertComponent
+    FormControlAlertComponent,
+    CommentSectionComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { FormControlAlertComponent } from './form-control-alert/form-control-ale
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,13 +10,4 @@ export class AuthService {
 
   constructor(private auth: AngularFireAuth) { }
 
-  subscribeToNewsletter(user: User) {
-    if (user.email != null) {
-      this.auth.sendSignInLinkToEmail(user.email, {
-        url: "https://canaryadventure-pwm.firebaseapp.com/__/auth/action?mode=action&oobCode=code",
-        handleCodeInApp: true
-      })
-    }
-  }
-
 }

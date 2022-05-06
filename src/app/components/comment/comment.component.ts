@@ -1,5 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
+import {Observable, take} from "rxjs";
+import {UserComment} from "../../model/interfaces.model";
+import {MatDialog} from '@angular/material/dialog';
+import {ImageDisplayDialogComponent} from "../image-display-dialog/image-display-dialog.component";
 
 @Component({
   selector: 'app-comment',
@@ -8,11 +11,17 @@ import {Observable} from "rxjs";
 })
 export class CommentComponent implements OnInit {
 
-  @Input() commentinfo: Observable<any> | undefined;
+  @Input() data: UserComment | undefined;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit(): void {
   }
 
+  displayImage(selectedImage: string) {
+    this.dialog.open(ImageDisplayDialogComponent, {
+      data: selectedImage
+    });
+  }
 }

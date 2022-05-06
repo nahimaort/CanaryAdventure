@@ -53,5 +53,11 @@ export interface ContactInformation {
   phone: string;
 }
 
+export interface UserComment {
+  title: string;
+  content: string;
+  images: string[];
+}
+
 export class Interfaces {
 }

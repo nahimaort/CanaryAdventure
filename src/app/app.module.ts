@@ -3,7 +3,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { faMagnifyingGlass, faBars, faLocationDot, faAt, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faBars, faLocationDot, faAt, faPhone, faComments } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +28,9 @@ import { FormControlAlertComponent } from './components/form-control-alert/form-
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { CommentSectionComponent } from './components/comment-section/comment-section.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { ImageDisplayDialogComponent } from './components/image-display-dialog/image-display-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import { CommentComponent } from './components/comment/comment.component';
     NewsletterComponent,
     FormControlAlertComponent,
     CommentSectionComponent,
-    CommentComponent
+    CommentComponent,
+    ImageDisplayDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,14 +63,16 @@ import { CommentComponent } from './components/comment/comment.component';
     AngularFireDatabaseModule,
     ReactiveFormsModule,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faMagnifyingGlass, faBars, faLocationDot, faAt, faPhone);
+    library.addIcons(faMagnifyingGlass, faBars, faLocationDot, faAt, faPhone, faComments);
     library.addIcons(faYoutube, faFacebook, faInstagram, faTwitter);
   }
 }

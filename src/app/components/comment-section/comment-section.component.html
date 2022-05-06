@@ -1,5 +1,16 @@
-<h1>Comment section</h1>
-<button>Add a comment</button>
-<div id="comment-display">
+<div id="comment-section">
+  <div id="title">
+    <h1>Comment section</h1>
+    <fa-icon [icon]="['fas', 'comments']"></fa-icon>
+  </div>
 
+  <div id="button-div">
+    <button>Add a comment</button>
+  </div>
+
+  <div id="comment-display">
+    <app-comment *ngFor="let example of this.commentsExample | async" [data]="example">
+    </app-comment>
+  </div>
 </div>
+

@@ -1,0 +1,21 @@
+#comment-attached-images img {
+  max-height: 20em;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius: 1.5em;
+}
+
+#comment-attached-images {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: scroll;
+  border-radius: 2em;
+}
+
+#comment-container {
+  padding: 2% 2%;
+  margin: 2% 1%;
+  background-color: rgba(244, 244, 244);
+  border-radius: 1em;
+}

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
-import {RetrieveService} from "../../services/retrieve.service";
+import {DatabaseService} from "../../services/database.service";
 
 @Component({
   selector: 'article-page',
@@ -13,7 +13,7 @@ export class ArticleComponent {
   articleGallery: Observable<any[]>;
   articleRelatedContent: Observable<any[]>;
 
-  constructor(private service: RetrieveService) {
+  constructor(private service: DatabaseService) {
     this.articleSections = service.getCollection("/ArticleSections");
     this.articleRelatedSections = service.getCollection("/ArticleRelatedSections");
     this.articleGallery = service.getCollection("/ArticleGallery");

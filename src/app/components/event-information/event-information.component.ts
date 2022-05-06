@@ -10,6 +10,7 @@ import { faAt, faPhone, faLocationDot} from '@fortawesome/free-solid-svg-icons';
 })
 export class EventInformationComponent {
   @Input() information: Observable<any[]> | undefined;
+  @Input() title: string | undefined;
   faLocationDot = faLocationDot;
   faAt = faAt;
   faPhone = faPhone;

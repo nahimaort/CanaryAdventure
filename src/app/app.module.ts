@@ -3,7 +3,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSelectModule} from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { faMagnifyingGlass, faBars, faCalendarDay, faLocation} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faBars, faCalendarDay, faLocation, faCar, faBus, faPlane, faShip, faShareNodes} from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +19,15 @@ import { EventInformationComponent } from './components/event-information/event-
 import { EventComponent } from './pages/event/event.component';
 import { ArticleComponent } from './pages/article/article.component';
 import { IslandComponent } from './pages/island/island.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LogoComponent } from './components/logo/logo.component';
 import { RelatedArticleComponent } from './components/related-article/related-article.component';
+import { IslandDescriptionComponent } from './components/island-description/island-description.component';
+import { IslandWhatToDoComponent } from './components/island-what-to-do/island-what-to-do.component';
+import { IslandWhereToStayComponent } from './components/island-where-to-stay/island-where-to-stay.component';
+import { IslandHowToGetThereComponent } from './components/island-how-to-get-there/island-how-to-get-there.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +39,14 @@ import { RelatedArticleComponent } from './components/related-article/related-ar
     EventComponent,
     ArticleComponent,
     IslandComponent,
-    RelatedArticleComponent
+    RelatedArticleComponent,
+    HeaderComponent,
+    FooterComponent,
+    LogoComponent,
+    IslandDescriptionComponent,
+    IslandWhatToDoComponent,
+    IslandWhereToStayComponent,
+    IslandHowToGetThereComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +64,7 @@ import { RelatedArticleComponent } from './components/related-article/related-ar
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faMagnifyingGlass, faBars, faCalendarDay, faLocation);
+    library.addIcons(faMagnifyingGlass, faBars, faCalendarDay, faLocation, faCar, faBus, faPlane, faShip, faShareNodes);
     library.addIcons(faYoutube, faFacebook, faInstagram, faTwitter);
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
-import {RetrieveService} from "../../services/retrieve.service";
+import {DatabaseService} from "../../services/database.service";
 
 @Component({
   selector: 'event-page',
@@ -14,7 +14,7 @@ export class EventComponent {
   eventInformation:  Observable<any[]>;
   eventRelatedContent: Observable<any[]>;
 
-  constructor(private service: RetrieveService) {
+  constructor(private service: DatabaseService) {
     this.eventSections = service.getCollection("/EventSections");
     this.eventRelatedSections = service.getCollection("/EventRelatedSections");
     this.eventGallery = service.getCollection("/EventGallery");

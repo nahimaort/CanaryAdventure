@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RetrieveService} from "../../services/retrieve.service";
 import {Observable} from "rxjs";
 
 
@@ -10,7 +9,7 @@ import {Observable} from "rxjs";
 })
 
 export class SectionsComponent {
-  @Input() sections: Observable<any[]> | undefined;
+  @Input() data: Observable<any[]> | undefined;
 
   constructor() {
 

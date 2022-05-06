@@ -1,8 +1,8 @@
-<h2>Title</h2>
+<h2>TITLE</h2>
 <main>
-  <app-sections [sections]="eventSections"></app-sections>
+  <app-sections [data]="eventSections"></app-sections>
   <app-gallery [images]="eventGallery"></app-gallery>
-  <app-event-information [information]="eventInformation"></app-event-information>
-  <app-sections [sections]="eventRelatedSections"></app-sections>
+  <app-event-information title="More Information" [information]="eventInformation"></app-event-information>
+  <app-sections [data]="eventRelatedSections"></app-sections>
   <app-related-event [relatedContent]="eventRelatedContent"></app-related-event>
 </main>

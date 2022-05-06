@@ -14,11 +14,10 @@ export class ArticleComponent {
   articleRelatedContent: Observable<any[]>;
 
   constructor(private service: DatabaseService) {
-    this.articleSections = service.getCollection("/ArticleSections");
-    this.articleRelatedSections = service.getCollection("/ArticleRelatedSections");
-    this.articleGallery = service.getCollection("/ArticleGallery");
-    this.articleRelatedContent = service.getCollection("/ArticleRelatedContent");
+    this.articleSections = service.getCollection("/ArticlePage/ArticleCollection/ArticleSections");
+    this.articleRelatedSections = service.getCollection("/ArticlePage/ArticleCollection/ArticleRelatedSections");
+    this.articleGallery = service.getCollection("/ArticlePage/ArticleCollection/ArticleGallery");
+    this.articleRelatedContent = service.getCollection("/ArticlePage/ArticleCollection/ArticleRelatedContent");
   }
-
 
 }

@@ -14,6 +14,10 @@ export class DatabaseService {
     return this.db.collection(path).valueChanges();
   }
 
+  getDoc(path: string, id: string) {
+    return this.db.collection(path).doc(id).valueChanges();
+  }
+
   createDocument(path: string, id: string, data: any) {
     return this.db.collection(path).doc(id).set(data);
   }

@@ -15,11 +15,11 @@ export class EventComponent {
   eventRelatedContent: Observable<any[]>;
 
   constructor(private service: DatabaseService) {
-    this.eventSections = service.getCollection("/EventSections");
-    this.eventRelatedSections = service.getCollection("/EventRelatedSections");
-    this.eventGallery = service.getCollection("/EventGallery");
-    this.eventRelatedContent = service.getCollection("/EventRelated");
-    this.eventInformation = service.getCollection("/EventInformation");
+    this.eventSections = service.getCollection("/EventPage/EventCollection/EventSections");
+    this.eventRelatedSections = service.getCollection("/EventPage/EventCollection/EventRelatedSections");
+    this.eventGallery = service.getCollection("/EventPage/EventCollection/EventGallery");
+    this.eventRelatedContent = service.getCollection("/EventPage/EventCollection/EventRelatedContent");
+    this.eventInformation = service.getCollection("/EventPage/EventCollection/EventInformation");
   }
 
 }

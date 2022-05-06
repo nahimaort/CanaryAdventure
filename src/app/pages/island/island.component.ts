@@ -15,10 +15,10 @@ export class IslandComponent {
   islandHowToGetThereContent:  Observable<any[]>;
 
   constructor(private service: DatabaseService) {
-    this.islandDescription = service.getCollection("/IslandDescription");
-    this.islandWhatToDo = service.getCollection("/IslandWhatToDo");
-    this.islandWhereToStay = service.getCollection("/IslandWhereToStay");
-    this.islandHowToGetThereDescription = service.getCollection("/IslandHowToGetThereDescription");
-    this.islandHowToGetThereContent = service.getCollection("/IslandHowToGetThereContent");
+    this.islandDescription = service.getCollection("/IslandPage/IslandCollection/IslandDescription");
+    this.islandWhatToDo = service.getCollection("/IslandPage/IslandCollection/IslandWhatToDo");
+    this.islandWhereToStay = service.getCollection("/IslandPage/IslandCollection/IslandWhereToStay");
+    this.islandHowToGetThereDescription = service.getCollection("/IslandPage/IslandCollection/IslandHowToGetThereDescription");
+    this.islandHowToGetThereContent = service.getCollection("/IslandPage/IslandCollection/IslandHowToGetThereContent");
   }
 }

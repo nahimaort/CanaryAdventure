@@ -64,7 +64,7 @@ import { IslandHowToGetThereComponent } from './components/island-how-to-get-the
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faMagnifyingGlass, faBars, faCalendarDay, faLocation, faCar, faBus, faPlane, faShip, faShareNodes);
+    library.addIcons(faMagnifyingGlass, faBars, faCar, faBus, faPlane, faShip);
     library.addIcons(faYoutube, faFacebook, faInstagram, faTwitter);
   }
 }

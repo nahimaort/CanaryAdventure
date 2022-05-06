@@ -3,6 +3,7 @@ import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {User} from "../model/user.model";
 import {collection, query} from "@angular/fire/firestore";
 import firebase from "firebase/compat";
+import {UserComment} from "../model/interfaces.model";
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,17 @@ export class DatabaseService {
       email: user.email,
       language: user.language
     });
+  }
+
+  uploadComment(comment: UserComment, collection: string) {
+    console.log(comment.title);
+    console.log(comment.content);
+    console.log(comment.images);
+    return this.db.collection(collection).add({
+      title: comment.title,
+      content: comment.content,
+      images: comment.images
+    })
   }
 
   async userIsAlreadySubscribed(user: User): Promise<any> {

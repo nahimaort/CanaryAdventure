@@ -4,7 +4,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { BrowserModule } from '@angular/platform-browser';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { faMagnifyingGlass, faBars, faLocationDot, faAt, faPhone, faComments } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faFacebook, faTwitter, faYoutube, faFacebookF, faGoogle} from '@fortawesome/free-brands-svg-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from "./components/header/header.component";
@@ -31,6 +31,8 @@ import { CommentComponent } from './components/comment/comment.component';
 import { ImageDisplayDialogComponent } from './components/image-display-dialog/image-display-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { SignInDialogComponent } from './components/sign-in-dialog/sign-in-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import {MatButtonModule} from "@angular/material/button";
     FormControlAlertComponent,
     CommentSectionComponent,
     CommentComponent,
-    ImageDisplayDialogComponent
+    ImageDisplayDialogComponent,
+    SignInDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import {MatButtonModule} from "@angular/material/button";
     FormsModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -73,6 +77,6 @@ import {MatButtonModule} from "@angular/material/button";
 export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(faMagnifyingGlass, faBars, faLocationDot, faAt, faPhone, faComments);
-    library.addIcons(faYoutube, faFacebook, faInstagram, faTwitter);
+    library.addIcons(faYoutube, faFacebook, faInstagram, faTwitter, faFacebookF, faGoogle);
   }
 }

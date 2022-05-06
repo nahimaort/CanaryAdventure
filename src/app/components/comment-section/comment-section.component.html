@@ -5,7 +5,28 @@
   </div>
 
   <div id="button-div">
-    <button>Add a comment</button>
+    <button (click)="this.buttonPressed = true; isUserLoggedIn(); !this.loggedIn && openDialog()">Add a comment</button>
+  </div>
+
+  <div *ngIf="buttonPressed">
+    <div *ngIf="loggedIn" id="comment-form-container">
+      <form [formGroup]="commentForm" novalidate id="comment-form" (ngSubmit)="uploadComment()">
+        <input type="text" required id="comment-title" placeholder="Title" name="title"
+               [(ngModel)]="newComment.title" class="form-control" formControlName="title">
+        <app-form-control-alert [control]="title" [field]="'Comment title'" [max]="'50'" [min]="'5'"></app-form-control-alert>
+
+        <input type="text" required id="comment-content" placeholder="Content" name="content"
+               [(ngModel)]="newComment.content" class="form-control" formControlName="content">
+        <app-form-control-alert [control]="content" [field]="'Comment content'" [max]="'200'" [min]="'5'"></app-form-control-alert>
+
+        <input class="form-control" type="file" id="formFileMultiple" accept="image/*" (change)="imageUploaded($event)"/>
+
+        <button class="comment-button" type="submit" value="Post"
+                [disabled]="commentForm.invalid" >
+          Post
+        </button>
+      </form>
+    </div>
   </div>
 
   <div id="comment-display">

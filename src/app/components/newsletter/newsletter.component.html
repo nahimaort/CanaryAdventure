@@ -6,13 +6,13 @@
         <div>
           <input type="text" required id="firstname" placeholder="First name" name="firstName"
                  [(ngModel)]="newUser.firstName" class="form-control" formControlName="firstName">
-          <app-form-control-alert [control]="firstName" [field]="'First name'"></app-form-control-alert>
+          <app-form-control-alert [control]="firstName" [field]="'First name'" [max]="'50'"></app-form-control-alert>
         </div>
 
         <div>
           <input type="text" required id="lastname" placeholder="Last name" name="lastName"
                  [(ngModel)]="newUser.lastName" class="form-control" formControlName="lastName">
-          <app-form-control-alert [control]="lastName" [field]="'Last name'"></app-form-control-alert>
+          <app-form-control-alert [control]="lastName" [field]="'Last name'" [max]="'50'"></app-form-control-alert>
         </div>
 
       </div>

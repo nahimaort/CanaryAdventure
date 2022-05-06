@@ -10,6 +10,8 @@ export class FormControlAlertComponent implements OnInit {
 
   @Input() control?: AbstractControl | null;
   @Input() field: string | undefined;
+  @Input() max: string | undefined;
+  @Input() min: string | undefined;
 
   constructor() { }
 

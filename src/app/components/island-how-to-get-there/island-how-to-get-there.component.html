@@ -8,7 +8,7 @@
   <section class="types" *ngFor="let cont of content | async">
     <article class="transport-type">
       <div class="rectangle">
-        <fa-icon [icon]="['fas', cont.icon]"></fa-icon>
+        <fa-icon [icon]="cont.icon"></fa-icon>
         <p>{{cont.content}}</p>
       </div>
     </article>

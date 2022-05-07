@@ -31,9 +31,6 @@ export class DatabaseService {
   }
 
   uploadComment(comment: UserComment, collection: string) {
-    console.log(comment.title);
-    console.log(comment.content);
-    console.log(comment.images);
     return this.db.collection(collection).add({
       title: comment.title,
       content: comment.content,

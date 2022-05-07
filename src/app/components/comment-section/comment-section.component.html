@@ -19,12 +19,17 @@
                [(ngModel)]="newComment.content" class="form-control" formControlName="content">
         <app-form-control-alert [control]="content" [field]="'Comment content'" [max]="'200'" [min]="'5'"></app-form-control-alert>
 
-        <input class="form-control" type="file" id="formFileMultiple" accept="image/*" (change)="imageUploaded($event)"/>
+        <input class="form-control" type="file" accept="image/*" (change)="imageUploaded($event)" [disabled]="this.percentage == 100"/>
 
         <button class="comment-button" type="submit" value="Post"
-                [disabled]="commentForm.invalid" >
+                [disabled]="commentForm.invalid && !(this.uploadDone)" >
           Post
         </button>
+        <div *ngIf="this.percentage > 0 && this.percentage < 100">
+          Uploading image...
+          Wait until image uploads
+          {{this.percentage.toString()}}
+        </div>
       </form>
     </div>
   </div>

@@ -91,6 +91,10 @@ fa-icon {
   padding: 0.25em 0;
 }
 
+#comment-form button:disabled {
+  background-color: rgb(189, 189, 189);
+}
+
 
 @media (max-width: 1000px) {
   #button-div {

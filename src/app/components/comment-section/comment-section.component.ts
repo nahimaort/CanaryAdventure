@@ -102,6 +102,10 @@ export class CommentSectionComponent implements OnInit {
     let image = this.formData.get('images');
     this.imageName = this.generateRandomId() + this.imageName;
     let upload = this.storageService.uploadToStorage(this.imageName, image);
+    upload.percentageChanges()
+    upload.percentageChanges().subscribe((percentage) => {
+      this.percentage = Math.round(<number>percentage);
+    });
     let reference = this.storageService.reference(this.imageName);
     await upload;
     this.uploadDone = true;
@@ -124,8 +128,6 @@ export class CommentSectionComponent implements OnInit {
   }
 
   async uploadComment() {
-    console.log("url nueva" + this.url);
-    console.log("Pasa 2");
     this.newComment.images?.push(this.url);
     await this.service.uploadComment(this.newComment, 'CommentsExample');
     this.commentForm.reset();

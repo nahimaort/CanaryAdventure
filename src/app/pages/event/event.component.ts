@@ -14,7 +14,7 @@ export class EventComponent {
   eventInformation:  Observable<any[]>;
   eventRelatedContent: Observable<any[]>;
 
-  constructor(private service: DatabaseService) {
+  constructor(service: DatabaseService) {
     this.eventSections = service.getCollection("/EventPage/EventCollection/EventSections");
     this.eventRelatedSections = service.getCollection("/EventPage/EventCollection/EventRelatedSections");
     this.eventGallery = service.getCollection("/EventPage/EventCollection/EventGallery");

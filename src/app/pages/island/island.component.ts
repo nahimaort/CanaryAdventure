@@ -15,7 +15,7 @@ export class IslandComponent {
   islandHowToGetThereDescription: Observable<any[]> | undefined;
   islandHowToGetThereContent: Observable<any[]> | undefined;
 
-  constructor(private service: DatabaseService, router: Router) {
+  constructor(service: DatabaseService, router: Router) {
     this.getIslandInfo(service, router);
   }
 

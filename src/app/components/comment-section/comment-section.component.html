@@ -1,0 +1,42 @@
+<div id="comment-section">
+  <div id="title">
+    <h1>Comment section</h1>
+    <fa-icon [icon]="['fas', 'comments']"></fa-icon>
+  </div>
+
+  <div id="button-div">
+    <button (click)="this.buttonPressed = true; isUserLoggedIn(); !this.loggedIn && openDialog()">Add a comment</button>
+  </div>
+
+  <div *ngIf="buttonPressed">
+    <div *ngIf="loggedIn" id="comment-form-container">
+      <form [formGroup]="commentForm" novalidate id="comment-form" (ngSubmit)="uploadComment()">
+        <input type="text" required id="comment-title" placeholder="Title" name="title"
+               [(ngModel)]="newComment.title" class="form-control" formControlName="title">
+        <app-form-control-alert [control]="title" [field]="'Comment title'" [max]="'50'" [min]="'5'"></app-form-control-alert>
+
+        <input type="text" required id="comment-content" placeholder="Content" name="content"
+               [(ngModel)]="newComment.content" class="form-control" formControlName="content">
+        <app-form-control-alert [control]="content" [field]="'Comment content'" [max]="'200'" [min]="'5'"></app-form-control-alert>
+
+        <input class="form-control" type="file" accept="image/*" (change)="imageUploaded($event)" [disabled]="this.percentage == 100"/>
+
+        <button class="comment-button" type="submit" value="Post"
+                [disabled]="commentForm.invalid || !this.uploadDone" >
+          Post
+        </button>
+        <div *ngIf="this.percentage > 0 && this.percentage < 100">
+          Uploading image...
+          Wait until image uploads
+          {{this.percentage.toString()}}
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="comment-display">
+    <app-comment *ngFor="let example of this.comments | async" [data]="example">
+    </app-comment>
+  </div>
+</div>
+

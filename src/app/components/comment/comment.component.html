@@ -1,0 +1,7 @@
+<div id="comment-container">
+  <h1>{{data?.title}}</h1>
+  <p>{{data?.content}}</p>
+  <div id="comment-attached-images">
+    <img *ngFor="let image of data?.images" [src]="image" (click)="displayImage(image)">
+  </div>
+</div>

@@ -5,16 +5,6 @@ export interface Destination {
   viewValue: string;
 }
 
-export interface HeaderNavItem {
-  link: string;
-  viewValue: string;
-}
-
-export interface DropdownNavItem {
-  link: string;
-  viewValue: string;
-}
-
 export interface Logo {
   link: string;
   image: string;
@@ -23,20 +13,6 @@ export interface Logo {
 export interface Language {
   viewValue: string;
   value: string;
-}
-
-export interface FooterLink {
-  title: string;
-  elementsul: FooterLinkElementUl[];
-}
-
-export interface FooterLinkElementUl {
-  text: string;
-}
-
-export interface FooterSocialMediaLink {
-  link: string;
-  icon: IconName;
 }
 
 export interface Section {
@@ -53,5 +29,8 @@ export interface ContactInformation {
   phone: string;
 }
 
-export class Interfaces {
+export class UserComment {
+  title?: string;
+  content?: string;
+  images?: string[];
 }

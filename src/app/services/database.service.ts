@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {User} from "../models/user.model";
+import {UserComment} from "../models/interfaces.model";
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,12 @@ export class DatabaseService {
     return this.db.collection(path).valueChanges();
   }
 
-  getDoc(path: string, id: string) {
-    return this.db.collection(path).doc(id).valueChanges();
-  }
-
   createDocument(path: string, id: string, data: any) {
     return this.db.collection(path).doc(id).set(data);
+  }
+
+  getDocument(path: string, docID: string) {
+    return this.db.collection(path).doc(docID).valueChanges();
   }
 
   subscribeUser(user: User) {
@@ -29,6 +30,14 @@ export class DatabaseService {
       email: user.email,
       language: user.language
     });
+  }
+
+  uploadComment(comment: UserComment, collection: string) {
+    return this.db.collection(collection).add({
+      title: comment.title,
+      content: comment.content,
+      images: comment.images
+    })
   }
 
   async userIsAlreadySubscribed(user: User): Promise<any> {

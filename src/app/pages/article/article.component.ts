@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
 import {DatabaseService} from "../../services/database.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'article-page',
@@ -8,16 +9,17 @@ import {DatabaseService} from "../../services/database.service";
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
-  articleSections: Observable<any[]>;
-  articleRelatedSections: Observable<any[]>;
-  articleGallery: Observable<any[]>;
-  articleRelatedContent: Observable<any[]>;
+  articleSections: Observable<any[]> | undefined;
+  articleRelatedSections: Observable<any[]> | undefined;
+  articleGallery: Observable<any[]> | undefined;
+  articleRelatedContent: Observable<any[]> | undefined;
 
-  constructor(private service: DatabaseService) {
-    this.articleSections = service.getCollection("/ArticlePage/ArticleCollection/ArticleSections");
-    this.articleRelatedSections = service.getCollection("/ArticlePage/ArticleCollection/ArticleRelatedSections");
-    this.articleGallery = service.getCollection("/ArticlePage/ArticleCollection/ArticleGallery");
-    this.articleRelatedContent = service.getCollection("/ArticlePage/ArticleCollection/ArticleRelatedContent");
+  constructor(service: DatabaseService, router: Router) {
+    let basePath = "/Articles";
+    this.articleSections = service.getCollection(basePath + router.url + "/Sections");
+    this.articleRelatedSections = service.getCollection(basePath + router.url + "/RelatedSections");
+    this.articleGallery = service.getCollection(basePath + router.url + "/Gallery");
+    this.articleRelatedContent = service.getCollection(basePath + router.url + "/RelatedContent");
   }
 
 }

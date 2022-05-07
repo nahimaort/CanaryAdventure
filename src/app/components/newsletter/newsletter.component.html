@@ -1,0 +1,42 @@
+<app-sections [data]="this.newsletterSections"></app-sections>
+<div id="form">
+  <form [formGroup]="userForm" novalidate id="newsletter-form" (ngSubmit)="registerUser(newUser)">
+    <div class="form-input form-group">
+      <div class="row">
+        <div>
+          <input type="text" required id="firstname" placeholder="First name" name="firstName"
+                 [(ngModel)]="newUser.firstName" class="form-control" formControlName="firstName">
+          <app-form-control-alert [control]="firstName" [field]="'First name'" [max]="'50'"></app-form-control-alert>
+        </div>
+
+        <div>
+          <input type="text" required id="lastname" placeholder="Last name" name="lastName"
+                 [(ngModel)]="newUser.lastName" class="form-control" formControlName="lastName">
+          <app-form-control-alert [control]="lastName" [field]="'Last name'" [max]="'50'"></app-form-control-alert>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div>
+          <input type="email" required id="email" placeholder="Email" name="email"
+                 [(ngModel)]="newUser.email" class="form-control" formControlName="email">
+          <app-form-control-alert [control]="email" [field]="'Email address'"></app-form-control-alert>
+        </div>
+
+        <select name="language" class="form-control" formControlName="language" [(ngModel)]="newUser.language">
+          <option *ngFor="let language of siteLanguages | async" [value]="language.value">
+            {{language.viewValue}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div id="button">
+      <button class="subscribe-button" type="submit" value="Subscribe"
+      [disabled]="userForm.invalid">
+        Subscribe
+      </button>
+    </div>
+  </form>
+</div>
+

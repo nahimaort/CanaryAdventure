@@ -1,0 +1,5 @@
+img {
+  display: block;
+  max-width: fit-content;
+  height: 30em;
+}

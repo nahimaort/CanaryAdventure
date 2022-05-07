@@ -22,7 +22,7 @@
         <input class="form-control" type="file" accept="image/*" (change)="imageUploaded($event)" [disabled]="this.percentage == 100"/>
 
         <button class="comment-button" type="submit" value="Post"
-                [disabled]="commentForm.invalid && !(this.uploadDone)" >
+                [disabled]="commentForm.invalid || !this.uploadDone" >
           Post
         </button>
         <div *ngIf="this.percentage > 0 && this.percentage < 100">
@@ -35,7 +35,7 @@
   </div>
 
   <div id="comment-display">
-    <app-comment *ngFor="let example of this.commentsExample | async" [data]="example">
+    <app-comment *ngFor="let example of this.comments | async" [data]="example">
     </app-comment>
   </div>
 </div>

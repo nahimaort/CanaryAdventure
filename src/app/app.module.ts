@@ -33,6 +33,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SignInDialogComponent } from './components/sign-in-dialog/sign-in-dialog.component';
+import { CommentsExampleComponent } from './components/comments-example/comments-example.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SignInDialogComponent } from './components/sign-in-dialog/sign-in-dialo
     CommentSectionComponent,
     CommentComponent,
     ImageDisplayDialogComponent,
-    SignInDialogComponent
+    SignInDialogComponent,
+    CommentsExampleComponent
   ],
   imports: [
     BrowserModule,

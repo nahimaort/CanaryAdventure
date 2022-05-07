@@ -7,6 +7,7 @@ import {AboutComponent} from "./pages/about/about.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {NewsletterComponent} from "./components/newsletter/newsletter.component";
 import {CommentSectionComponent} from "./components/comment-section/comment-section.component";
+import {CommentsExampleComponent} from "./components/comments-example/comments-example.component";
 
 const routes: Routes = [
   { path: 'faq', component: FaqComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'newsletter', component: NewsletterComponent},
   { path: 'comments', component: CommentSectionComponent},
+  { path: 'commentsExample', component: CommentsExampleComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

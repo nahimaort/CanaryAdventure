@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {DatabaseService} from "../../services/database.service";
 import {Observable} from "rxjs";
 import {UserComment} from "../../model/interfaces.model";
 import {AuthService} from "../../services/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatDialog} from "@angular/material/dialog";
-import {ImageDisplayDialogComponent} from "../image-display-dialog/image-display-dialog.component";
 import {SignInDialogComponent} from "../sign-in-dialog/sign-in-dialog.component";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../model/user.model";
 import {StorageService} from "../../services/storage.service";
-import {newArray} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-comment-section',
@@ -18,14 +15,17 @@ import {newArray} from "@angular/compiler/src/util";
   styleUrls: ['./comment-section.component.css']
 })
 export class CommentSectionComponent implements OnInit {
-  commentsExample: Observable<UserComment[]>;
+
+  @Input() collection: string | undefined;
+
+  comments: Observable<UserComment[]> | undefined;
   loggedIn: boolean | undefined;
   buttonPressed: boolean | undefined;
   newComment: UserComment = new UserComment();
   commentForm = new FormGroup({
     title: new FormControl(this.newComment.title, [Validators.required, Validators.maxLength(50), Validators.minLength(5)]),
     content: new FormControl(this.newComment.content, [Validators.required, Validators.maxLength(200), Validators.minLength(5)]),
-    images: new FormControl(this.newComment.images, Validators.required),
+    images: new FormControl(this.newComment.images),
   });
   private imageName: any;
   formData = new FormData();
@@ -38,14 +38,21 @@ export class CommentSectionComponent implements OnInit {
               public snackBar: MatSnackBar,
               public dialog: MatDialog,
               public storageService: StorageService) {
-    // @ts-ignore
-    this.commentsExample = this.service.getCollection<UserComment>('CommentsExample');
     this.loggedIn = undefined;
     this.newComment.images = [];
   }
 
+
   ngOnInit(): void {
     this.buttonPressed = false;
+    this.uploadDone = false;
+    // @ts-ignore
+    this.comments = this.service.getCollection<UserComment>(this.collection);
+  }
+
+  ngOnChange(): void {
+    // @ts-ignore
+    this.comments = this.service.getCollection<UserComment>(this.collection);
   }
 
   openSnackBar(message: string, action:string) {
@@ -95,41 +102,29 @@ export class CommentSectionComponent implements OnInit {
   }
 
   generateRandomId() {
-    return Math.random().toString();
+    return Math.random();
   }
 
   async uploadImage() {
     let image = this.formData.get('images');
     this.imageName = this.generateRandomId() + this.imageName;
     let upload = this.storageService.uploadToStorage(this.imageName, image);
-    upload.percentageChanges()
     upload.percentageChanges().subscribe((percentage) => {
       this.percentage = Math.round(<number>percentage);
     });
     let reference = this.storageService.reference(this.imageName);
     await upload;
-    this.uploadDone = true;
+
     reference.getDownloadURL().subscribe((url) => {
       this.url = url;
+      this.uploadDone = true;
     });
-
-    /*
-    upload.percentageChanges().subscribe((percentage) => {
-      this.percentage = Math.round(<number>percentage);
-      if (this.percentage == 100) {
-        this.uploadDone = true;
-        reference.getDownloadURL().subscribe((url) =>
-        {
-          this.url = url;
-        });
-      }
-    });
-     */
   }
 
   async uploadComment() {
     this.newComment.images?.push(this.url);
-    await this.service.uploadComment(this.newComment, 'CommentsExample');
+    let uploadComment = this.service.uploadComment(this.newComment, <string>this.collection);
+    await uploadComment;
     this.commentForm.reset();
     this.percentage = 0;
     this.openSnackBar('Comment published!', '');

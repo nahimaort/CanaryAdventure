@@ -34,6 +34,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { SignInDialogComponent } from './components/sign-in-dialog/sign-in-dialog.component';
 import { CommentsExampleComponent } from './components/comments-example/comments-example.component';
+import { IntroTitleComponent } from './components/intro-title/intro-title.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CommentsExampleComponent } from './components/comments-example/comments
     CommentComponent,
     ImageDisplayDialogComponent,
     SignInDialogComponent,
-    CommentsExampleComponent
+    CommentsExampleComponent,
+    IntroTitleComponent
   ],
   imports: [
     BrowserModule,

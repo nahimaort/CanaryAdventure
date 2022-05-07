@@ -9,8 +9,10 @@ import {Observable} from "rxjs";
 })
 export class FaqComponent implements OnInit {
   faqSections: Observable<any[]>;
+  faqIntroBG: Observable<unknown | undefined>;
 
   constructor(private service: DatabaseService) {
+    this.faqIntroBG = this.service.getDocument('IntroBG', 'Faqs');
     this.faqSections = this.service.getCollection('FaqSections');
   }
 

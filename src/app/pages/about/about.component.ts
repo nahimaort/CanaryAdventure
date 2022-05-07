@@ -10,8 +10,10 @@ import {DatabaseService} from "../../services/database.service";
 export class AboutComponent implements OnInit {
   aboutSections: Observable<any[]>;
   companyInformation: Observable<any[]>;
+  aboutIntroBG: any;
 
   constructor(private service: DatabaseService) {
+    this.aboutIntroBG = this.service.getDocument('IntroBG', 'About');
     this.aboutSections = this.service.getCollection('AboutSectionContent');
     this.companyInformation = this.service.getCollection('CompanyContactInformation');
   }

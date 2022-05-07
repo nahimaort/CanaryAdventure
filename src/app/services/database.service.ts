@@ -21,6 +21,10 @@ export class DatabaseService {
     return this.db.collection(path).doc(id).set(data);
   }
 
+  getDocument(path: string, docID: string) {
+    return this.db.collection(path).doc(docID).valueChanges();
+  }
+
   subscribeUser(user: User) {
     return this.db.collection('NewsletterSubscribers').add({
       firstName: user.firstName,

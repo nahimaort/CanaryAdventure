@@ -14,6 +14,7 @@ export class IslandComponent {
   islandWhereToStay: Observable<any[]> | undefined;
   islandHowToGetThereDescription: Observable<any[]> | undefined;
   islandHowToGetThereContent: Observable<any[]> | undefined;
+  introTitle: Observable<any> | undefined;
 
   constructor(service: DatabaseService, router: Router) {
     this.getIslandInfo(service, router);
@@ -28,6 +29,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/LanzaroteWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LanzaroteHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LanzaroteHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/Lanzarote");
         break;
       }
 
@@ -38,6 +40,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/GranCanariaWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/GranCanariaHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/GranCanariaHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/GranCanaria");
         break;
       }
 
@@ -48,6 +51,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/TenerifeWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/TenerifeHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/TenerifeHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/Tenerife");
         break;
       }
 
@@ -58,6 +62,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/FuerteventuraWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/FuerteventuraHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/FuerteventuraHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/Fuerteventura");
         break;
       }
 
@@ -68,6 +73,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/LaPalmaWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LaPalmaHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LaPalmaHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/LaPalma");
         break;
       }
 
@@ -78,6 +84,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/LaGraciosaWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LaGraciosaHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LaGraciosaHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/LaGraciosa");
         break;
       }
 
@@ -88,6 +95,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/ElHierroWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/ElHierroHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/ElHierroHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/ElHierro");
         break;
       }
 
@@ -98,6 +106,7 @@ export class IslandComponent {
         this.islandWhereToStay = service.getCollection(basePath + "/LaGomeraWhereToStay");
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LaGomeraHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LaGomeraHowToGetThereContent");
+        this.introTitle = service.getDocument("/IntroBG", "/LaGomera");
         break;
       }
 

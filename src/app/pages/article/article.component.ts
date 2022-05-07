@@ -9,10 +9,11 @@ import {Router} from "@angular/router";
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent {
-  articleSections: Observable<any[]> | undefined;
-  articleRelatedSections: Observable<any[]> | undefined;
-  articleGallery: Observable<any[]> | undefined;
-  articleRelatedContent: Observable<any[]> | undefined;
+  articleSections: Observable<any[]>;
+  articleRelatedSections: Observable<any[]>;
+  articleGallery: Observable<any[]>;
+  articleRelatedContent: Observable<any[]>;
+  introTitle: Observable<any>;
 
   constructor(service: DatabaseService, router: Router) {
     let basePath = "/Articles";
@@ -20,6 +21,7 @@ export class ArticleComponent {
     this.articleRelatedSections = service.getCollection(basePath + router.url + "/RelatedSections");
     this.articleGallery = service.getCollection(basePath + router.url + "/Gallery");
     this.articleRelatedContent = service.getCollection(basePath + router.url + "/RelatedContent");
+    this.introTitle = service.getDocument("/IntroBG", router.url);
   }
 
 }

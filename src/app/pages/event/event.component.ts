@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Observable} from "rxjs";
 import {DatabaseService} from "../../services/database.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'event-page',
@@ -13,13 +14,16 @@ export class EventComponent {
   eventGallery: Observable<any[]>;
   eventInformation:  Observable<any[]>;
   eventRelatedContent: Observable<any[]>;
+  introTitle: Observable<any>;
 
-  constructor(service: DatabaseService) {
-    this.eventSections = service.getCollection("/EventPage/EventCollection/EventSections");
-    this.eventRelatedSections = service.getCollection("/EventPage/EventCollection/EventRelatedSections");
-    this.eventGallery = service.getCollection("/EventPage/EventCollection/EventGallery");
-    this.eventRelatedContent = service.getCollection("/EventPage/EventCollection/EventRelatedContent");
-    this.eventInformation = service.getCollection("/EventPage/EventCollection/EventInformation");
+  constructor(service: DatabaseService, router: Router) {
+    let basePath = "/Events";
+    this.eventSections = service.getCollection(basePath + router.url + "/Sections");
+    this.eventRelatedSections = service.getCollection(basePath + router.url + "/RelatedSections");
+    this.eventGallery = service.getCollection(basePath + router.url + "/Gallery");
+    this.eventInformation = service.getCollection(basePath + router.url + "/Information");
+    this.eventRelatedContent = service.getCollection(basePath + router.url + "/RelatedContent");
+    this.introTitle = service.getDocument("/IntroBG", router.url);
   }
 
 }

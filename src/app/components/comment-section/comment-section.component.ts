@@ -91,19 +91,22 @@ export class CommentSectionComponent implements OnInit {
     return this.commentForm.get('images');
   }
 
-  uploadImage() {
+  async uploadImage() {
     let image = this.formData.get('images');
     let reference = this.storageService.reference(this.imageName);
     this.storageService.uploadToStorage(this.imageName, image);
-    return reference.getDownloadURL().subscribe((url) => {
+    await reference.getDownloadURL().subscribe((url) => {
+      console.log("Pasa 1");
       this.url = url;
     });
   }
 
-  uploadComment() {
-    this.uploadImage();
+  async uploadComment() {
+    await this.uploadImage();
+    console.log("Pasa 2");
+    console.log("url nueva" + this.url);
     this.newComment.images = this.url;
-    console.log("url" + this.url);
+    console.log(this.newComment.images);
     this.service.uploadComment(this.newComment, 'CommentsExample');
   }
 

@@ -13,10 +13,11 @@ export class HomeComponent implements OnInit {
   homeCatTxt: Observable<any>;
   homeInspTxt: Observable<any>;
   homeEventTxt: Observable<any>;
+  homeArticleTxt: Observable<any>;
   homeGalleryData: Observable<any[]>;
   homeGalleryInspiredData: Observable<any[]>;
-  homeGalleryEventData: Observable<any[]>;
   homeEventsData: Observable<any[]>;
+  homeArticlesData: Observable<any[]>;
 
 
   constructor(private service: DatabaseService) {
@@ -24,10 +25,11 @@ export class HomeComponent implements OnInit {
     this.homeCatTxt = this.service.getDocument('Home', 'discover');
     this.homeInspTxt = this.service.getDocument('Home', 'inspired');
     this.homeEventTxt = this.service.getDocument('Home', 'events');
+    this.homeArticleTxt = this.service.getDocument('Home', 'articles');
     this.homeGalleryData = this.service.getCollection('HomeCategories');
     this.homeGalleryInspiredData = this.service.getCollection('WhatToDo/Categories/WhatToDo');
-    this.homeGalleryEventData = this.service.getCollection('EventRelated');
     this.homeEventsData = service.getCollection('Events/Christmas/RelatedContent');
+    this.homeArticlesData = service.getCollection('Articles/SurfCanteras/RelatedContent');
   }
 
   ngOnInit(): void {

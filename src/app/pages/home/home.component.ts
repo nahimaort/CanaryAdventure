@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   homeGalleryData: Observable<any[]>;
   homeGalleryInspiredData: Observable<any[]>;
   homeGalleryEventData: Observable<any[]>;
+  homeEventsData: Observable<any[]>;
 
 
   constructor(private service: DatabaseService) {
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.homeGalleryData = this.service.getCollection('HomeCategories');
     this.homeGalleryInspiredData = this.service.getCollection('WhatToDo/Categories/WhatToDo');
     this.homeGalleryEventData = this.service.getCollection('EventRelated');
+    this.homeEventsData = service.getCollection('Events/Christmas/RelatedContent');
   }
 
   ngOnInit(): void {

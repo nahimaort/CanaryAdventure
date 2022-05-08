@@ -50,6 +50,7 @@ import { BlockGalleryComponent } from './components/block-gallery/block-gallery.
 import { CategoryComponent } from './pages/category/category.component';
 import { ColImg50txt50Component } from './components/col-img50txt50/col-img50txt50.component';
 import { TitleContentComponent } from './components/title-content/title-content.component';
+import { NewsSubscribeComponent } from './components/news-subscribe/news-subscribe.component';
 
 
 
@@ -92,7 +93,8 @@ import { TitleContentComponent } from './components/title-content/title-content.
     BlockGalleryComponent,
     CategoryComponent,
     ColImg50txt50Component,
-    TitleContentComponent
+    TitleContentComponent,
+    NewsSubscribeComponent
   ],
   imports: [
     BrowserModule,

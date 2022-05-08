@@ -1,19 +1,21 @@
 <div class="related-events-display">
   <article class="event-preview" *ngFor="let relate of relatedContent | async">
+    <a [href]="relate.link">
       <img [src]="relate.imageURL">
       <div class="related-event-info">
-          <h3>{{relate.title}}</h3>
-          <p>
-            {{relate.content}}
-          </p>
-          <div>
-            <fa-icon [icon]="faCalendarDays"></fa-icon>
-            {{relate.date}}
-          </div>
-          <div>
-            <fa-icon [icon]="faLocationDot"></fa-icon>
-            {{relate.location}}
-          </div>
+        <h3>{{relate.title}}</h3>
+        <p>
+          {{relate.content}}
+        </p>
+        <div>
+          <fa-icon [icon]="faCalendarDays"></fa-icon>
+          {{relate.date}}
+        </div>
+        <div>
+          <fa-icon [icon]="faLocationDot"></fa-icon>
+          {{relate.location}}
+        </div>
       </div>
+    </a>
   </article>
 </div>

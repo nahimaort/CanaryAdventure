@@ -1,11 +1,13 @@
 <div class="related-article-display">
   <article class="article-preview" *ngFor="let relate of relatedContent | async">
+    <a [href]="relate.link">
       <img [src]="relate.imageURL">
       <div class="related-article-info">
-          <h3>{{relate.title}}</h3>
-          <p>
-            {{relate.content}}
-          </p>
+        <h3>{{relate.title}}</h3>
+        <p>
+          {{relate.content}}
+        </p>
       </div>
+    </a>
   </article>
 </div>

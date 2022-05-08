@@ -45,6 +45,7 @@ article p {
   overflow: scroll;
   display: flex;
   flex-direction: row;
+  margin-bottom: 5em;
 }
 
 .article-preview {

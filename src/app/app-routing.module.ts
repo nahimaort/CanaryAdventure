@@ -8,6 +8,9 @@ import {AboutComponent} from "./pages/about/about.component";
 import {NewsletterComponent} from "./components/newsletter/newsletter.component";
 import {CommentSectionComponent} from "./components/comment-section/comment-section.component";
 import {CommentsExampleComponent} from "./components/comments-example/comments-example.component";
+import { WhattodoComponent } from './pages/whattodo/whattodo.component';
+import { HomeComponent } from './pages/home/home.component';
+import { CategoryComponent } from './pages/category/category.component';
 
 const routes: Routes = [
   { path: 'lanzarote', component: IslandComponent },
@@ -33,6 +36,20 @@ const routes: Routes = [
   { path: 'newsletter', component: NewsletterComponent},
   { path: 'comments', component: CommentSectionComponent},
   { path: 'commentsExample', component: CommentsExampleComponent},
+  { path: 'ScubaDive', component: CategoryComponent},
+  { path: 'Paragliding', component: CategoryComponent},
+  { path: 'CatamaranSailing', component: CategoryComponent},
+  { path: 'Cruise', component: CategoryComponent},
+  { path: 'Gastronomy', component: CategoryComponent},
+  { path: 'JeepTour', component: CategoryComponent},
+  { path: 'SunsetDolphins', component: CategoryComponent},
+  { path: 'PirateAdventure', component: CategoryComponent},
+
+  { path: 'whattodo', component: WhattodoComponent },
+  { path: 'home', component: HomeComponent},
+  { path: 'ScubaDive', component: CategoryComponent},
+  { path: 'Paragliding', component: CategoryComponent},
+
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

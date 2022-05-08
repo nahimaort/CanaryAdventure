@@ -44,6 +44,15 @@ import { SignInDialogComponent } from './components/sign-in-dialog/sign-in-dialo
 import { CommentsExampleComponent } from './components/comments-example/comments-example.component';
 import { IntroTitleComponent } from './components/intro-title/intro-title.component';
 
+import { WhattodoComponent } from './pages/whattodo/whattodo.component';
+import { HomeComponent } from './pages/home/home.component';
+import { BlockGalleryComponent } from './components/block-gallery/block-gallery.component';
+import { CategoryComponent } from './pages/category/category.component';
+import { ColImg50txt50Component } from './components/col-img50txt50/col-img50txt50.component';
+import { TitleContentComponent } from './components/title-content/title-content.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -76,7 +85,14 @@ import { IntroTitleComponent } from './components/intro-title/intro-title.compon
     ImageDisplayDialogComponent,
     SignInDialogComponent,
     CommentsExampleComponent,
-    IntroTitleComponent
+    IntroTitleComponent,
+
+    WhattodoComponent,
+    HomeComponent,
+    BlockGalleryComponent,
+    CategoryComponent,
+    ColImg50txt50Component,
+    TitleContentComponent
   ],
   imports: [
     BrowserModule,

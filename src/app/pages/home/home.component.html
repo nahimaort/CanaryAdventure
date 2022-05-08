@@ -1,0 +1,38 @@
+<app-intro-title 
+  [data]=homeIntroBG>
+</app-intro-title>
+
+<main>
+
+  <app-title-content
+    [data]=homeCatTxt>
+  </app-title-content>
+  <span id='destinations'>
+    <app-block-gallery
+      [blocksData]=homeGalleryData>
+    </app-block-gallery>
+  </span>
+
+  <app-title-content
+    [data]=homeInspTxt>
+  </app-title-content>
+
+  <app-block-gallery
+    [blocksData]=homeGalleryInspiredData>
+  </app-block-gallery>
+
+  <app-title-content
+    [data]=homeEventTxt>
+  </app-title-content>
+
+  <app-related-event
+    [relatedContent]=homeGalleryEventData>
+  </app-related-event>
+
+</main>
+
+<!--
+<app-sections [data]=homeTitleInfo></app-sections>
+
+<app-block-gallery [blocksData]=homeGalleryData></app-block-gallery>
+-->

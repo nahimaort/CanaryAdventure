@@ -1,0 +1,7 @@
+{
+  "name": "CanaryAdventure",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -7,9 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
-import {TitleContentPageModule} from "../pages/title-content/title-content.module";
-import {IntroTitlePageModule} from "../pages/intro-title/intro-title.module";
-import {BlockGalleryPageModule} from "../pages/block-gallery/block-gallery.module";
+import {TitleContentPageModule} from "../../pages/title-content/title-content.module";
+import {IntroTitlePageModule} from "../../pages/intro-title/intro-title.module";
+import {BlockGalleryPageModule} from "../../pages/block-gallery/block-gallery.module";
 
 @NgModule({
   imports: [
@@ -20,6 +20,9 @@ import {BlockGalleryPageModule} from "../pages/block-gallery/block-gallery.modul
     TitleContentPageModule,
     IntroTitlePageModule,
     BlockGalleryPageModule
+  ],
+  exports: [
+    HomePage
   ],
   declarations: [HomePage]
 })

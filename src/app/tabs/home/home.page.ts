@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {DatabaseService} from "../services/database.service";
+import {DatabaseService} from "../../services/database.service";
 
 @Component({
   selector: 'app-home',

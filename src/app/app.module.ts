@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import {environment} from "../environments/environment";
+import {HomePageModule} from "./tabs/home/home.module";
+import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {faBars, faCar, faBus, faPlane, faShip} from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,8 +23,16 @@ import {environment} from "../environments/environment";
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    HomePageModule,
+    FontAwesomeModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faBars, faCar, faBus, faPlane, faShip);
+  }
+
+}

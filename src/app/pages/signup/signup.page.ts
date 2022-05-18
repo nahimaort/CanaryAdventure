@@ -3,6 +3,8 @@ import {DatabaseService} from '../../services/database.service';
 import {Observable} from 'rxjs';
 import {UserData} from '../../model/interfaces.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {NavController} from '@ionic/angular';
+import {NavigationExtras} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +16,7 @@ export class SignupPage implements OnInit {
   newUserData: UserData = new UserData();
   userDataForm: FormGroup;
 
-  constructor(private service: DatabaseService) {
+  constructor(private service: DatabaseService, public navCtrl: NavController,) {
     this.countries = this.service.getCollection('AvailableCountries');
     this.userDataForm = new FormGroup({
       // eslint-disable-next-line max-len
@@ -26,7 +28,6 @@ export class SignupPage implements OnInit {
       phone: new FormControl(this.newUserData.phone, [Validators.required, Validators.pattern('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$')])
     });
   }
-
   get firstName() {
     return this.userDataForm.get('firstName');
   }
@@ -47,6 +48,13 @@ export class SignupPage implements OnInit {
   }
 
   saveUserData() {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        user: this.newUserData
+      }
+    };
+    console.log(navigationExtras.queryParams.user);
+    this.navCtrl.navigateForward('/signup-account', navigationExtras);
     console.log(this.newUserData);
   }
 }

@@ -1,0 +1,42 @@
+<ion-content class="ion-padding">
+  <ion-text>
+    <h1>Welcome to Canary Adventure</h1>
+  </ion-text>
+  <ion-text>
+    <h2>Get started</h2>
+  </ion-text>
+  <ion-text>
+    <h3>Enter your personal information to begin</h3>
+  </ion-text>
+  <form novalidate [formGroup]="userDataForm" (ngSubmit)="saveUserData()">
+    <ion-item lines="full">
+      <ion-label position="floating">First name</ion-label>
+      <ion-input type="text" formControlName="firstName" [(ngModel)]="newUserData.firstName"></ion-input>
+      <app-form-control-alert [control]="firstName" [field]="'First name'" [max]="'50'"></app-form-control-alert>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input type="text" formControlName="lastName" [(ngModel)]="newUserData.lastName"></ion-input>
+      <app-form-control-alert [control]="lastName" [field]="'Last name'" [max]="'50'"></app-form-control-alert>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Country</ion-label>
+      <ion-select okText="Ok" cancelText="Dismiss" formControlName="country" [(ngModel)]="newUserData.country">
+        <ion-select-option *ngFor="let country of this.countries | async" [value]="country.value">
+          {{country.viewValue}}
+        </ion-select-option>
+      </ion-select>
+      <app-form-control-alert [control]="country" [field]="'Country'"></app-form-control-alert>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Phone number</ion-label>
+      <ion-input type="text" formControlName="phone" [(ngModel)]="newUserData.phone"></ion-input>
+      <app-form-control-alert [control]="phone" [field]="'Phone number'"></app-form-control-alert>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" [disabled]="userDataForm.invalid">Continue</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

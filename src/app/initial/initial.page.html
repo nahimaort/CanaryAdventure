@@ -8,15 +8,16 @@
     <ion-card-content>
       Discover Canary Islands, experiences, places and recommandations you can't miss.
       <div class="col" id="buttons">
-        <ion-button expand="block" color="primary" size="large">Log in</ion-button>
+        <ion-button expand="block" color="primary" size="large" routerLink="/login">Log in</ion-button>
         <div id="sign-up-btn">
           Don't have an account?
-          <ion-button expand="block" color="secondary" size="large">Sign up</ion-button>
+          <ion-button expand="block" color="secondary" size="large" routerLink="/signup">Sign up</ion-button>
         </div>
       </div>
     </ion-card-content>
-    <div id="continue-label">
+    <div id="continue-label" routerLink="/home">
       Continue without registration
+      <ion-icon name="arrow-forward-outline"></ion-icon>
     </div>
   </ion-card>
 </ion-content>

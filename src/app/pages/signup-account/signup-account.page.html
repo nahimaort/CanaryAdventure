@@ -1,11 +1,24 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>signup-account</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <form (ngSubmit)="storeData()">
-    <ion-button type="submit" color="danger" expand="block">Continue</ion-button>
+<ion-content class="ion-padding">
+  <ion-text>
+    <h1>Sign in with your account</h1>
+  </ion-text>
+  <form novalidate [formGroup]="userAccountForm" (ngSubmit)="saveUserData()">
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <app-form-control-alert [control]="email" [field]="'Email'" [min]="'3'"></app-form-control-alert>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+      <app-form-control-alert [control]="password" [field]="'Password'" [min]="'6'"></app-form-control-alert>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" [disabled]="userAccountForm.invalid">
+          Continue
+        </ion-button>
+      </ion-col>
+    </ion-row>
   </form>
 </ion-content>

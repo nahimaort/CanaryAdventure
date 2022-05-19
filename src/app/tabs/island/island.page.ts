@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Observable} from "rxjs";
 import {DatabaseService} from "../../services/database.service";
 import {Router} from "@angular/router";
+import {ToastController} from "@ionic/angular";
 
 @Component({
   selector: 'island-page',
@@ -17,8 +18,32 @@ export class IslandPage {
   islandHowToGetThereContent: Observable<any[]> | undefined;
   introTitle: Observable<any> | undefined;
 
-  constructor(service: DatabaseService, router: Router) {
+  addedToFav: boolean = false;
+  favButtonText: string = "Add To Favorite";
+
+  constructor(service: DatabaseService, router: Router, private toastController: ToastController) {
     this.getIslandInfo(service, router);
+  }
+
+  async generatePopUp(message: string) {
+    const toast =  await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: "top"
+    })
+    await toast.present();
+  }
+
+  async checkFavButton() {
+    if (this.addedToFav) {
+      this.addedToFav = false;
+      this.favButtonText = "Add To Favorite";
+      await this.generatePopUp("Removed From Favorite");
+    } else {
+      this.addedToFav = true;
+      this.favButtonText = "Remove From Favorite";
+      await this.generatePopUp("Added To Favorite");
+    }
   }
 
   getIslandInfo(service: DatabaseService, router: Router) {

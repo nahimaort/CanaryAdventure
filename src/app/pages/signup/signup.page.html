@@ -33,6 +33,16 @@
       <ion-input type="text" formControlName="phone" [(ngModel)]="newUserData.phone"></ion-input>
     </ion-item>
     <app-form-control-alert [control]="phone" [field]="'Phone number'"></app-form-control-alert>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <app-form-control-alert [control]="email" [field]="'Email'" [min]="'3'"></app-form-control-alert>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+      <app-form-control-alert [control]="password" [field]="'Password'" [min]="'6'"></app-form-control-alert>
+    </ion-item>
     <ion-row>
       <ion-col>
         <ion-button type="submit" color="danger" expand="block" [disabled]="userDataForm.invalid">

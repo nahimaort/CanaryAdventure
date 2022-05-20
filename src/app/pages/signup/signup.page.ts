@@ -16,7 +16,7 @@ export class SignupPage implements OnInit {
   newUserData: UserData = new UserData();
   userDataForm: FormGroup;
 
-  constructor(private dbService: DatabaseService, public navCtrl: NavController, private loadingController: LoadingController,
+  constructor(private dbService: DatabaseService, private navCtrl: NavController, private loadingController: LoadingController,
               private authService: AuthService, private alertController: AlertController, private toastController: ToastController) {
     this.countries = this.dbService.getCollection('AvailableCountries');
     this.userDataForm = new FormGroup({

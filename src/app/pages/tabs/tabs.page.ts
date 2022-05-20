@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import {ToastController} from "@ionic/angular";
 
 @Component({
   selector: 'app-tabs',
@@ -10,7 +9,7 @@ import {ToastController} from "@ionic/angular";
 export class TabsPage implements OnInit {
   id: string;
 
-  constructor(private authService: AuthService, private toastController: ToastController) { }
+  constructor(private authService: AuthService) { }
   async ngOnInit() {
     await this.getId();
     console.log(this.id);

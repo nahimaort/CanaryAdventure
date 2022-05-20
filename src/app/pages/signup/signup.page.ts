@@ -102,7 +102,7 @@ export class SignupPage implements OnInit {
         country: this.country.value,
         phone: this.phone.value
       });
-      await this.navCtrl.navigateForward('/home');
+      await this.navCtrl.navigateForward('/tabs/home');
       await this.showToast('Signed up succesfully');
       await loading.dismiss();
     }

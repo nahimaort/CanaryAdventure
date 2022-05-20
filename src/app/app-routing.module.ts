@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {TabsPage} from "./pages/tabs/tabs.page";
+import {EdituserdataPage} from "./pages/edituserdata/edituserdata.page";
 
 const routes: Routes = [
   {
@@ -20,8 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupPageModule)
   },
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
+    path: 'tabs', component: TabsPage
   }
 ];
 

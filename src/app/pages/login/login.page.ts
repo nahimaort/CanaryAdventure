@@ -68,7 +68,7 @@ export class LoginPage implements OnInit {
       }
     }
     if (user) {
-      await this.navCtrl.navigateForward('/home');
+      await this.navCtrl.navigateForward('/tabs/home');
       await this.showToast('Signed in succesfully');
       await loading.dismiss();
     }

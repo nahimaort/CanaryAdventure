@@ -22,11 +22,11 @@ export class IslandPage {
 
   addedToFav: boolean = false;
   favButtonText: string = "Add To Favorite";
-  userUID: string;
+  userID: string;
 
   constructor(
-    service: DatabaseService,
-    router: Router,
+    private service: DatabaseService,
+    private router: Router,
     private toastController: ToastController,
     private auth: AuthService,
     private db: SQLiteService
@@ -37,7 +37,7 @@ export class IslandPage {
 
   setUserID() {
     this.auth.getUserId().then((id) => {
-      this.userUID = id;
+      this.userID = id;
     });
   }
 
@@ -52,10 +52,12 @@ export class IslandPage {
 
   async checkFavButton() {
     if (this.addedToFav) {
+      this.db.removeFavorite(this.userID, this.router.url);
       this.addedToFav = false;
       this.favButtonText = "Add To Favorite";
       await this.generatePopUp("Removed From Favorite");
     } else {
+      this.db.addFavorite(this.userID, this.router.url);
       this.addedToFav = true;
       this.favButtonText = "Remove From Favorite";
       await this.generatePopUp("Added To Favorite");

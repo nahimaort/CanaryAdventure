@@ -25,7 +25,7 @@ export class SQLiteService {
           this.dbInstance = sqLite;
           this.dbInstance.executeSql(
             `CREATE TABLE IF NOT EXISTS ${this.dbTable} (
-            userID INTEGER, pageName TEXT
+            userID TEXT, pageName TEXT
             )`, [])
             .then(() => {console.log("Executed CREATE")})
             .catch((e) => {console.log(e)});
@@ -34,16 +34,16 @@ export class SQLiteService {
     });
   }
 
-  addFavorite(userID: number, pageName: string) {
+  addFavorite(userID: string, pageName: string) {
     this.dbInstance.executeSql(
-      `INSERT INTO ${this.dbTable} (userID, pageName) VALUES (${userID}, '${pageName}')`, [])
+      `INSERT INTO ${this.dbTable} (userID, pageName) VALUES ('${userID}', '${pageName}')`, [])
       .then(() => {console.log("Executed INSERT")})
       .catch((e) => {console.log(e)});
   }
 
-  removeFavorite(userID: number, pageName: string) {
+  removeFavorite(userID: string, pageName: string) {
     this.dbInstance.executeSql(
-      `DELETE FROM ${this.dbTable} WHERE userID = ${userID} AND pageName = '${pageName}')`, [])
+      `DELETE FROM ${this.dbTable} WHERE userID = '${userID}' AND pageName = '${pageName}')`, [])
       .then(() => {console.log("Executed DELETE")})
       .catch((e) => {console.log(e)});
   }

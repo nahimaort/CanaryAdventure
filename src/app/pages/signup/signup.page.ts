@@ -3,8 +3,8 @@ import {DatabaseService} from '../../services/database.service';
 import {Observable} from 'rxjs';
 import {UserData} from '../../model/interfaces.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {NavController} from '@ionic/angular';
-import {NavigationExtras} from '@angular/router';
+import {LoadingController, NavController, AlertController} from '@ionic/angular';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -16,8 +16,9 @@ export class SignupPage implements OnInit {
   newUserData: UserData = new UserData();
   userDataForm: FormGroup;
 
-  constructor(private service: DatabaseService, public navCtrl: NavController,) {
-    this.countries = this.service.getCollection('AvailableCountries');
+  constructor(private dbService: DatabaseService, public navCtrl: NavController, private loadingController: LoadingController,
+              private authService: AuthService, private alertController: AlertController) {
+    this.countries = this.dbService.getCollection('AvailableCountries');
     this.userDataForm = new FormGroup({
       // eslint-disable-next-line max-len
       firstName: new FormControl(this.newUserData.firstName, [Validators.required, Validators.maxLength(50), Validators.pattern('[A-Za-z]+')]),
@@ -58,19 +59,42 @@ export class SignupPage implements OnInit {
 
   ngOnInit() {
   }
+  async showRegisterErrorAlert(title: string, content: string) {
+    const alert = await this.alertController.create({
+      header: title,
+      message: content,
+      buttons: ['OK'],
+    });
 
-  saveUserData() {
-    /*
-    const navigationExtras: NavigationExtras = {
-      queryParams: {
-        user: this.newUserData
+    await alert.present();
+  }
+
+  async saveUserData() {
+    const loading = await this.loadingController.create();
+    await loading.present();
+    let user;
+    try {
+      user = await this.authService.signup(this.email.value, this.password.value);
+    }
+    catch(e) {
+      user = null;
+      await loading.dismiss();
+      if (e.code === 'auth/email-already-in-use') {
+        await this.showRegisterErrorAlert('Already registered', 'Another user with same email is already registered');
       }
-    };
-    console.log(navigationExtras.queryParams.user);
-    this.navCtrl.navigateForward('/signup-account', navigationExtras);
-    */
-    console.log(this.newUserData);
-    console.log(this.email.value);
-    console.log(this.password.value);
+      else {
+        await this.showRegisterErrorAlert('Unexpected error', 'An unexpected error while registering has occurred');
+      }
+    }
+    if (user) {
+      const userUid = this.authService.getUserId();
+      await this.dbService.setDocument('UsersInfo', await userUid, {
+        firstName: this.firstName.value,
+        lastName: this.lastName.value,
+        country: this.country.value,
+        phone: this.phone.value
+      });
+      await loading.dismiss();
+    }
   }
 }

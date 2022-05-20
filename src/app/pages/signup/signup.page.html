@@ -21,7 +21,7 @@
     <app-form-control-alert [control]="lastName" [field]="'Last name'" [max]="'50'"></app-form-control-alert>
     <ion-item lines="full">
       <ion-label position="floating">Country</ion-label>
-      <ion-select okText="Ok" cancelText="Dismiss" formControlName="country" [(ngModel)]="newUserData.country">
+      <ion-select okText="OK" cancelText="Dismiss" formControlName="country" [(ngModel)]="newUserData.country">
         <ion-select-option *ngFor="let country of this.countries | async" [value]="country.value">
           {{country.viewValue}}
         </ion-select-option>

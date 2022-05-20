@@ -22,10 +22,6 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
-  },
-  {
-    path: 'signup-account',
-    loadChildren: () => import('./pages/signup-account/signup-account.module').then( m => m.SignupAccountPageModule)
   }
 ];
 

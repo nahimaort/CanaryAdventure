@@ -13,6 +13,7 @@ import {environment} from "../environments/environment";
 import {HomePageModule} from "./tabs/home/home.module";
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faBars, faCar, faBus, faPlane, faShip} from '@fortawesome/free-solid-svg-icons';
+import {SQLite} from "@ionic-native/sqlite/ngx";
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,10 @@ import {faBars, faCar, faBus, faPlane, faShip} from '@fortawesome/free-solid-svg
     HomePageModule,
     FontAwesomeModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    SQLite,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {

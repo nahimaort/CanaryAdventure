@@ -3,6 +3,8 @@ import {Observable} from "rxjs";
 import {DatabaseService} from "../../services/database.service";
 import {Router} from "@angular/router";
 import {ToastController} from "@ionic/angular";
+import {AuthService} from "../../services/auth.service";
+import {SQLiteService} from "../../services/sqlite.service";
 
 @Component({
   selector: 'island-page',
@@ -20,9 +22,23 @@ export class IslandPage {
 
   addedToFav: boolean = false;
   favButtonText: string = "Add To Favorite";
+  userUID: string;
 
-  constructor(service: DatabaseService, router: Router, private toastController: ToastController) {
+  constructor(
+    service: DatabaseService,
+    router: Router,
+    private toastController: ToastController,
+    private auth: AuthService,
+    private db: SQLiteService
+  ) {
     this.getIslandInfo(service, router);
+    this.setUserID();
+  }
+
+  setUserID() {
+    this.auth.getUserId().then((id) => {
+      this.userUID = id;
+    });
   }
 
   async generatePopUp(message: string) {

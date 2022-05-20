@@ -1,6 +1,6 @@
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="edituserdata">
+    <ion-tab-button tab="edituserdata" [disabled]="!this.id">
       <ion-icon name="person"></ion-icon>
       <ion-label>Account</ion-label>
     </ion-tab-button>
@@ -8,7 +8,7 @@
       <ion-icon name="home-sharp"></ion-icon>
       <ion-label>Home</ion-label>
     </ion-tab-button>
-    <ion-tab-button tab="favourites">
+    <ion-tab-button tab="favourites" [disabled]="!this.id">
       <ion-icon name="star"></ion-icon>
       <ion-label>Favourites</ion-label>
     </ion-tab-button>

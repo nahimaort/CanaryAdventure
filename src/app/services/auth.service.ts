@@ -17,7 +17,7 @@ export class AuthService {
 
   async getUserId() {
     const currentUser = await this.auth.currentUser;
-    if ( currentUser) {
+    if (currentUser) {
       return currentUser.uid;
     } else {
       return null;

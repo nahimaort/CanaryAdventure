@@ -94,6 +94,7 @@ export class SignupPage implements OnInit {
         country: this.country.value,
         phone: this.phone.value
       });
+      await this.navCtrl.navigateForward('/home');
       await loading.dismiss();
     }
   }

@@ -3,7 +3,7 @@ import {DatabaseService} from '../../services/database.service';
 import {Observable} from 'rxjs';
 import {UserData} from '../../model/interfaces.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {LoadingController, NavController, AlertController} from '@ionic/angular';
+import {LoadingController, NavController, AlertController, ToastController} from '@ionic/angular';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
@@ -17,7 +17,7 @@ export class SignupPage implements OnInit {
   userDataForm: FormGroup;
 
   constructor(private dbService: DatabaseService, public navCtrl: NavController, private loadingController: LoadingController,
-              private authService: AuthService, private alertController: AlertController) {
+              private authService: AuthService, private alertController: AlertController, private toastController: ToastController) {
     this.countries = this.dbService.getCollection('AvailableCountries');
     this.userDataForm = new FormGroup({
       // eslint-disable-next-line max-len
@@ -65,8 +65,16 @@ export class SignupPage implements OnInit {
       message: content,
       buttons: ['OK'],
     });
-
     await alert.present();
+  }
+
+  async showToast(msg: string) {
+    const toast = await this.toastController.create({
+      color: 'dark',
+      duration: 2000,
+      message: msg,
+    });
+    await toast.present();
   }
 
   async saveUserData() {
@@ -95,6 +103,7 @@ export class SignupPage implements OnInit {
         phone: this.phone.value
       });
       await this.navCtrl.navigateForward('/home');
+      await this.showToast('Signed up succesfully');
       await loading.dismiss();
     }
   }

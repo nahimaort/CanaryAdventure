@@ -33,6 +33,10 @@ export class SignupPage implements OnInit {
       // eslint-disable-next-line max-len
       password: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
+    this.dbService.getDocument('AppImages', 'defaultProfilePic').subscribe(data => {
+      // @ts-ignore
+      this.picture = data.image;
+    });
   }
   get firstName() {
     return this.userDataForm.get('firstName');
@@ -97,10 +101,6 @@ export class SignupPage implements OnInit {
     }
     if (user) {
       const userUid = this.authService.getUserId();
-      this.dbService.getDocument('AppImages', 'defaultProfilePic').subscribe(data => {
-        // @ts-ignore
-        this.picture = data.image;
-      });
       await this.dbService.setDocument('UsersInfo', await userUid, {
         firstName: this.firstName.value,
         lastName: this.lastName.value,

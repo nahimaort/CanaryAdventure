@@ -6,4 +6,5 @@ export class UserData {
   lastName?: string;
   country?: string;
   phone?: string;
+  picture?: string;
 }

@@ -15,6 +15,7 @@ export class SignupPage implements OnInit {
   countries: Observable<any[]>;
   newUserData: UserData = new UserData();
   userDataForm: FormGroup;
+  private picture: any;
 
   constructor(private dbService: DatabaseService, private navCtrl: NavController, private loadingController: LoadingController,
               private authService: AuthService, private alertController: AlertController, private toastController: ToastController) {
@@ -96,11 +97,16 @@ export class SignupPage implements OnInit {
     }
     if (user) {
       const userUid = this.authService.getUserId();
+      this.dbService.getDocument('AppImages', 'defaultProfilePic').subscribe(data => {
+        // @ts-ignore
+        this.picture = data.image;
+      });
       await this.dbService.setDocument('UsersInfo', await userUid, {
         firstName: this.firstName.value,
         lastName: this.lastName.value,
         country: this.country.value,
-        phone: this.phone.value
+        phone: this.phone.value,
+        picture: this.picture
       });
       await this.navCtrl.navigateForward('/tabs/home');
       await this.showToast('Signed up succesfully');

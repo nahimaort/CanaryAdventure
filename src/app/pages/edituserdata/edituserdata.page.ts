@@ -5,6 +5,7 @@ import {DatabaseService} from '../../services/database.service';
 import {AuthService} from '../../services/auth.service';
 import {UserData} from '../../model/interfaces.model';
 import {AlertController, LoadingController, ToastController} from '@ionic/angular';
+import {StorageService} from '../../services/storage.service';
 
 @Component({
   selector: 'app-edituserdata',
@@ -15,12 +16,14 @@ export class EdituserdataPage implements OnInit {
   countries: Observable<any[]>;
   userEditDataForm: FormGroup;
   userData: UserData = new UserData();
+  imageName: string;
   private id: string;
-
+  private url: any;
+  private image: any;
 
   constructor(private dbService: DatabaseService, private authService: AuthService,
               private loadingController: LoadingController, private toastController: ToastController,
-              private alertController: AlertController) {
+              private alertController: AlertController, private storageService: StorageService) {
     this.countries = this.dbService.getCollection('AvailableCountries');
     this.userEditDataForm = new FormGroup({
       // eslint-disable-next-line max-len
@@ -60,6 +63,8 @@ export class EdituserdataPage implements OnInit {
       this.userData.country = data.country;
       // @ts-ignore
       this.userData.phone = data.phone;
+      // @ts-ignore
+      this.userData.picture = data.picture;
     });
   }
 
@@ -106,5 +111,79 @@ export class EdituserdataPage implements OnInit {
 
     await loading.dismiss();
     await this.showToast('Changes saved succesfully');
+  }
+
+  /*
+  async uploadNewProfilePic(image: string) {
+    const loading = await this.loadingController.create({
+      message: 'Saving picture',
+    });
+    await loading.present();
+    console.log(image);
+    this.storageImageName = Math.random() + image;
+    await this.storageService.uploadToStorage('ProfilePictures/' + this.storageImageName, image);
+    const reference = this.storageService.reference('ProfilePictures/' + this.storageImageName);
+    await reference;
+    reference.getDownloadURL().subscribe(async url => {
+      this.url = await url;
+    });
+    try {
+      await this.dbService.updateDocument('UsersInfo', this.id, {
+        picture: this.url
+      });
+      await loading.dismiss();
+      await this.showToast('New profile picture saved succesfully');
+    } catch (e) {
+      await loading.dismiss();
+      this.showAlert('Unexpected error', 'An unexpected error has occurred');
+    }
+  }
+   */
+
+  /*
+  imageUploaded(event) {
+    if (event.target.files.length > 0) {
+        this.imageName = event.target.files[0].name;
+    }
+    this.uploadNewProfilePic(this.imageName);
+  }
+   */
+
+  imageUploaded(event) {
+    if (event.target.files.length > 0) {
+      this.imageName = event.target.files[0].name;
+      this.image = event.target.files[0];
+      this.uploadImage();
+    }
+  }
+
+  private async uploadImage() {
+    const loading = await this.loadingController.create({
+      message: 'Saving picture',
+    });
+    await loading.present();
+    this.imageName = 'ProfilePictures/' + Math.random() + this.imageName;
+    console.log(this.image);
+    const upload = this.storageService.uploadToStorage(this.imageName, this.image);
+    await upload;
+    const reference = this.storageService.reference(this.imageName);
+    await reference;
+
+    await reference.getDownloadURL().subscribe(async url => {
+      this.url = await url;
+      await loading.dismiss();
+      await this.updateProfilePicture();
+    });
+  }
+
+  private async updateProfilePicture() {
+    try {
+      await this.dbService.updateDocument('UsersInfo', this.id, {
+        picture: this.url
+      });
+      await this.showToast('New profile picture saved succesfully');
+    } catch (e) {
+      await this.showAlert('Unexpected error', 'An unexpected error has occurred');
+    }
   }
 }

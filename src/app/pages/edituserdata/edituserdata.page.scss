@@ -2,6 +2,18 @@ h1 {
   font-size: 16pt;
 }
 
+#userPic {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+#userPic ion-label {
+  margin-bottom: 1em
+}
+
 ion-content {
   --padding-bottom: 2em;
   --padding-end: 2em;

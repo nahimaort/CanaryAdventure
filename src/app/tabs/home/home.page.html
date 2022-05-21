@@ -5,12 +5,12 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <app-intro-title [data]=homeIntroBG></app-intro-title>
+  <app-intro-title [data]=this.homeIntroBG></app-intro-title>
 
   <main>
-    <app-title-content [data]=homeCatTxt></app-title-content>
+    <app-title-content [data]=this.homeCatTxt></app-title-content>
     <span id="destinations">
-      <app-block-gallery [blocksData]=homeGalleryData></app-block-gallery>
+      <app-block-gallery [blocksData]=this.homeGalleryData></app-block-gallery>
     </span>
   </main>
 </ion-content>

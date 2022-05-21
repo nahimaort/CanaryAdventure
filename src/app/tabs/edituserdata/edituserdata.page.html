@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-text>
+    <h1>Edit your personal information</h1>
+  </ion-text>
+  <div id="userPic">
+    <ion-avatar>
+      <img [src]="this.userData.picture">
+    </ion-avatar>
+    <ion-label position="floating">Select new profile picture</ion-label>
+    <input type="file" accept="image/*" (change)="imageUploaded($event)">
+  </div>
+  <form novalidate [formGroup]="userEditDataForm" (ngSubmit)="saveNewUserData()">
+    <ion-item lines="full">
+      <ion-label position="floating">First name</ion-label>
+      <ion-input type="text" formControlName="firstName" value="{{this.userData.firstName}}"></ion-input>
+    </ion-item>
+    <app-form-control-alert [control]="firstName" [field]="'First name'" [max]="'50'"></app-form-control-alert>
+    <ion-item lines="full">
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input type="text" formControlName="lastName" value="{{this.userData.lastName}}"></ion-input>
+    </ion-item>
+    <app-form-control-alert [control]="lastName" [field]="'Last name'" [max]="'50'"></app-form-control-alert>
+    <ion-item lines="full">
+      <ion-label position="floating">Country</ion-label>
+      <ion-select okText="OK" cancelText="Dismiss" formControlName="country" value="{{this.userData.country}}">
+        <ion-select-option *ngFor="let country of this.countries | async" [value]="country.value">
+          {{country.viewValue}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <app-form-control-alert [control]="country" [field]="'Country'"></app-form-control-alert>
+    <ion-item lines="full">
+      <ion-label position="floating">Phone number</ion-label>
+      <ion-input type="text" formControlName="phone" value="{{this.userData.phone}}"></ion-input>
+    </ion-item>
+    <app-form-control-alert [control]="phone" [field]="'Phone number'"></app-form-control-alert>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block" [disabled]="userEditDataForm.untouched || userEditDataForm.invalid">
+          Save changes
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

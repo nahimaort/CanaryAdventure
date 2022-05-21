@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {TabsPage} from "./tabs/tabs/tabs.page";
 
 const routes: Routes = [
+  /*
   {
+
     path: 'home',
     loadChildren: () => import('./tabs/home/home.module').then(m => m.HomePageModule)
   },
@@ -38,11 +41,51 @@ const routes: Routes = [
     path: 'la-graciosa',
     loadChildren: () => import('./tabs/island/island.module').then( m => m.IslandPageModule)
   },
+    {
+    path: 'edituserdata',
+    loadChildren: () => import('./tabs/edituserdata/edituserdata.module').then( m => m.EdituserdataPageModule)
+  },
   {
+    path: 'favourites',
+    loadChildren: () => import('./tabs/favourites/favourites.module').then( m => m.FavouritesPageModule)
+  },
+  {
+    path: 'initial',
+    loadChildren: () => import('./tabs/initial/initial.module').then( m => m.InitialPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./tabs/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./tabs/signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  */{
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'initial',
     pathMatch: 'full'
   },
+  {
+    path: 'initial',
+    loadChildren: () => import('./tabs/initial/initial.module').then(m => m.InitialPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./tabs/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./tabs/signup/signup.module').then(m => m.SignupPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs/tabs.module').then(m => m.TabsPageModule)
+  }
 ];
 
 @NgModule({

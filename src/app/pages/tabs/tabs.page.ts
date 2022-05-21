@@ -12,7 +12,6 @@ export class TabsPage implements OnInit {
   constructor(private authService: AuthService) { }
   async ngOnInit() {
     await this.getId();
-    console.log(this.id);
   }
   async getId() {
     await this.authService.getUserId().then(id => {

@@ -12,7 +12,15 @@ export class DatabaseService {
     return this.db.collection(path).valueChanges();
   }
 
-  async setDocument(path: string, id: string, data: any) {
+  getDocument(path: string, docID: string) {
+    return this.db.collection(path).doc(docID).valueChanges();
+  }
+
+  updateDocument(path: string, docID: string, data: any) {
+    return this.db.collection(path).doc(docID).update(data);
+  }
+
+  setDocument(path: string, id: string, data: any) {
     return this.db.collection(path).doc(id).set(data);
   }
 }

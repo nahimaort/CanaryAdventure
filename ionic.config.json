@@ -1,5 +1,7 @@
 {
   "name": "PWM-Sprint4",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

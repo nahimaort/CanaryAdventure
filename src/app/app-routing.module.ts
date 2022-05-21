@@ -39,8 +39,24 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/island/island.module').then( m => m.IslandPageModule)
   },
   {
+    path: 'initial',
+    loadChildren: () => import('./tabs/initial/initial.module').then(m => m.InitialPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./tabs/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
+    path: 'signup',
+    loadChildren: () => import('./tabs/signup/signup.module').then(m => m.SignupPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'initial',
     pathMatch: 'full'
   },
 ];

@@ -14,6 +14,7 @@ import {HomePageModule} from "./tabs/home/home.module";
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faBars, faCar, faBus, faPlane, faShip} from '@fortawesome/free-solid-svg-icons';
 import {SQLite} from "@ionic-native/sqlite/ngx";
+import {TabsPageModule} from './tabs/tabs/tabs.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +26,8 @@ import {SQLite} from "@ionic-native/sqlite/ngx";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     HomePageModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TabsPageModule
   ],
   providers: [
     SQLite,

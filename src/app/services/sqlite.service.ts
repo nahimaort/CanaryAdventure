@@ -48,4 +48,17 @@ export class SQLiteService {
       .catch((e) => {console.log(e)});
   }
 
+  getRecords(userID: string) {
+    return this.dbInstance.executeSql(
+      `SELECT * FROM ${this.dbTable} WHERE userID = ${userID})`, [])
+      .then(sqlResult => {
+        const records = [];
+        for (let i = 0; i < sqlResult.rows.length; i++) {
+          records.push(sqlResult.rows.item(i));
+        }
+        return Promise.resolve(records);
+      })
+      .catch((e) => {console.log(e);});
+  }
+
 }

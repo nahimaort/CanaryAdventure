@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {TabsPage} from "./tabs/tabs/tabs.page";
 
 const routes: Routes = [
-  /*
   {
-
     path: 'home',
     loadChildren: () => import('./tabs/home/home.module').then(m => m.HomePageModule)
   },
@@ -47,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'favourites',
-    loadChildren: () => import('./tabs/favourites/favourites.module').then( m => m.FavouritesPageModule)
+    loadChildren: () => import('./tabs/favs/favs.module').then( m => m.FavsPageModule)
   },
   {
     path: 'initial',
@@ -65,7 +62,7 @@ const routes: Routes = [
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs/tabs.module').then( m => m.TabsPageModule)
   },
-  */{
+  {
     path: '',
     redirectTo: 'initial',
     pathMatch: 'full'

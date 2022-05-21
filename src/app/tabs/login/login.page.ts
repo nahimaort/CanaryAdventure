@@ -36,7 +36,7 @@ export class LoginPage implements OnInit {
     const alert = await this.alertController.create({
       header: title,
       message: content,
-      buttons: ['OK'],
+      buttons: ['OK']
     });
     await alert.present();
   }
@@ -45,6 +45,7 @@ export class LoginPage implements OnInit {
       color: 'dark',
       duration: 2000,
       message: msg,
+      position: "top"
     });
     await toast.present();
   }
@@ -69,7 +70,9 @@ export class LoginPage implements OnInit {
       }
     }
     if (user) {
-      await this.navCtrl.navigateForward('/tabs/home');
+      console.log("antes");
+      await this.navCtrl.navigateForward('/tabs/edituserdata');
+      console.log("despues");
       await this.showToast('Signed in succesfully');
       await loading.dismiss();
     }

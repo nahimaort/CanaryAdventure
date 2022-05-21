@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {DatabaseService} from "../../services/database.service";
 import {Router} from "@angular/router";
@@ -11,7 +11,7 @@ import {SQLiteService} from "../../services/sqlite.service";
   templateUrl: './island.page.html',
   styleUrls: ['./island.page.scss'],
 })
-export class IslandPage {
+export class IslandPage implements OnInit {
 
   islandDescription: Observable<any[]> | undefined;
   islandWhatToDo: Observable<any[]> | undefined;
@@ -32,11 +32,14 @@ export class IslandPage {
     private db: SQLiteService
   ) {
     this.getIslandInfo(service, router);
-    this.setUserID();
   }
 
-  setUserID() {
-    this.auth.getUserId().then((id) => {
+  async ngOnInit() {
+    await this.setUserID();
+  }
+
+  async setUserID() {
+    await this.auth.getUserId().then((id) => {
       this.userID = id;
     });
   }

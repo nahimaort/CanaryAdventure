@@ -22,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'favourites',
-        loadChildren: () => import('../favourites/favourites.module').then( m => m.FavouritesPageModule)
+        loadChildren: () => import('../favs/favs.module').then( m => m.FavsPageModule)
       }
     ]
   },

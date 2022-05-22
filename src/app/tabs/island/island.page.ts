@@ -37,9 +37,6 @@ export class IslandPage implements OnInit {
 
   async ngOnInit() {
     await this.setUserID();
-    this.introTitle.subscribe(val => {
-      this.introTitleValue = val.title;
-    });
   }
 
   async setUserID() {
@@ -81,6 +78,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LanzaroteHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LanzaroteHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/Lanzarote");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
 
@@ -92,6 +92,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/GranCanariaHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/GranCanariaHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/GranCanaria");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
 
@@ -103,6 +106,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/TenerifeHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/TenerifeHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/Tenerife");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
 
@@ -114,6 +120,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/FuerteventuraHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/FuerteventuraHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/Fuerteventura");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
 
@@ -125,6 +134,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LaPalmaHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LaPalmaHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/LaPalma");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
 
@@ -136,6 +148,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LaGraciosaHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LaGraciosaHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/LaGraciosa");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
 
@@ -147,6 +162,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/ElHierroHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/ElHierroHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/ElHierro");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
 
@@ -158,6 +176,9 @@ export class IslandPage implements OnInit {
         this.islandHowToGetThereDescription = service.getCollection(basePath + "/LaGomeraHowToGetThereDescription");
         this.islandHowToGetThereContent = service.getCollection(basePath + "/LaGomeraHowToGetThereContent");
         this.introTitle = service.getDocument("/IntroBG", "/LaGomera");
+        this.introTitle.subscribe(val => {
+          this.introTitleValue = val.title;
+        });
         break;
       }
     }

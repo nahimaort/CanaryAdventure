@@ -10,13 +10,13 @@ import { FavsPage } from './favs.page';
 import {IntroTitlePageModule} from "../../pages/intro-title/intro-title.module";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        FavsPageRoutingModule,
-        IntroTitlePageModule
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    FavsPageRoutingModule,
+    IntroTitlePageModule
+  ],
   declarations: [FavsPage]
 })
 export class FavsPageModule {}

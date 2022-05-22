@@ -21,7 +21,7 @@ const routes: Routes = [
         loadChildren: () => import('../edituserdata/edituserdata.module').then( m => m.EdituserdataPageModule)
       },
       {
-        path: 'favourites',
+        path: 'favs',
         loadChildren: () => import('../favs/favs.module').then( m => m.FavsPageModule)
       },
       {

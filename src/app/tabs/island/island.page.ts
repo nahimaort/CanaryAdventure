@@ -23,6 +23,7 @@ export class IslandPage implements OnInit {
   addedToFav: boolean = false;
   favButtonText: string = "Add To Favorite";
   userID: string;
+  introTitleValue: any;
 
   constructor(
     private service: DatabaseService,
@@ -36,6 +37,9 @@ export class IslandPage implements OnInit {
 
   async ngOnInit() {
     await this.setUserID();
+    this.introTitle.subscribe(val => {
+      this.introTitleValue = val.title;
+    });
   }
 
   async setUserID() {

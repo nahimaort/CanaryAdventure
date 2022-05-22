@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 
 @Component({
@@ -6,12 +6,21 @@ import {Observable} from "rxjs";
   templateUrl: './title-content.page.html',
   styleUrls: ['./title-content.page.scss'],
 })
-export class TitleContentPage {
+export class TitleContentPage implements OnInit {
 
   @Input() data: Observable<any> | undefined;
+  title: any;
+  content: any;
 
   constructor() {
 
+  }
+
+  ngOnInit(): void {
+    this.data.subscribe(val => {
+      this.title = val.title;
+      this.content = val.content;
+    });
   }
 
 }

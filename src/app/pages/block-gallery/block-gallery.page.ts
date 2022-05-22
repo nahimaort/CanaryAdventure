@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 
 @Component({
@@ -9,9 +9,10 @@ import {Observable} from "rxjs";
 export class BlockGalleryPage {
 
   @Input() blocksData: Observable<any> | undefined;
+  title: any;
+  content: any;
 
   constructor() {
 
   }
-
 }

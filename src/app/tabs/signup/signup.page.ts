@@ -108,9 +108,9 @@ export class SignupPage implements OnInit {
         phone: this.phone.value,
         picture: this.picture
       });
+      await this.navCtrl.navigateForward('/tabs/home');
       await this.showToast('Signed up succesfully');
       await loading.dismiss();
-      await this.navCtrl.navigateForward('/tabs/home');
     }
   }
 }

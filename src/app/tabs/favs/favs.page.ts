@@ -25,13 +25,12 @@ export class FavsPage implements OnInit {
     private db: SQLiteService
   ) {
     this.favIntroBG = this.service.getDocument('IntroBG', 'Favs');
-    this.setUserID();
-    // this.favList = this.getFavList(this.userID);
   }
 
   setUserID() {
-    this.auth.getUserId().then((id) => {
-      this.userID = id;
+    this.auth.getState().subscribe((id) => {
+      this.userID = id.uid;
+      this.favList = this.getFavList(this.userID);
     });
   }
 
@@ -40,6 +39,6 @@ export class FavsPage implements OnInit {
   }
 
   ngOnInit() {
+    this.setUserID();
   }
-
 }

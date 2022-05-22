@@ -23,4 +23,8 @@ export class AuthService {
       return null;
     }
   }
+
+  getState() {
+      return this.auth.authState;
+  }
 }

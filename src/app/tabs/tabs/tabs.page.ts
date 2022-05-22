@@ -14,8 +14,8 @@ export class TabsPage implements OnInit {
     await this.getId();
   }
   async getId() {
-    await this.authService.getUserId().then(id => {
-      this.id = id;
+    await this.authService.getState().subscribe(id => {
+      this.id = id.uid;
     });
   }
 }

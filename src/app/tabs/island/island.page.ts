@@ -40,8 +40,8 @@ export class IslandPage implements OnInit {
   }
 
   async setUserID() {
-    await this.auth.getUserId().then((id) => {
-      this.userID = id;
+    await this.auth.getState().subscribe((id) => {
+      this.userID = id.uid;
     });
   }
 

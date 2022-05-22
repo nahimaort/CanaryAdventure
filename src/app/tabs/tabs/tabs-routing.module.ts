@@ -23,6 +23,38 @@ const routes: Routes = [
       {
         path: 'favourites',
         loadChildren: () => import('../favs/favs.module').then( m => m.FavsPageModule)
+      },
+      {
+        path: 'lanzarote',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
+      },
+      {
+        path: 'gran-canaria',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
+      },
+      {
+        path: 'tenerife',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
+      },
+      {
+        path: 'la-gomera',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
+      },
+      {
+        path: 'la-palma',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
+      },
+      {
+        path: 'el-hierro',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
+      },
+      {
+        path: 'fuerteventura',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
+      },
+      {
+        path: 'la-graciosa',
+        loadChildren: () => import('../island/island.module').then( m => m.IslandPageModule)
       }
     ]
   },

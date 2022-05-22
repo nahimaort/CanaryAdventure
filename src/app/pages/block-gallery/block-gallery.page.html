@@ -1,6 +1,6 @@
 <div class="cards_intro" id="inspired">
   <article class="img_info_card" *ngFor="let block of blocksData | async">
-    <a [href]=block.link>
+    <a [href]="'tabs' + block.link">
       <img class="img_card" [src]=block.image>
     </a>
     <div class="info_card">

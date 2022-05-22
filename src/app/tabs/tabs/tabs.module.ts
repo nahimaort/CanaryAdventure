@@ -7,6 +7,7 @@ import { TabsPage } from './tabs.page';
 import {FavsPageModule} from '../favs/favs.module';
 import {EdituserdataPageModule} from '../edituserdata/edituserdata.module';
 import {HomePageModule} from '../home/home.module';
+import {IslandPageModule} from '../island/island.module';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import {HomePageModule} from '../home/home.module';
     TabsPageRoutingModule,
     FavsPageModule,
     EdituserdataPageModule,
-    HomePageModule
+    HomePageModule,
+    IslandPageModule
   ],
   exports: [
     TabsPage

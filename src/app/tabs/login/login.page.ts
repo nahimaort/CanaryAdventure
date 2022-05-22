@@ -70,11 +70,9 @@ export class LoginPage implements OnInit {
       }
     }
     if (user) {
-      console.log("antes");
-      await this.navCtrl.navigateForward('/tabs/edituserdata');
-      console.log("despues");
       await this.showToast('Signed in succesfully');
       await loading.dismiss();
+      await this.navCtrl.navigateForward('/tabs/home');
     }
   }
 }

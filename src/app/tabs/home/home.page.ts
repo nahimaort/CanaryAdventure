@@ -19,5 +19,4 @@ export class HomePage {
     this.homeCatTxt = this.service.getDocument('Home', 'discover');
     this.homeGalleryData = this.service.getCollection('HomeCategories');
   }
-
 }

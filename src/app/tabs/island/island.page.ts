@@ -69,7 +69,7 @@ export class IslandPage implements OnInit {
 
   getIslandInfo(service: DatabaseService, router: Router) {
     switch (router.url) {
-      case '/lanzarote': {
+      case '/tabs/lanzarote': {
         let basePath = "/LanzarotePage/LanzaroteCollection";
         this.islandDescription = service.getCollection(basePath + "/LanzaroteDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/LanzaroteWhatToDo");
@@ -80,7 +80,7 @@ export class IslandPage implements OnInit {
         break;
       }
 
-      case '/gran-canaria': {
+      case '/tabs/gran-canaria': {
         let basePath = "/GranCanariaPage/GranCanariaCollection";
         this.islandDescription = service.getCollection(basePath + "/GranCanariaDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/GranCanariaWhatToDo");
@@ -91,7 +91,7 @@ export class IslandPage implements OnInit {
         break;
       }
 
-      case '/tenerife': {
+      case '/tabs/tenerife': {
         let basePath = "/TenerifePage/TenerifeCollection";
         this.islandDescription = service.getCollection(basePath + "/TenerifeDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/TenerifeWhatToDo");
@@ -102,7 +102,7 @@ export class IslandPage implements OnInit {
         break;
       }
 
-      case '/fuerteventura': {
+      case '/tabs/fuerteventura': {
         let basePath = "/FuerteventuraPage/FuerteventuraCollection";
         this.islandDescription = service.getCollection(basePath + "/FuerteventuraDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/FuerteventuraWhatToDo");
@@ -113,7 +113,7 @@ export class IslandPage implements OnInit {
         break;
       }
 
-      case '/la-palma': {
+      case '/tabs/la-palma': {
         let basePath = "/LaPalmaPage/LaPalmaCollection";
         this.islandDescription = service.getCollection(basePath + "/LaPalmaDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/LaPalmaWhatToDo");
@@ -124,7 +124,7 @@ export class IslandPage implements OnInit {
         break;
       }
 
-      case '/la-graciosa': {
+      case '/tabs/la-graciosa': {
         let basePath = "/LaGraciosaPage/LaGraciosaCollection";
         this.islandDescription = service.getCollection(basePath + "/LaGraciosaDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/LaGraciosaWhatToDo");
@@ -135,7 +135,7 @@ export class IslandPage implements OnInit {
         break;
       }
 
-      case '/el-hierro': {
+      case '/tabs/el-hierro': {
         let basePath = "/ElHierroPage/ElHierroCollection";
         this.islandDescription = service.getCollection(basePath + "/ElHierroDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/ElHierroWhatToDo");
@@ -146,7 +146,7 @@ export class IslandPage implements OnInit {
         break;
       }
 
-      case '/la-gomera': {
+      case '/tabs/la-gomera': {
         let basePath = "/LaGomeraPage/LaGomeraCollection";
         this.islandDescription = service.getCollection(basePath + "/LaGomeraDescription");
         this.islandWhatToDo = service.getCollection(basePath + "/LaGomeraWhatToDo");
